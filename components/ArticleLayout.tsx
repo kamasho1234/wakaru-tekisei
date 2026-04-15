@@ -1,0 +1,83 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { ReactNode } from 'react';
+import ShareButtons from '@/components/ShareButtons';
+
+interface ArticleLayoutProps {
+  title: string;
+  heroImage: string;
+  heroAlt: string;
+  publishDate: string;
+  tags: string[];
+  shareText: string;
+  children: ReactNode;
+}
+
+export default function ArticleLayout({
+  title,
+  heroImage,
+  heroAlt,
+  publishDate,
+  tags,
+  shareText,
+  children,
+}: ArticleLayoutProps) {
+  return (
+    <div className="min-h-screen bg-[#F7F9FF]">
+      {/* パンくずリスト */}
+      <div className="max-w-3xl mx-auto px-4 py-4 text-sm text-gray-500">
+        <Link href="/" className="hover:text-gray-900">
+          トップ
+        </Link>
+        <span className="mx-2">/</span>
+        <Link href="/articles" className="hover:text-gray-900">
+          記事一覧
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-gray-700 line-clamp-1">{title}</span>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 pb-16">
+        {/* ヒーロー画像 */}
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+          <Image src={heroImage} alt={heroAlt} fill className="object-cover" priority />
+        </div>
+
+        {/* タイトルエリア */}
+        <div className="mb-8">
+          <div className="flex flex-wrap gap-2 mb-3">
+            {tags.map((tag) => (
+              <span key={tag} className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 leading-tight mb-2">{title}</h1>
+          <p className="text-xs text-gray-400">{publishDate}更新</p>
+        </div>
+
+        {/* 記事本文 */}
+        <div className="space-y-8">{children}</div>
+
+        {/* シェアボタン */}
+        <div className="mt-10">
+          <ShareButtons text={shareText} />
+        </div>
+
+        {/* 診断CTA */}
+        <div className="mt-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-6 text-white text-center">
+          <p className="text-sm font-bold mb-1">お子さんの適性を診断してみませんか?</p>
+          <p className="text-blue-100 text-xs mb-4">新体力テストのデータを入力するだけで、向いているスポーツがすぐわかります</p>
+          <Link
+            href="/shindan/sports"
+            className="inline-block bg-white text-blue-600 font-black text-sm px-6 py-2.5 rounded-xl hover:bg-gray-100 transition-colors"
+          >
+            無料でスポーツ適性診断
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

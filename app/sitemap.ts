@@ -5,6 +5,19 @@ const siteUrl = 'https://tekisei-sport.com';
 const ages = [6, 7, 8, 9, 10, 11, 12];
 const genders = ['male', 'female'];
 
+const articles = [
+  'golden-age',
+  'soccer-aptitude',
+  'swimming-aptitude',
+  'fitness-test-guide',
+  'sport-selection',
+  'basketball-aptitude',
+  'speed-running',
+  'motor-development',
+  'gymnastics-aptitude',
+  'martial-arts-aptitude',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const heikinPages = ages.flatMap((age) =>
     genders.map((gender) => ({
@@ -14,6 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }))
   );
+
+  const articlePages = articles.map((article) => ({
+    url: `${siteUrl}/articles/${article}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -40,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...articlePages,
     ...heikinPages,
   ];
 }
