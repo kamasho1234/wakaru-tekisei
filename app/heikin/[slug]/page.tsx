@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import type { Age, Gender } from '@/types';
+
+type Age = 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Gender = 'male' | 'female';
 
 // ダミーのフィットネスデータ（Agent 2で作成される lib/data/fitnessData からのインポート予定）
 // ビルドエラーを防ぐため、ここでインライン定義
