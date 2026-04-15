@@ -6,13 +6,7 @@ import Image from 'next/image';
 import { calcYojiType, scoreToPercent, YojiAnswer } from '@/lib/calculations/yojiCheck';
 import { yojiTypes } from '@/lib/data/yojiData';
 import ShareButtons from '@/components/ShareButtons';
-
-const categoryLabels: Record<string, string> = {
-  active: '走る・跳ぶ',
-  rhythm: 'リズム・表現',
-  focus:  '集中・器用',
-  social: 'チーム・社交',
-};
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const categoryColors: Record<string, string> = {
   active: 'bg-orange-400',
@@ -24,7 +18,15 @@ const categoryColors: Record<string, string> = {
 function YojiResultContent() {
   const router       = useRouter();
   const searchParams = useSearchParams();
-  const sentRef = useRef(false);
+  const sentRef      = useRef(false);
+  const { t }        = useLanguage();
+
+  const categoryLabels: Record<string, string> = {
+    active: t('yojiResult.categoryActive'),
+    rhythm: t('yojiResult.categoryRhythm'),
+    focus:  t('yojiResult.categoryFocus'),
+    social: t('yojiResult.categorySocial'),
+  };
 
   const { age, gender, primary, scores } = useMemo(() => {
     const age        = parseInt(searchParams.get('age') || '4');
@@ -43,7 +45,7 @@ function YojiResultContent() {
     return { age, gender, ...result };
   }, [searchParams]);
 
-  const genderLabel = gender === 'male' ? '男の子' : gender === 'female' ? '女の子' : '';
+  const genderLabel = gender === 'male' ? t('common.male') : gender === 'female' ? t('common.female') : '';
 
   // 診断結果を自動送信
   useEffect(() => {
@@ -77,30 +79,30 @@ function YojiResultContent() {
         {/* タイトル */}
         <div className={`bg-gradient-to-br ${primary.color} rounded-3xl p-6 text-white`}>
           <div className="flex items-center gap-2 mb-1">
-            <span className="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded-full">3〜5歳向け診断</span>
+            <span className="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded-full">{t('yojiResult.badge')}</span>
             {genderLabel && (
               <span className="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded-full">{genderLabel}</span>
             )}
           </div>
-          <p className="text-white/80 text-sm mb-1">{age}歳のお子さんの運動タイプ</p>
+          <p className="text-white/80 text-sm mb-1">{t('yojiResult.typeLabel', { age })}</p>
           <h1 className="text-3xl font-black">{primary.name}</h1>
           <p className="text-white/90 text-sm mt-1">{primary.tagline}</p>
         </div>
 
         {/* タイプ説明 */}
         <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-base font-black text-gray-900 mb-3">このタイプの特徴</h2>
+          <h2 className="text-base font-black text-gray-900 mb-3">{t('yojiResult.featuresTitle')}</h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">{primary.description}</p>
           <div className="flex flex-wrap gap-2">
-            {primary.traits.map((t) => (
-              <span key={t} className="bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">{t}</span>
+            {primary.traits.map((trait) => (
+              <span key={trait} className="bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">{trait}</span>
             ))}
           </div>
         </div>
 
         {/* スコアバー */}
         <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-base font-black text-gray-900 mb-4">運動タイプのバランス</h2>
+          <h2 className="text-base font-black text-gray-900 mb-4">{t('yojiResult.balanceTitle')}</h2>
           <div className="space-y-3">
             {(Object.keys(scores) as (keyof typeof scores)[]).map((key) => {
               const pct = scoreToPercent(scores[key]);
@@ -126,7 +128,7 @@ function YojiResultContent() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <div className="w-1.5 h-6 bg-orange-500 rounded-full" />
-            <h2 className="text-lg font-black text-gray-900">おすすめの習い事</h2>
+            <h2 className="text-lg font-black text-gray-900">{t('yojiResult.recsTitle')}</h2>
           </div>
           <div className="space-y-3">
             {primary.recommendations.map((rec, i) => (
@@ -141,7 +143,7 @@ function YojiResultContent() {
                     <span className={`text-xs font-black px-2 py-0.5 rounded-full text-white ${
                       i === 0 ? 'bg-orange-500' : i === 1 ? 'bg-gray-400' : 'bg-gray-300'
                     }`}>
-                      {i + 1}位
+                      {t('yojiResult.rankLabel', { n: i + 1 })}
                     </span>
                     <span className="text-sm font-black text-gray-900">{rec.name}</span>
                   </div>
@@ -154,10 +156,10 @@ function YojiResultContent() {
 
         {/* アドバイス */}
         <div className="bg-amber-50 rounded-3xl p-6 border border-amber-100">
-          <h2 className="text-sm font-black text-amber-800 mb-2">保護者の方へ</h2>
+          <h2 className="text-sm font-black text-amber-800 mb-2">{t('yojiResult.adviceTitle')}</h2>
           <p className="text-sm text-amber-700 leading-relaxed">{primary.advice}</p>
           <div className="mt-4 pt-4 border-t border-amber-200 text-xs text-amber-600 leading-relaxed">
-            ※ この診断は参考値です。お子さんの興味・意欲を最優先に習い事を選んでください。幼児期はひとつに絞らず、いろいろな動きを経験することが大切です。
+            {t('yojiResult.disclaimer')}
           </div>
         </div>
 
@@ -168,15 +170,15 @@ function YojiResultContent() {
 
         {/* 6歳になったら案内 */}
         <div className="bg-blue-50 rounded-3xl p-6 border border-blue-100">
-          <h2 className="text-sm font-black text-blue-800 mb-2">6歳になったら</h2>
+          <h2 className="text-sm font-black text-blue-800 mb-2">{t('yojiResult.nextTitle')}</h2>
           <p className="text-sm text-blue-700 leading-relaxed mb-4">
-            小学校入学後は新体力テストの結果から、より具体的なスポーツ適性を診断できます。
+            {t('yojiResult.nextBody')}
           </p>
           <button
             onClick={() => router.push('/shindan/sports')}
             className="inline-flex items-center gap-1 bg-blue-600 text-white font-bold text-xs px-4 py-2 rounded-xl hover:bg-blue-700 transition-colors"
           >
-            6歳以上の診断へ
+            {t('yojiResult.nextBtn')}
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
@@ -192,7 +194,7 @@ function YojiResultContent() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            もう一度診断する
+            {t('common.retry')}
           </button>
         </div>
 

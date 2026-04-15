@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, Suspense, useEffect, useRef } from 'react';
 import { calcChildCheck } from '@/lib/calculations/childCheck';
 import ShareButtons from '@/components/ShareButtons';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const categoryColors: Record<string, string> = {
   '走る・跳ぶ':   'bg-blue-400',
@@ -13,17 +14,18 @@ const categoryColors: Record<string, string> = {
   '生活動作':     'bg-amber-400',
 };
 
-const levelConfig = {
-  excellent:    { label: '非常に順調',   color: 'bg-green-500',  text: 'text-green-700',  bg: 'bg-green-50',  border: 'border-green-200' },
-  good:         { label: '概ね順調',     color: 'bg-blue-500',   text: 'text-blue-700',   bg: 'bg-blue-50',   border: 'border-blue-200' },
-  average:      { label: '発達途中',     color: 'bg-amber-500',  text: 'text-amber-700',  bg: 'bg-amber-50',  border: 'border-amber-200' },
-  needsSupport: { label: 'サポート推奨', color: 'bg-orange-500', text: 'text-orange-700', bg: 'bg-orange-50', border: 'border-orange-200' },
+const levelStyles = {
+  excellent:    { color: 'bg-green-500',  text: 'text-green-700',  bg: 'bg-green-50',  border: 'border-green-200' },
+  good:         { color: 'bg-blue-500',   text: 'text-blue-700',   bg: 'bg-blue-50',   border: 'border-blue-200' },
+  average:      { color: 'bg-amber-500',  text: 'text-amber-700',  bg: 'bg-amber-50',  border: 'border-amber-200' },
+  needsSupport: { color: 'bg-orange-500', text: 'text-orange-700', bg: 'bg-orange-50', border: 'border-orange-200' },
 };
 
 function ChildCheckResultContent() {
   const router       = useRouter();
   const searchParams = useSearchParams();
-  const sentRef = useRef(false);
+  const sentRef      = useRef(false);
+  const { t }        = useLanguage();
 
   const { age, isYoji, result } = useMemo(() => {
     const rawAge = parseInt(searchParams.get('age') || '6', 10);
@@ -54,7 +56,13 @@ function ChildCheckResultContent() {
     return { age, isYoji, result };
   }, [searchParams]);
 
-  const lv = levelConfig[result.level];
+  const levelLabels: Record<string, string> = {
+    excellent:    t('checkResult.levelExcellent'),
+    good:         t('checkResult.levelGood'),
+    average:      t('checkResult.levelAverage'),
+    needsSupport: t('checkResult.levelNeedsSupport'),
+  };
+  const lv = { ...levelStyles[result.level], label: levelLabels[result.level] ?? result.level };
 
   // 診断結果を自動送信
   useEffect(() => {
@@ -94,9 +102,9 @@ function ChildCheckResultContent() {
               {isYoji ? '3〜5歳向け' : '6〜12歳向け'}診断
             </span>
           </div>
-          <p className="text-white/80 text-sm mb-1">{age}歳のお子さんの運動発達チェック</p>
+          <p className="text-white/80 text-sm mb-1">{t('checkResult.ageTitle', { age })}</p>
           <h1 className="text-3xl font-black">{lv.label}</h1>
-          <p className="text-white/90 text-sm mt-1">総合スコア {result.totalScore}点 / 100点</p>
+          <p className="text-white/90 text-sm mt-1">{t('checkResult.totalScoreSub', { score: result.totalScore })}</p>
         </div>
 
         {/* 総合スコア */}
@@ -106,7 +114,7 @@ function ChildCheckResultContent() {
               <span className="text-xl font-black">{result.totalScore}</span>
             </div>
             <div>
-              <p className="text-xs text-gray-500 mb-0.5">総合スコア</p>
+              <p className="text-xs text-gray-500 mb-0.5">{t('checkResult.totalScoreLabel')}</p>
               <div className="w-full bg-gray-100 rounded-full h-3 w-48">
                 <div
                   className={`h-3 rounded-full transition-all ${lv.color}`}
@@ -122,7 +130,7 @@ function ChildCheckResultContent() {
 
         {/* カテゴリ別スコア */}
         <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-base font-black text-gray-900 mb-4">カテゴリ別スコア</h2>
+          <h2 className="text-base font-black text-gray-900 mb-4">{t('checkResult.categoryTitle')}</h2>
           <div className="space-y-3">
             {Object.entries(result.categoryScores).map(([category, score]) => (
               <div key={category}>
@@ -145,7 +153,7 @@ function ChildCheckResultContent() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <div className={`w-1.5 h-6 rounded-full ${isYoji ? 'bg-orange-500' : 'bg-green-600'}`} />
-            <h2 className="text-lg font-black text-gray-900">アドバイス</h2>
+            <h2 className="text-lg font-black text-gray-900">{t('checkResult.adviceTitle')}</h2>
           </div>
           <div className="space-y-2">
             {result.recommendations.map((rec, i) => (
@@ -166,25 +174,22 @@ function ChildCheckResultContent() {
 
         {/* 注意書き */}
         <div className="bg-amber-50 rounded-3xl p-6 border border-amber-100">
-          <h2 className="text-sm font-black text-amber-800 mb-2">保護者の方へ</h2>
-          <p className="text-xs text-amber-700 leading-relaxed">
-            この診断は参考値です。医療診断ではありません。運動発達には個人差があります。
-            気になる点がある場合は、小児科医や発達支援の専門家にご相談ください。
-          </p>
+          <h2 className="text-sm font-black text-amber-800 mb-2">{t('checkResult.parentTitle')}</h2>
+          <p className="text-xs text-amber-700 leading-relaxed">{t('checkResult.parentBody')}</p>
         </div>
 
         {/* 次のステップ */}
         {isYoji && (
           <div className="bg-blue-50 rounded-3xl p-6 border border-blue-100">
-            <h2 className="text-sm font-black text-blue-800 mb-2">習い事を探したい方へ</h2>
+            <h2 className="text-sm font-black text-blue-800 mb-2">{t('checkResult.yojiNextTitle')}</h2>
             <p className="text-sm text-blue-700 leading-relaxed mb-4">
-              幼児スポーツ適性診断で、お子さんに向いている運動・習い事をチェックできます。
+              {t('checkResult.yojiNextBody')}
             </p>
             <button
               onClick={() => router.push('/shindan/yoji')}
               className="inline-flex items-center gap-1 bg-blue-600 text-white font-bold text-xs px-4 py-2 rounded-xl hover:bg-blue-700 transition-colors"
             >
-              幼児スポーツ適性診断へ
+              {t('checkResult.yojiNextBtn')}
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
@@ -193,15 +198,15 @@ function ChildCheckResultContent() {
         )}
         {!isYoji && (
           <div className="bg-blue-50 rounded-3xl p-6 border border-blue-100">
-            <h2 className="text-sm font-black text-blue-800 mb-2">向いているスポーツも調べてみましょう</h2>
+            <h2 className="text-sm font-black text-blue-800 mb-2">{t('checkResult.shoNextTitle')}</h2>
             <p className="text-sm text-blue-700 leading-relaxed mb-4">
-              新体力テストのデータを入力すると、スポーツ適性を詳しく診断できます。
+              {t('checkResult.shoNextBody')}
             </p>
             <button
               onClick={() => router.push('/shindan/sports')}
               className="inline-flex items-center gap-1 bg-blue-600 text-white font-bold text-xs px-4 py-2 rounded-xl hover:bg-blue-700 transition-colors"
             >
-              スポーツ適性診断へ
+              {t('checkResult.shoNextBtn')}
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
@@ -218,7 +223,7 @@ function ChildCheckResultContent() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            もう一度診断する
+            {t('common.retry')}
           </button>
         </div>
 

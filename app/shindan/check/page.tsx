@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import {
-  getQuestionsByAge,
-} from '@/lib/calculations/childCheck';
+import { getQuestionsByAge } from '@/lib/calculations/childCheck';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type StepType = 'info' | 'questions' | 'confirm';
 
@@ -23,6 +22,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
 
 export default function ChildCheckPage() {
   const router = useRouter();
+  const { t }  = useLanguage();
   const [step, setStep]       = useState<StepType>('info');
   const [age, setAge]         = useState<number>(6);
   const [gender, setGender]   = useState<'male' | 'female' | ''>('');
@@ -52,25 +52,33 @@ export default function ChildCheckPage() {
     router.push(`/shindan/check/result?age=${age}&gender=${gender || 'unknown'}&answers=${encodedData}`);
   };
 
+  const categoryDisplay: Record<string, string> = {
+    '走る・跳ぶ':   t('checkForm.catRun'),
+    'ボール運動':   t('checkForm.catBall'),
+    'バランス':     t('checkForm.catBalance'),
+    '体力・持久力': t('checkForm.catStamina'),
+    '生活動作':     t('checkForm.catLife'),
+  };
+
   if (step === 'info') {
     return (
       <div className="min-h-screen bg-[#F7F9FF] py-8 px-4">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-8">
             <div className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
-              3〜12歳対応
+              {isYoji ? t('checkForm.yojiBadge') : t('checkForm.shoBadge')}
             </div>
-            <h1 className="text-2xl font-black text-gray-900 mb-1">うちの子大丈夫診断</h1>
-            <p className="text-sm text-gray-500">お子さんの運動発達状況をチェックリストで確認します</p>
+            <h1 className="text-2xl font-black text-gray-900 mb-1">{t('checkForm.title')}</h1>
+            <p className="text-sm text-gray-500">{t('checkForm.hint')}</p>
           </div>
 
           <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 space-y-7">
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-3">お子さんの年齢</label>
+              <label className="block text-sm font-bold text-gray-700 mb-3">{t('checkForm.ageLabel')}</label>
 
               {/* 幼児（3〜5歳） */}
               <div className="mb-3">
-                <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">幼児（3〜5歳）</p>
+                <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">{t('checkForm.yojiBadge')}</p>
                 <div className="flex gap-2">
                   {yojiAges.map((a) => (
                     <button
@@ -90,7 +98,7 @@ export default function ChildCheckPage() {
 
               {/* 小学生（6〜12歳） */}
               <div>
-                <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-2">小学生（6〜12歳）</p>
+                <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-2">{t('checkForm.shoBadge')}</p>
                 <div className="grid grid-cols-4 gap-2">
                   {shoAges.map((a) => (
                     <button
@@ -109,22 +117,8 @@ export default function ChildCheckPage() {
               </div>
             </div>
 
-            {/* 年齢に応じた案内 */}
-            {isYoji && (
-              <div className="bg-orange-50 rounded-2xl p-4 text-sm text-orange-700 border border-orange-100">
-                <p className="font-bold mb-1">3〜5歳向けのチェックリスト</p>
-                <p className="text-xs">お子さんの普段の様子を思い浮かべながら答えてください。幼児期の発達には個人差があるので、参考程度にご活用ください。</p>
-              </div>
-            )}
-            {!isYoji && (
-              <div className="bg-green-50 rounded-2xl p-4 text-sm text-green-700 border border-green-100">
-                <p className="font-bold mb-1">小学生向けのチェックリスト</p>
-                <p className="text-xs">日常の運動・遊びの様子をもとに答えてください。測定不要で、観察だけで回答できます。</p>
-              </div>
-            )}
-
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-3">性別（任意）</label>
+              <label className="block text-sm font-bold text-gray-700 mb-3">{t('checkForm.genderLabel')}</label>
               <div className="flex gap-3">
                 {(['male', 'female'] as const).map((g) => (
                   <button
@@ -138,7 +132,7 @@ export default function ChildCheckPage() {
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                   >
-                    {g === 'male' ? '男の子' : '女の子'}
+                    {g === 'male' ? t('common.male') : t('common.female')}
                   </button>
                 ))}
               </div>
@@ -152,7 +146,7 @@ export default function ChildCheckPage() {
                   : 'bg-green-600 hover:bg-green-700 shadow-green-200'
               }`}
             >
-              チェックを始める
+              {t('checkForm.start')}
             </button>
           </div>
         </div>
@@ -166,8 +160,10 @@ export default function ChildCheckPage() {
         <div className="max-w-2xl mx-auto">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mb-5">
             <div className="flex items-center justify-between mb-2">
-              <h1 className="text-base font-black text-gray-900">{age}歳のチェックリスト</h1>
-              <span className="text-sm text-gray-500 font-medium">{answeredCount} / {relevantQuestions.length}</span>
+              <h1 className="text-base font-black text-gray-900">{age}{isYoji ? t('checkForm.yojiBadge') : t('checkForm.shoBadge')}</h1>
+              <span className="text-sm text-gray-500 font-medium">
+                {t('checkForm.progressCount', { answered: answeredCount, total: relevantQuestions.length })}
+              </span>
             </div>
             <div className="w-full bg-gray-100 rounded-full h-2">
               <div
@@ -185,7 +181,7 @@ export default function ChildCheckPage() {
               return (
                 <div key={category} className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
                   <div className={`px-6 py-3 ${color.bg} border-b ${color.border}`}>
-                    <h2 className={`text-sm font-black ${color.text}`}>{category}</h2>
+                    <h2 className={`text-sm font-black ${color.text}`}>{categoryDisplay[category] ?? category}</h2>
                   </div>
                   <div className="p-4 space-y-3">
                     {categoryQuestions.map((question) => (
@@ -200,7 +196,7 @@ export default function ChildCheckPage() {
                                 : 'bg-white border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-600'
                             }`}
                           >
-                            できる
+                            {t('checkForm.answerYes')}
                           </button>
                           <button
                             onClick={() => handleAnswer(question.id, 'no')}
@@ -210,7 +206,7 @@ export default function ChildCheckPage() {
                                 : 'bg-white border border-gray-200 text-gray-600 hover:border-red-300 hover:text-red-500'
                             }`}
                           >
-                            まだできない
+                            {t('checkForm.answerNo')}
                           </button>
                           <button
                             onClick={() => handleAnswer(question.id, 'skip')}
@@ -220,7 +216,7 @@ export default function ChildCheckPage() {
                                 : 'bg-white border border-gray-200 text-gray-400 hover:border-gray-400'
                             }`}
                           >
-                            わからない
+                            {t('checkForm.answerSkip')}
                           </button>
                         </div>
                       </div>
@@ -236,7 +232,7 @@ export default function ChildCheckPage() {
               onClick={() => setStep('info')}
               className="px-6 py-3 bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-700 font-bold rounded-2xl transition-all text-sm"
             >
-              戻る
+              {t('common.back')}
             </button>
             <button
               onClick={() => setStep('confirm')}
@@ -248,8 +244,8 @@ export default function ChildCheckPage() {
               }`}
             >
               {answeredCount < minRequired
-                ? `あと${minRequired - answeredCount}問回答してください`
-                : '結果を見る'}
+                ? t('checkForm.moreAnswers', { n: minRequired - answeredCount })
+                : t('checkForm.viewResult')}
             </button>
           </div>
         </div>
@@ -262,18 +258,18 @@ export default function ChildCheckPage() {
       <div className="min-h-screen bg-[#F7F9FF] py-8 px-4">
         <div className="max-w-xl mx-auto">
           <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
-            <h1 className="text-xl font-black text-gray-900 mb-6">診断内容の確認</h1>
+            <h1 className="text-xl font-black text-gray-900 mb-6">{t('checkForm.confirmTitle')}</h1>
 
             <div className="bg-gray-50 rounded-2xl p-5 mb-6 space-y-2">
               <div className="flex items-center gap-3">
-                <span className="text-xs text-gray-500 w-12">年齢</span>
+                <span className="text-xs text-gray-500 w-16">{t('sportsForm.ageDisplay')}</span>
                 <span className="font-bold text-gray-900">{age}歳</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-xs text-gray-500 w-12">回答数</span>
-                <span className="font-bold text-gray-900">{answeredCount}項目</span>
+                <span className="text-xs text-gray-500 w-16">{t('checkResult.totalScoreLabel')}</span>
+                <span className="font-bold text-gray-900">{answeredCount}</span>
               </div>
-              <p className="text-xs text-gray-400 pt-1">この診断は参考値です。医療診断ではありません。</p>
+              <p className="text-xs text-gray-400 pt-1">{t('checkResult.parentBody')}</p>
             </div>
 
             <div className="flex gap-3">
@@ -281,7 +277,7 @@ export default function ChildCheckPage() {
                 onClick={() => setStep('questions')}
                 className="px-6 py-3 bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-700 font-bold rounded-2xl transition-all text-sm"
               >
-                修正する
+                {t('common.back')}
               </button>
               <button
                 onClick={handleDiagnose}
@@ -291,7 +287,7 @@ export default function ChildCheckPage() {
                     : 'bg-green-600 hover:bg-green-700 shadow-green-200'
                 }`}
               >
-                診断する
+                {t('common.diagnose')}
               </button>
             </div>
           </div>
