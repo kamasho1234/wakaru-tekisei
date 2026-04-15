@@ -1,166 +1,8 @@
 import Link from 'next/link';
+import { fitnessNorms } from '@/lib/data/fitnessData';
 
 type Age = 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type Gender = 'male' | 'female';
-
-// ダミーのフィットネスデータ（Agent 2で作成される lib/data/fitnessData からのインポート予定）
-// ビルドエラーを防ぐため、ここでインライン定義
-const fitnessData: Record<string, Record<Gender, Record<string, number>>> = {
-  '6': {
-    male: {
-      握力: 10.5,
-      上体起こし: 18,
-      長座体前屈: 16.2,
-      反復横とび: 35,
-      シャトルラン: 18,
-      走50m: 9.8,
-      立ち幅跳び: 120,
-      ボール投げ: 7.5,
-    },
-    female: {
-      握力: 9.8,
-      上体起こし: 16,
-      長座体前屈: 17.5,
-      反復横とび: 33,
-      シャトルラン: 16,
-      走50m: 10.1,
-      立ち幅跳び: 112,
-      ボール投げ: 5.8,
-    },
-  },
-  '7': {
-    male: {
-      握力: 12.2,
-      上体起こし: 20,
-      長座体前屈: 17.0,
-      反復横とび: 38,
-      シャトルラン: 22,
-      走50m: 9.4,
-      立ち幅跳び: 132,
-      ボール投げ: 8.5,
-    },
-    female: {
-      握力: 11.2,
-      上体起こし: 18,
-      長座体前屈: 18.5,
-      反復横とび: 36,
-      シャトルラン: 20,
-      走50m: 9.7,
-      立ち幅跳び: 125,
-      ボール投げ: 6.8,
-    },
-  },
-  '8': {
-    male: {
-      握力: 14.5,
-      上体起こし: 23,
-      長座体前屈: 17.8,
-      反復横とび: 41,
-      シャトルラン: 26,
-      走50m: 9.0,
-      立ち幅跳び: 145,
-      ボール投げ: 9.8,
-    },
-    female: {
-      握力: 13.0,
-      上体起こし: 20,
-      長座体前屈: 19.5,
-      反復横とび: 39,
-      シャトルラン: 24,
-      走50m: 9.3,
-      立ち幅跳び: 138,
-      ボール投げ: 7.8,
-    },
-  },
-  '9': {
-    male: {
-      握力: 17.2,
-      上体起こし: 26,
-      長座体前屈: 18.5,
-      反復横とび: 44,
-      シャトルラン: 31,
-      走50m: 8.6,
-      立ち幅跳び: 158,
-      ボール投げ: 11.2,
-    },
-    female: {
-      握力: 15.2,
-      上体起こし: 22,
-      長座体前屈: 20.5,
-      反復横とび: 42,
-      シャトルラン: 28,
-      走50m: 8.9,
-      立ち幅跳び: 151,
-      ボール投げ: 8.9,
-    },
-  },
-  '10': {
-    male: {
-      握力: 20.0,
-      上体起こし: 29,
-      長座体前屈: 19.2,
-      反復横とび: 47,
-      シャトルラン: 36,
-      走50m: 8.2,
-      立ち幅跳び: 171,
-      ボール投げ: 12.8,
-    },
-    female: {
-      握力: 17.5,
-      上体起こし: 24,
-      長座体前屈: 21.5,
-      反復横とび: 45,
-      シャトルラン: 32,
-      走50m: 8.5,
-      立ち幅跳び: 164,
-      ボール投げ: 9.9,
-    },
-  },
-  '11': {
-    male: {
-      握力: 23.5,
-      上体起こし: 32,
-      長座体前屈: 19.8,
-      反復横とび: 50,
-      シャトルラン: 41,
-      走50m: 7.8,
-      立ち幅跳び: 184,
-      ボール投げ: 14.5,
-    },
-    female: {
-      握力: 20.2,
-      上体起こし: 26,
-      長座体前屈: 22.5,
-      反復横とび: 48,
-      シャトルラン: 36,
-      走50m: 8.1,
-      立ち幅跳び: 177,
-      ボール投げ: 11.2,
-    },
-  },
-  '12': {
-    male: {
-      握力: 27.8,
-      上体起こし: 35,
-      長座体前屈: 20.5,
-      反復横とび: 53,
-      シャトルラン: 46,
-      走50m: 7.4,
-      立ち幅跳び: 197,
-      ボール投げ: 16.2,
-    },
-    female: {
-      握力: 22.5,
-      上体起こし: 28,
-      長座体前屈: 23.5,
-      反復横とび: 51,
-      シャトルラン: 40,
-      走50m: 7.9,
-      立ち幅跳び: 190,
-      ボール投げ: 12.5,
-    },
-  },
-};
 
 interface PageProps {
   params: Promise<{
@@ -208,18 +50,20 @@ export default async function Page({ params }: PageProps) {
   const gender = (genderStr === 'male' ? 'male' : 'female') as Gender;
 
   const genderJp = gender === 'male' ? '男子' : '女子';
-  const data = fitnessData[age]?.[gender] || {};
+  const norms = fitnessNorms[age]?.[gender];
 
-  const items = [
-    { name: '握力', value: data.握力, unit: 'kg' },
-    { name: '上体起こし', value: data.上体起こし, unit: '回' },
-    { name: '長座体前屈', value: data.長座体前屈, unit: 'cm' },
-    { name: '反復横とび', value: data.反復横とび, unit: '点' },
-    { name: 'シャトルラン', value: data.シャトルラン, unit: '回' },
-    { name: '走50m', value: data.走50m, unit: '秒' },
-    { name: '立ち幅跳び', value: data.立ち幅跳び, unit: 'cm' },
-    { name: 'ボール投げ', value: data.ボール投げ, unit: 'm' },
-  ];
+  const items = norms
+    ? [
+        { name: '握力', value: norms.握力.mean, unit: 'kg' },
+        { name: '上体起こし', value: norms.上体起こし.mean, unit: '回' },
+        { name: '長座体前屈', value: norms.長座体前屈.mean, unit: 'cm' },
+        { name: '反復横とび', value: norms.反復横とび.mean, unit: '点' },
+        { name: 'シャトルラン', value: norms.シャトルラン.mean, unit: '回' },
+        { name: '走50m', value: norms.走50m.mean, unit: '秒' },
+        { name: '立ち幅跳び', value: norms.立ち幅跳び.mean, unit: 'cm' },
+        { name: 'ボール投げ', value: norms.ボール投げ.mean, unit: 'm' },
+      ]
+    : [];
 
   return (
     <div className="bg-white">
