@@ -24,7 +24,7 @@ export default function SoccerAptitudePage() {
   return (
     <ArticleLayout
       title="サッカーに向いている子の特徴|体力データから見る適性の見極め方"
-      heroImage="/images/sport-soccer.jpg"
+      heroImage="/images/articles/soccer-aptitude.jpg"
       heroAlt="サッカーをしている子どもたち"
       publishDate="2025年4月"
       tags={['サッカー', '適性診断', '体力テスト']}

@@ -24,7 +24,7 @@ export default function BasketballAptitudePage() {
   return (
     <ArticleLayout
       title="バスケットボールに向いている子の特徴|敏捷性と瞬発力で見る適性"
-      heroImage="/images/sport-basketball.jpg"
+      heroImage="/images/articles/basketball-aptitude.jpg"
       heroAlt="バスケットボールをしている子どもたち"
       publishDate="2025年4月"
       tags={['バスケットボール', '適性診断', '習い事']}

@@ -24,7 +24,7 @@ export default function GoldenAgePage() {
   return (
     <ArticleLayout
       title="ゴールデンエイジとは？9～12歳が「運動神経の黄金期」と呼ばれる理由"
-      heroImage="/images/kids-coach.jpg"
+      heroImage="/images/articles/golden-age.jpg"
       heroAlt="子どもにスポーツを教えるコーチ"
       publishDate="2025年4月"
       tags={['運動発達', 'ゴールデンエイジ', '小学生']}

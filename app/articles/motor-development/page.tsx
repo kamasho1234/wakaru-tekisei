@@ -24,7 +24,7 @@ export default function MotorDevelopmentPage() {
   return (
     <ArticleLayout
       title="子どもの運動神経はいつまでに鍛えれば良い?年齢別発達の目安と対処法"
-      heroImage="/images/kids-relay.jpg"
+      heroImage="/images/articles/motor-development.jpg"
       heroAlt="リレーをしている子どもたち"
       publishDate="2025年4月"
       tags={['運動神経', '発達', '子育て']}

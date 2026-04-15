@@ -24,7 +24,7 @@ export default function SwimmingAptitudePage() {
   return (
     <ArticleLayout
       title="水泳に向いている子の特徴|持久力と柔軟性で見る習い事適性"
-      heroImage="/images/sport-swimming.jpg"
+      heroImage="/images/articles/swimming-aptitude.jpg"
       heroAlt="プールで泳ぐ子どもたち"
       publishDate="2025年4月"
       tags={['水泳', '適性診断', '習い事']}

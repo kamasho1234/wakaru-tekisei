@@ -24,7 +24,7 @@ export default function SpeedRunningPage() {
   return (
     <ArticleLayout
       title="50m走が速い子の特徴と走力を伸ばす方法|新体力テストから読み解く瞬発力"
-      heroImage="/images/hero-running.jpg"
+      heroImage="/images/articles/speed-running.jpg"
       heroAlt="走っている子ども"
       publishDate="2025年4月"
       tags={['50m走', '瞬発力', '体力テスト']}

@@ -24,7 +24,7 @@ export default function GymnasticsAptitudePage() {
   return (
     <ArticleLayout
       title="体操・体育系に向いている子の特徴|柔軟性と巧緻性で見る適性診断"
-      heroImage="/images/sport-gymnastics.jpg"
+      heroImage="/images/articles/gymnastics-aptitude.jpg"
       heroAlt="体操をしている子ども"
       publishDate="2025年4月"
       tags={['体操', '適性診断', '柔軟性']}

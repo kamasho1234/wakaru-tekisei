@@ -24,7 +24,7 @@ export default function SportSelectionPage() {
   return (
     <ArticleLayout
       title="子どもの習い事でスポーツを選ぶ5つのポイント|後悔しない選び方"
-      heroImage="/images/kids-coach.jpg"
+      heroImage="/images/articles/sport-selection.jpg"
       heroAlt="子どもにスポーツを指導するコーチ"
       publishDate="2025年4月"
       tags={['習い事', 'スポーツ選び', '子育て']}

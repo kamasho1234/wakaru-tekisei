@@ -9,16 +9,16 @@ import CommunityStats from '@/components/CommunityStats';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const latestArticles = [
-  { slug: 'golden-age',          title: 'ゴールデンエイジとは？9〜12歳が「運動神経の黄金期」と呼ばれる理由', image: '/images/kids-coach.jpg',       tags: ['運動発達', 'ゴールデンエイジ'] },
-  { slug: 'soccer-aptitude',     title: 'サッカーに向いている子の特徴｜体力データから見る適性の見極め方',     image: '/images/sport-soccer.jpg',     tags: ['サッカー', '適性診断'] },
-  { slug: 'swimming-aptitude',   title: '水泳に向いている子の特徴｜持久力と柔軟性で見る習い事適性',          image: '/images/sport-swimming.jpg',   tags: ['水泳', '習い事'] },
-  { slug: 'fitness-test-guide',  title: '小学生の新体力テスト完全ガイド｜8種目の見方と平均値の活用法',       image: '/images/kids-running.jpg',     tags: ['新体力テスト', '体力測定'] },
-  { slug: 'sport-selection',     title: '子どもの習い事でスポーツを選ぶ5つのポイント｜後悔しない選び方',     image: '/images/kids-coach.jpg',       tags: ['習い事', 'スポーツ選び'] },
-  { slug: 'basketball-aptitude', title: 'バスケットボールに向いている子の特徴｜敏捷性と瞬発力で見る適性',   image: '/images/sport-basketball.jpg', tags: ['バスケ', '適性診断'] },
-  { slug: 'speed-running',       title: '50m走が速い子の特徴と走力を伸ばす方法',                             image: '/images/hero-running.jpg',     tags: ['50m走', '瞬発力'] },
-  { slug: 'motor-development',   title: '子どもの運動神経はいつまでに鍛えれば良い？年齢別発達の目安',        image: '/images/kids-relay.jpg',       tags: ['運動神経', '発達'] },
-  { slug: 'gymnastics-aptitude', title: '体操・体育系に向いている子の特徴｜柔軟性と巧緻性で見る適性',       image: '/images/sport-gymnastics.jpg', tags: ['体操', '柔軟性'] },
-  { slug: 'martial-arts-aptitude', title: '空手・柔道に向いている子の特徴｜武道で伸びる子の共通点',         image: '/images/sport-karate.jpg',     tags: ['空手', '柔道'] },
+  { slug: 'golden-age',            title: 'ゴールデンエイジとは？9〜12歳が「運動神経の黄金期」と呼ばれる理由', image: '/images/articles/golden-age.jpg',            tags: ['運動発達', 'ゴールデンエイジ'] },
+  { slug: 'soccer-aptitude',       title: 'サッカーに向いている子の特徴｜体力データから見る適性の見極め方',     image: '/images/articles/soccer-aptitude.jpg',       tags: ['サッカー', '適性診断'] },
+  { slug: 'swimming-aptitude',     title: '水泳に向いている子の特徴｜持久力と柔軟性で見る習い事適性',          image: '/images/articles/swimming-aptitude.jpg',     tags: ['水泳', '習い事'] },
+  { slug: 'fitness-test-guide',    title: '小学生の新体力テスト完全ガイド｜8種目の見方と平均値の活用法',       image: '/images/articles/fitness-test-guide.jpg',    tags: ['新体力テスト', '体力測定'] },
+  { slug: 'sport-selection',       title: '子どもの習い事でスポーツを選ぶ5つのポイント｜後悔しない選び方',     image: '/images/articles/sport-selection.jpg',       tags: ['習い事', 'スポーツ選び'] },
+  { slug: 'basketball-aptitude',   title: 'バスケットボールに向いている子の特徴｜敏捷性と瞬発力で見る適性',   image: '/images/articles/basketball-aptitude.jpg',   tags: ['バスケ', '適性診断'] },
+  { slug: 'speed-running',         title: '50m走が速い子の特徴と走力を伸ばす方法',                             image: '/images/articles/speed-running.jpg',         tags: ['50m走', '瞬発力'] },
+  { slug: 'motor-development',     title: '子どもの運動神経はいつまでに鍛えれば良い？年齢別発達の目安',        image: '/images/articles/motor-development.jpg',     tags: ['運動神経', '発達'] },
+  { slug: 'gymnastics-aptitude',   title: '体操・体育系に向いている子の特徴｜柔軟性と巧緻性で見る適性',       image: '/images/articles/gymnastics-aptitude.jpg',   tags: ['体操', '柔軟性'] },
+  { slug: 'martial-arts-aptitude', title: '空手・柔道に向いている子の特徴｜武道で伸びる子の共通点',           image: '/images/articles/martial-arts-aptitude.jpg', tags: ['空手', '柔道'] },
 ];
 
 const sportImages = [
