@@ -12,6 +12,7 @@ interface ArticleLayoutProps {
   publishDate: string;
   tags: string[];
   shareText: string;
+  citations?: string[];
   children: ReactNode;
 }
 
@@ -22,6 +23,7 @@ export default function ArticleLayout({
   publishDate,
   tags,
   shareText,
+  citations,
   children,
 }: ArticleLayoutProps) {
   return (
@@ -61,8 +63,24 @@ export default function ArticleLayout({
         {/* 記事本文 */}
         <div className="space-y-8">{children}</div>
 
+        {/* 出典 */}
+        <div className="mt-10 border-t border-gray-200 pt-6">
+          <p className="text-xs font-bold text-gray-500 mb-2">出典・参考資料</p>
+          <ul className="space-y-1.5">
+            <li className="text-xs text-gray-500 leading-relaxed">
+              文部科学省（スポーツ庁委託）「体力・運動能力調査報告書」— 新体力テスト8種目の全国平均値データ
+            </li>
+            {citations && citations.map((cite, i) => (
+              <li key={i} className="text-xs text-gray-500 leading-relaxed">{cite}</li>
+            ))}
+            <li className="text-xs text-gray-500 leading-relaxed">
+              ※ 運動発達・スポーツ科学に関する内容は、スポーツ科学分野で広く知られた知見をもとに当サイトが解説したものです。
+            </li>
+          </ul>
+        </div>
+
         {/* シェアボタン */}
-        <div className="mt-10">
+        <div className="mt-8">
           <ShareButtons text={shareText} />
         </div>
 

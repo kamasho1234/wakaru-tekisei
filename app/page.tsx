@@ -8,6 +8,19 @@ import HeroSlider from '@/components/HeroSlider';
 import CommunityStats from '@/components/CommunityStats';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const latestArticles = [
+  { slug: 'golden-age',          title: 'ゴールデンエイジとは？9〜12歳が「運動神経の黄金期」と呼ばれる理由', image: '/images/kids-coach.jpg',       tags: ['運動発達', 'ゴールデンエイジ'] },
+  { slug: 'soccer-aptitude',     title: 'サッカーに向いている子の特徴｜体力データから見る適性の見極め方',     image: '/images/sport-soccer.jpg',     tags: ['サッカー', '適性診断'] },
+  { slug: 'swimming-aptitude',   title: '水泳に向いている子の特徴｜持久力と柔軟性で見る習い事適性',          image: '/images/sport-swimming.jpg',   tags: ['水泳', '習い事'] },
+  { slug: 'fitness-test-guide',  title: '小学生の新体力テスト完全ガイド｜8種目の見方と平均値の活用法',       image: '/images/kids-running.jpg',     tags: ['新体力テスト', '体力測定'] },
+  { slug: 'sport-selection',     title: '子どもの習い事でスポーツを選ぶ5つのポイント｜後悔しない選び方',     image: '/images/kids-coach.jpg',       tags: ['習い事', 'スポーツ選び'] },
+  { slug: 'basketball-aptitude', title: 'バスケットボールに向いている子の特徴｜敏捷性と瞬発力で見る適性',   image: '/images/sport-basketball.jpg', tags: ['バスケ', '適性診断'] },
+  { slug: 'speed-running',       title: '50m走が速い子の特徴と走力を伸ばす方法',                             image: '/images/hero-running.jpg',     tags: ['50m走', '瞬発力'] },
+  { slug: 'motor-development',   title: '子どもの運動神経はいつまでに鍛えれば良い？年齢別発達の目安',        image: '/images/kids-relay.jpg',       tags: ['運動神経', '発達'] },
+  { slug: 'gymnastics-aptitude', title: '体操・体育系に向いている子の特徴｜柔軟性と巧緻性で見る適性',       image: '/images/sport-gymnastics.jpg', tags: ['体操', '柔軟性'] },
+  { slug: 'martial-arts-aptitude', title: '空手・柔道に向いている子の特徴｜武道で伸びる子の共通点',         image: '/images/sport-karate.jpg',     tags: ['空手', '柔道'] },
+];
+
 const sportImages = [
   { name: 'サッカー',     src: '/images/sport-soccer.jpg' },
   { name: '水泳',         src: '/images/sport-swimming.jpg' },
@@ -259,6 +272,49 @@ export default function Home() {
 
       {/* 全国平均データ */}
       <AverageDataSection />
+
+      {/* 最新記事 */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-2">Articles</p>
+            <h2 className="text-3xl font-black text-gray-900">お役立ち記事</h2>
+            <p className="text-gray-500 mt-3 text-sm">子どものスポーツ・運動発達に役立つ情報をお届けします</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {latestArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/articles/${article.slug}`}
+                className="bg-[#F7F9FF] rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+              >
+                <div className="relative h-44 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <div className="p-4">
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {article.tags.map((tag) => (
+                      <span key={tag} className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm font-black text-gray-900 line-clamp-2 leading-snug">
+                    {article.title}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );
