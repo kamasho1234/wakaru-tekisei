@@ -14,22 +14,42 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const siteUrl = 'https://tekisei-sport.com';
+
 export const metadata: Metadata = {
-  title: 'わかる！子どものスポーツ適性 | 新体力テストで分かるスポーツ向き不向き',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'わかる！子どものスポーツ適性 | 新体力テストで向いてるスポーツが分かる無料診断',
+    template: '%s | わかる！子どものスポーツ適性',
+  },
   description:
-    'お子さんの体力測定データを入力するだけで、どのスポーツに向いているか・運動発達は順調かが今すぐ分かります。文科省データ準拠。',
+    '新体力テストの数値を入力するだけで、お子さんに向いているスポーツと運動発達が今すぐ分かります。3〜12歳対応・無料・登録不要。文部科学省データ準拠。',
+  keywords: ['スポーツ適性', '子供', '新体力テスト', 'スポーツ診断', '運動発達', '向いてるスポーツ', '小学生', '幼児'],
+  authors: [{ name: 'わかる！子どものスポーツ適性' }],
+  creator: 'わかる！子どものスポーツ適性',
   openGraph: {
-    title: 'わかる！子どものスポーツ適性 | 新体力テストで分かるスポーツ向き不向き',
+    title: 'わかる！子どものスポーツ適性 | 新体力テストで向いてるスポーツが分かる無料診断',
     description:
-      'お子さんの体力測定データを入力するだけで、どのスポーツに向いているか・運動発達は順調かが今すぐ分かります。文科省データ準拠。',
+      '新体力テストの数値を入力するだけで、お子さんに向いているスポーツと運動発達が今すぐ分かります。3〜12歳対応・無料・登録不要。文部科学省データ準拠。',
+    url: siteUrl,
+    siteName: 'わかる！子どものスポーツ適性',
     type: 'website',
     locale: 'ja_JP',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'わかる！子どものスポーツ適性' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'わかる！子どものスポーツ適性',
-    description:
-      'お子さんの体力測定データを入力するだけで、どのスポーツに向いているかが今すぐ分かります。',
+    description: '新体力テストの数値を入力するだけで、向いているスポーツと運動発達が今すぐ分かります。無料・登録不要。',
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
@@ -43,6 +63,23 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebApplication',
+              name: 'わかる！子どものスポーツ適性',
+              url: 'https://tekisei-sport.com',
+              description: '新体力テストの数値を入力するだけで、お子さんに向いているスポーツと運動発達が今すぐ分かります。3〜12歳対応・無料・登録不要。',
+              applicationCategory: 'HealthApplication',
+              operatingSystem: 'Web',
+              offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+              inLanguage: 'ja',
+              author: { '@type': 'Organization', name: 'わかる！子どものスポーツ適性', url: 'https://tekisei-sport.com' },
+            }),
+          }}
+        />
         {gaId && (
           <>
             <script
