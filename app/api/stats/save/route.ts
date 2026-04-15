@@ -29,6 +29,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
+    const validGenders = ['male', 'female'];
+    if (body.gender !== undefined && !validGenders.includes(body.gender)) {
+      return NextResponse.json(
+        { error: 'Invalid gender' },
+        { status: 400 }
+      );
+    }
+
     // Supabase未接続の場合はスキップ
     if (!supabase) {
       return NextResponse.json({ success: true, skipped: true });

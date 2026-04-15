@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { yojiQuestions } from '@/lib/data/yojiData';
 import { YojiAnswer } from '@/lib/calculations/yojiCheck';
@@ -22,6 +22,15 @@ export default function YojiDiagnosisPage() {
   const router = useRouter();
   const [age, setAge]           = useState<number>(4);
   const [gender, setGender]     = useState<'male' | 'female' | ''>('');
+
+  // スポーツ診断フォームからの遷移時に年齢・性別を引き継ぐ
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const rawAge = parseInt(params.get('age') || '');
+    if ([3, 4, 5].includes(rawAge)) setAge(rawAge);
+    const rawGender = params.get('gender');
+    if (rawGender === 'male' || rawGender === 'female') setGender(rawGender);
+  }, []);
   const [answers, setAnswers]   = useState<Record<string, YojiAnswer>>({});
   const [step, setStep]         = useState<'info' | 'questions'>('info');
 

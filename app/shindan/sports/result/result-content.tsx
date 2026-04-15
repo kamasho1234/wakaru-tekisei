@@ -66,12 +66,18 @@ export function ResultContent() {
   const fitnessInput = useMemo((): FitnessInput => {
     if (typeof window === 'undefined') return { age: 10, gender: 'male' } as FitnessInput;
     const params = new URLSearchParams(window.location.search);
-    const age = parseInt(params.get('age') || '10') as Age;
-    const gender = (params.get('gender') || 'male') as 'male' | 'female';
+    const validAges: Age[] = [6, 7, 8, 9, 10, 11, 12];
+    const rawAge = parseInt(params.get('age') || '');
+    const age = (validAges.includes(rawAge as Age) ? rawAge : 10) as Age;
+    const rawGender = params.get('gender');
+    const gender = (rawGender === 'male' || rawGender === 'female' ? rawGender : 'male') as 'male' | 'female';
     const input: FitnessInput = { age, gender };
     fitnessItems.forEach((item) => {
       const value = params.get(item.key);
-      if (value) (input as unknown as Record<string, unknown>)[item.key] = parseFloat(value);
+      if (value) {
+        const parsed = parseFloat(value);
+        if (!isNaN(parsed)) (input as unknown as Record<string, unknown>)[item.key] = parsed;
+      }
     });
     return input;
   }, []);

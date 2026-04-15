@@ -30,9 +30,15 @@ function YojiResultContent() {
     const age        = parseInt(searchParams.get('age') || '4');
     const gender     = searchParams.get('gender') || 'unknown';
     const rawAnswers = searchParams.get('answers');
-    const answers: Record<string, YojiAnswer> = rawAnswers
-      ? JSON.parse(decodeURIComponent(rawAnswers))
-      : {};
+    let answers: Record<string, YojiAnswer> = {};
+    if (rawAnswers) {
+      try {
+        answers = JSON.parse(decodeURIComponent(rawAnswers));
+      } catch {
+        // URLが壊れている場合は空の回答として処理（バランス型タイプが返る）
+        answers = {};
+      }
+    }
     const result = calcYojiType(answers);
     return { age, gender, ...result };
   }, [searchParams]);

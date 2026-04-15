@@ -32,6 +32,7 @@ export default function ChildCheckPage() {
   const relevantQuestions  = getQuestionsByAge(age);
   // skip含め何らかの選択をした数（「わからない」も回答済みとして扱う）
   const answeredCount      = Object.keys(answers).length;
+  const minRequired        = Math.ceil(relevantQuestions.length * 0.5);
   const progressPercentage =
     relevantQuestions.length > 0
       ? Math.round((answeredCount / relevantQuestions.length) * 100)
@@ -239,14 +240,16 @@ export default function ChildCheckPage() {
             </button>
             <button
               onClick={() => setStep('confirm')}
-              disabled={answeredCount === 0}
+              disabled={answeredCount < minRequired}
               className={`flex-1 disabled:bg-gray-200 disabled:text-gray-400 text-white py-3 rounded-2xl font-bold text-sm transition-all shadow-md disabled:shadow-none ${
                 isYoji
                   ? 'bg-orange-500 hover:bg-orange-600 shadow-orange-200'
                   : 'bg-green-600 hover:bg-green-700 shadow-green-200'
               }`}
             >
-              結果を見る
+              {answeredCount < minRequired
+                ? `あと${minRequired - answeredCount}問回答してください`
+                : '結果を見る'}
             </button>
           </div>
         </div>

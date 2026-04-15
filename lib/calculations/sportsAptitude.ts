@@ -20,7 +20,11 @@ export function calcDeviation(value: number, mean: number, sd: number, invert = 
 
 // 体力プロフィール生成（FitnessInput → FitnessProfile）
 export function calcFitnessProfile(input: FitnessInput): FitnessProfile {
-  const norms = fitnessNorms[input.age][input.gender];
+  const norms = fitnessNorms[input.age]?.[input.gender];
+  if (!norms) {
+    // 無効な年齢・性別の場合はすべて平均値（偏差値50）を返す
+    return { 持久力: 50, 瞬発力: 50, 敏捷性: 50, 筋力: 50, 柔軟性: 50, 巧緻性: 50 };
+  }
 
   // 各種目の偏差値を計算
   const 握力偏差値 = input.握力 !== undefined ? calcDeviation(input.握力, norms.握力.mean, norms.握力.sd) : 50;

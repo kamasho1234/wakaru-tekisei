@@ -216,6 +216,6 @@ export async function GET(request: NextRequest): Promise<NextResponse<StatsRespo
     return NextResponse.json(response);
   } catch (error) {
     console.error('Stats API error:', error);
-    return NextResponse.json(seedData);
+    return NextResponse.json({ ...seedData, _source: 'seed-error' });
   }
 }
