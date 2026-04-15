@@ -1,9 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import AverageDataSection from '@/components/AverageDataSection';
 import AverageDataTopShare from '@/components/AverageDataTopShare';
 import HeroSlider from '@/components/HeroSlider';
 import CommunityStats from '@/components/CommunityStats';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const sportImages = [
   { name: 'サッカー',     src: '/images/sport-soccer.jpg' },
@@ -24,6 +27,21 @@ const sportImages = [
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
+
+  const trustItems = [
+    t('home.trust1'),
+    t('home.trust2'),
+    t('home.trust3'),
+    t('home.trust4'),
+  ];
+
+  const steps = [
+    { step: '1', title: t('home.step1Title'), desc: t('home.step1Desc') },
+    { step: '2', title: t('home.step2Title'), desc: t('home.step2Desc') },
+    { step: '3', title: t('home.step3Title'), desc: t('home.step3Desc') },
+  ];
+
   return (
     <div className="bg-[#F7F9FF]">
 
@@ -37,14 +55,14 @@ export default function Home() {
               <svg className="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              文部科学省データ準拠
+              {t('home.badge')}
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">
-              うちの子、<br />何のスポーツに<br />向いてる？
+              {t('home.heroTitle')}
             </h1>
             <p className="text-lg text-blue-100 mb-8 leading-relaxed">
-              新体力テストの数値を入れるだけで、スポーツ適性と運動発達が今すぐ分かります
+              {t('home.heroSubtext')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -55,13 +73,13 @@ export default function Home() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                スポーツ適性を診断する
+                {t('home.heroCta1')}
               </Link>
               <Link
                 href="/shindan/check"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-white/15 border-2 border-white/40 text-white font-bold text-base hover:bg-white/25 transition-all backdrop-blur-sm"
               >
-                運動発達が心配な方へ
+                {t('home.heroCta2')}
               </Link>
             </div>
 
@@ -73,7 +91,7 @@ export default function Home() {
       {/* 安心バー */}
       <section className="bg-white border-b border-gray-100 py-3.5 px-4">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-1.5">
-          {['無料で利用できます', '登録不要・すぐに使える', '3〜12歳に対応', '文科省の全国平均データで比較'].map((text) => (
+          {trustItems.map((text) => (
             <div key={text} className="flex items-center gap-1.5 text-sm text-gray-600 font-medium">
               <svg className="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -89,7 +107,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-2">Diagnosis</p>
-            <h2 className="text-3xl font-black text-gray-900">2つの診断メニュー</h2>
+            <h2 className="text-3xl font-black text-gray-900">{t('home.diagnosisSection')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -98,25 +116,25 @@ export default function Home() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src="/images/kids-running.jpg"
-                  alt="子供たちが走っている"
+                  alt={t('home.sportsCardTitle')}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">体力測定データを入力</span>
+                  <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">{t('home.sportsCardBadge')}</span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-black text-gray-900 mb-2">スポーツ適性診断</h3>
+                <h3 className="text-xl font-black text-gray-900 mb-2">{t('home.sportsCardTitle')}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-5">
-                  握力・シャトルランなど8種目の測定値を入力。体力プロフィールから向いているスポーツをランキング表示します。
+                  {t('home.sportsCardDesc')}
                 </p>
                 <Link
                   href="/shindan/sports"
                   className="inline-flex items-center gap-2 bg-blue-600 text-white font-bold px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-sm"
                 >
-                  診断を始める
+                  {t('home.startDiagnosis')}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
@@ -129,25 +147,25 @@ export default function Home() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src="/images/kids-check.jpg"
-                  alt="子供たちが並んでいる"
+                  alt={t('home.checkCardTitle')}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">運動発達チェック</span>
+                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">{t('home.checkCardBadge')}</span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-black text-gray-900 mb-2">うちの子大丈夫診断</h3>
+                <h3 className="text-xl font-black text-gray-900 mb-2">{t('home.checkCardTitle')}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-5">
-                  「同年齢の子と比べて遅れてないか不安…」そんな方向け。跳ぶ・投げる・バランスなど日常動作のチェックリストで発達段階を確認します。
+                  {t('home.checkCardDesc')}
                 </p>
                 <Link
                   href="/shindan/check"
                   className="inline-flex items-center gap-2 bg-green-600 text-white font-bold px-5 py-2.5 rounded-xl hover:bg-green-700 transition-colors text-sm"
                 >
-                  診断を始める
+                  {t('home.startDiagnosis')}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
@@ -163,8 +181,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-2">Sports</p>
-            <h2 className="text-3xl font-black text-gray-900">対応スポーツ種目</h2>
-            <p className="text-gray-500 mt-3 text-sm">16種目の中からお子さんに最適なスポーツを提案します</p>
+            <h2 className="text-3xl font-black text-gray-900">{t('home.sportsSection')}</h2>
+            <p className="text-gray-500 mt-3 text-sm">{t('home.sportsSectionSub')}</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -185,7 +203,7 @@ export default function Home() {
           </div>
 
           <div className="mt-4 flex justify-center">
-            <span className="bg-gray-100 text-gray-500 text-xs font-medium px-4 py-1.5 rounded-full">他にも陸上競技に対応</span>
+            <span className="bg-gray-100 text-gray-500 text-xs font-medium px-4 py-1.5 rounded-full">{t('home.sportsSectionMore')}</span>
           </div>
         </div>
       </section>
@@ -205,13 +223,9 @@ export default function Home() {
               </div>
               <div className="p-8 flex flex-col justify-center">
                 <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-3">How it works</p>
-                <h2 className="text-2xl font-black text-gray-900 mb-4">3ステップで完了</h2>
+                <h2 className="text-2xl font-black text-gray-900 mb-4">{t('home.howSection')}</h2>
                 <div className="space-y-4">
-                  {[
-                    { step: '1', title: '年齢・性別を選ぶ', desc: '6歳〜12歳に対応しています' },
-                    { step: '2', title: '体力測定データを入力', desc: '学校の新体力テストの結果を使います' },
-                    { step: '3', title: '結果を確認', desc: '適性スポーツTop5とレーダーチャートを表示' },
-                  ].map((item) => (
+                  {steps.map((item) => (
                     <div key={item.step} className="flex items-start gap-3">
                       <div className="shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-black">
                         {item.step}
@@ -228,7 +242,7 @@ export default function Home() {
                     href="/shindan/sports"
                     className="inline-flex items-center gap-2 bg-blue-600 text-white font-bold px-6 py-3 rounded-2xl hover:bg-blue-700 transition-colors text-sm shadow-md shadow-blue-200"
                   >
-                    今すぐ診断する
+                    {t('home.diagnoseNow')}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                     </svg>

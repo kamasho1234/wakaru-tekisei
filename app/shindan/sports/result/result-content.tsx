@@ -12,16 +12,19 @@ import {
 } from '@/lib/calculations/sportsAptitude';
 import { fitnessNorms } from '@/lib/data/fitnessData';
 import { RadarChartComponent } from '@/components/RadarChart';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+const fitnessItemsKeys = ['握力', '上体起こし', '長座体前屈', '反復横とび', 'シャトルラン', '走50m', '立ち幅跳び', 'ボール投げ'] as const;
 
 const fitnessItems = [
-  { key: '握力', label: '握力', unit: 'kg' },
-  { key: '上体起こし', label: '上体起こし', unit: '回' },
-  { key: '長座体前屈', label: '長座体前屈', unit: 'cm' },
-  { key: '反復横とび', label: '反復横とび', unit: '点' },
-  { key: 'シャトルラン', label: 'シャトルラン', unit: '回' },
-  { key: '走50m', label: '50m走', unit: '秒' },
-  { key: '立ち幅跳び', label: '立ち幅跳び', unit: 'cm' },
-  { key: 'ボール投げ', label: 'ボール投げ', unit: 'm' },
+  { key: '握力', unit: 'kg' },
+  { key: '上体起こし', unit: '回' },
+  { key: '長座体前屈', unit: 'cm' },
+  { key: '反復横とび', unit: '点' },
+  { key: 'シャトルラン', unit: '回' },
+  { key: '走50m', unit: '秒' },
+  { key: '立ち幅跳び', unit: 'cm' },
+  { key: 'ボール投げ', unit: 'm' },
 ];
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
@@ -61,6 +64,7 @@ const sportImages: Record<string, string> = {
 
 export function ResultContent() {
   const router = useRouter();
+  const { t } = useLanguage();
   const sentRef = useRef(false);
 
   const fitnessInput = useMemo((): FitnessInput => {
@@ -98,7 +102,7 @@ export function ResultContent() {
           ? calcDeviation(inputValue, norm.mean, norm.sd, invert)
           : null;
       return {
-        label: item.label,
+        label: t(`fitness.${item.key as any}`),
         input: inputValue,
         average: norm.mean.toFixed(1),
         deviation: deviation ? Math.round(deviation) : null,
@@ -107,7 +111,7 @@ export function ResultContent() {
     });
   }, [fitnessInput]);
 
-  const genderLabel = fitnessInput.gender === 'male' ? '男の子' : '女の子';
+  const genderLabel = fitnessInput.gender === 'male' ? t('common.male') : t('common.female');
   const mainColor = categoryColors[main.category] ?? { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' };
   const mainRank = rankConfig[main.rank];
   const mainImage = sportImages[main.sport];
@@ -144,13 +148,13 @@ export function ResultContent() {
 
         {/* タイトルバー */}
         <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-6 text-white">
-          <p className="text-blue-200 text-sm font-medium mb-1">診断結果</p>
-          <h1 className="text-2xl font-black">{fitnessInput.age}歳（{genderLabel}）のスポーツ適性</h1>
+          <p className="text-blue-200 text-sm font-medium mb-1">{t('sportsResult.heading')}</p>
+          <h1 className="text-2xl font-black">{t('sportsResult.ageGenderTitle', { age: fitnessInput.age, gender: genderLabel })}</h1>
         </div>
 
         {/* レーダーチャート */}
         <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-base font-bold text-gray-900 mb-4">体力プロフィール</h2>
+          <h2 className="text-base font-bold text-gray-900 mb-4">{t('sportsResult.radarTitle')}</h2>
           <RadarChartComponent profile={profile} />
         </div>
 
@@ -158,7 +162,7 @@ export function ResultContent() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <div className="w-1.5 h-6 bg-blue-600 rounded-full" />
-            <h2 className="text-lg font-black text-gray-900">最もおすすめのスポーツ</h2>
+            <h2 className="text-lg font-black text-gray-900">{t('sportsResult.topSportTitle')}</h2>
           </div>
 
           <div className={`rounded-3xl overflow-hidden shadow-sm border ${mainColor.border}`}>
@@ -199,7 +203,7 @@ export function ResultContent() {
               {/* スコアバー */}
               <div className="bg-white/60 rounded-2xl p-4 mb-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs font-bold text-gray-600">適性スコア</span>
+                  <span className="text-xs font-bold text-gray-600">{t('sportsResult.scoreLabel')}</span>
                   <span className="text-2xl font-black text-gray-900">{main.score}</span>
                 </div>
                 <div className="w-full bg-white rounded-full h-3">
@@ -216,7 +220,7 @@ export function ResultContent() {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white font-bold text-sm shadow-sm hover:shadow-md transition-all ${mainColor.text}`}
               >
-                {main.sport}の教室を探す
+                {t('sportsResult.findClass', { sport: main.sport })}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
@@ -234,7 +238,7 @@ export function ResultContent() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <div className="w-1.5 h-6 bg-gray-400 rounded-full" />
-            <h2 className="text-lg font-black text-gray-900">こんな選択肢もあります</h2>
+            <h2 className="text-lg font-black text-gray-900">{t('sportsResult.otherOptions')}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -271,7 +275,7 @@ export function ResultContent() {
                       rel="noopener noreferrer"
                       className={`inline-flex items-center gap-1 text-xs font-bold ${color.text} hover:underline`}
                     >
-                      教室を探す
+                      {t('sportsResult.findClassShort')}
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -285,15 +289,15 @@ export function ResultContent() {
 
         {/* 全国平均との比較 */}
         <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-          <h2 className="text-base font-bold text-gray-900 mb-4">全国平均との比較</h2>
+          <h2 className="text-base font-bold text-gray-900 mb-4">{t('sportsResult.comparisonTitle')}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b-2 border-gray-100">
-                  <th className="pb-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">種目</th>
-                  <th className="pb-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">測定値</th>
-                  <th className="pb-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">全国平均</th>
-                  <th className="pb-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">偏差値</th>
+                  <th className="pb-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">{t('sportsResult.colEvent')}</th>
+                  <th className="pb-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">{t('sportsResult.colValue')}</th>
+                  <th className="pb-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">{t('sportsResult.colAvg')}</th>
+                  <th className="pb-3 text-center text-xs font-bold text-gray-500 uppercase tracking-wider">{t('sportsResult.colDeviation')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
@@ -325,7 +329,7 @@ export function ResultContent() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-gray-400 mt-4">偏差値は全国平均を50とした標準化スコア。60以上は得意、40以下は伸びしろがあります。</p>
+          <p className="text-xs text-gray-400 mt-4">{t('sportsResult.deviationNote')}</p>
         </div>
 
         {/* 再診断 */}
@@ -337,7 +341,7 @@ export function ResultContent() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            もう一度診断する
+            {t('common.retry')}
           </button>
         </div>
 

@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type RecentResult = {
   type: string;
@@ -20,6 +21,7 @@ type StatsData = {
   recentResults: RecentResult[];
 };
 
+// 表示用のラベル取得（日本語のハードコードのままで、翻訳されるのは UI の部分）
 const yojiResultLabel: Record<string, string> = {
   active:  '走る・跳ぶタイプ',
   rhythm:  'リズム・表現タイプ',
@@ -74,6 +76,7 @@ function useCountUp(target: number, duration = 1800) {
 }
 
 export default function CommunityStats() {
+  const { t } = useLanguage();
   const [stats, setStats] = useState<StatsData | null>(null);
   const [feedPage, setFeedPage] = useState(0);
   const [feedVisible, setFeedVisible] = useState(true);
@@ -121,7 +124,7 @@ export default function CommunityStats() {
               <span className="text-6xl sm:text-7xl font-black tabular-nums text-white tracking-tighter">
                 {displayCount.toLocaleString()}
               </span>
-              <span className="text-white/40 text-xl font-bold mb-1.5">人</span>
+              <span className="text-white/40 text-xl font-bold mb-1.5">{t('community.totalLabel')}</span>
             </div>
           </div>
           <div className="flex gap-3">
@@ -143,7 +146,7 @@ export default function CommunityStats() {
           {/* 人気スポーツランキング */}
           <div className="bg-white border border-gray-100 rounded-2xl p-6">
             <h3 className="text-sm font-bold text-gray-900 mb-6">
-              人気スポーツ TOP{stats.sportsRanking.length}
+              {t('community.rankTitle', { n: stats.sportsRanking.length })}
             </h3>
             <ResponsiveContainer width="100%" height={Math.max(260, stats.sportsRanking.length * 32)}>
               <BarChart
@@ -203,7 +206,7 @@ export default function CommunityStats() {
 
             {/* 最近の診断フィード */}
             <div className="bg-white border border-gray-100 rounded-2xl p-6">
-              <h3 className="text-sm font-bold text-gray-900 mb-4">最近の診断</h3>
+              <h3 className="text-sm font-bold text-gray-900 mb-4">{t('community.recentTitle')}</h3>
               <div
                 className="space-y-1"
                 style={{ opacity: feedVisible ? 1 : 0, transition: 'opacity 0.4s ease' }}

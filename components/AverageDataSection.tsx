@@ -7,6 +7,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { fitnessNorms, AgeGenderNorms } from '@/lib/data/fitnessData';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type MetricKey = keyof AgeGenderNorms;
 
@@ -14,15 +15,14 @@ const ages = [6, 7, 8, 9, 10, 11, 12] as const;
 
 const metrics: {
   key: MetricKey;
-  label: string;
   unit: string;
   description: string;
   lowerIsBetter?: boolean;
 }[] = [
-  { key: '立ち幅跳び',   label: '立ち幅跳び',   unit: 'cm',  description: '瞬発力・下半身パワー' },
-  { key: 'シャトルラン', label: 'シャトルラン', unit: '回',  description: '持久力・有酸素能力' },
-  { key: 'ボール投げ',   label: 'ボール投げ',   unit: 'm',   description: '投擲力・上半身パワー' },
-  { key: '走50m',        label: '50m走',        unit: '秒',  description: '走力・スピード', lowerIsBetter: true },
+  { key: '立ち幅跳び',   unit: 'cm',  description: '瞬発力・下半身パワー' },
+  { key: 'シャトルラン', unit: '回',  description: '持久力・有酸素能力' },
+  { key: 'ボール投げ',   unit: 'm',   description: '投擲力・上半身パワー' },
+  { key: '走50m',        unit: '秒',  description: '走力・スピード', lowerIsBetter: true },
 ];
 
 const highlights = [
@@ -58,14 +58,15 @@ function CustomTooltip({ active, payload, label, unit }: CustomTooltipProps) {
 }
 
 export default function AverageDataSection() {
+  const { t } = useLanguage();
   const [selectedMetric, setSelectedMetric] = useState<MetricKey>('立ち幅跳び');
 
   const metric = metrics.find((m) => m.key === selectedMetric)!;
 
   const chartData = ages.map((age) => ({
     age: `${age}歳`,
-    男子: fitnessNorms[age].male[selectedMetric].mean,
-    女子: fitnessNorms[age].female[selectedMetric].mean,
+    [t('avgSection.maleLabel')]: fitnessNorms[age].male[selectedMetric].mean,
+    [t('avgSection.femaleLabel')]: fitnessNorms[age].female[selectedMetric].mean,
   }));
 
   const maleGrowth = Math.abs(
@@ -76,7 +77,9 @@ export default function AverageDataSection() {
   ).toFixed(1);
 
   const yDomain = (() => {
-    const allVals = chartData.flatMap((d) => [d.男子, d.女子]);
+    const maleLabel = t('avgSection.maleLabel');
+    const femaleLabel = t('avgSection.femaleLabel');
+    const allVals = chartData.flatMap((d) => [d[maleLabel], d[femaleLabel]]).filter((v) => typeof v === 'number') as number[];
     const min = Math.min(...allVals);
     const max = Math.max(...allVals);
     const pad = (max - min) * 0.15;
@@ -94,13 +97,12 @@ export default function AverageDataSection() {
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              文部科学省 公式データ準拠
+              {t('avgSection.sectionLabel')}
             </span>
           </div>
-          <h2 className="text-3xl font-black text-gray-900 mb-2">全国平均データを確認する</h2>
+          <h2 className="text-3xl font-black text-gray-900 mb-2">{t('avgSection.sectionTitle')}</h2>
           <p className="text-gray-500 text-sm max-w-xl">
-            スポーツ庁「体力・運動能力調査（2023年度）」をもとにした、6〜12歳の全国平均値です。
-            診断前の基準値としてご確認ください。
+            {t('avgSection.sectionSub')}
           </p>
         </div>
 
@@ -130,7 +132,7 @@ export default function AverageDataSection() {
                     : 'bg-white text-gray-600 border border-gray-200 hover:border-blue-300 hover:text-blue-600'
                 }`}
               >
-                {m.label}
+                {t(`fitness.${m.key as any}`)}
                 <span className="ml-1 opacity-70">({m.unit})</span>
               </button>
             ))}
@@ -139,17 +141,17 @@ export default function AverageDataSection() {
           {/* グラフタイトル */}
           <div className="flex items-end justify-between mb-4 flex-wrap gap-2">
             <div>
-              <h3 className="text-base font-black text-gray-900">{metric.label}の全国平均推移</h3>
+              <h3 className="text-base font-black text-gray-900">{t(`fitness.${metric.key as any}`)}の全国平均推移</h3>
               <p className="text-xs text-gray-500 mt-0.5">{metric.description}</p>
             </div>
             <div className="flex items-center gap-4 text-xs text-gray-500">
               <span className="flex items-center gap-1.5">
                 <span className="w-6 h-0.5 bg-blue-500 rounded inline-block" />
-                男子
+                {t('avgSection.maleLabel')}
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-6 h-0.5 bg-pink-400 rounded inline-block" />
-                女子
+                {t('avgSection.femaleLabel')}
               </span>
             </div>
           </div>
@@ -176,7 +178,7 @@ export default function AverageDataSection() {
                 <Tooltip content={<CustomTooltip unit={metric.unit} />} />
                 <Line
                   type="monotone"
-                  dataKey="男子"
+                  dataKey={t('avgSection.maleLabel')}
                   stroke="#3b82f6"
                   strokeWidth={2.5}
                   dot={{ fill: '#3b82f6', r: 4, strokeWidth: 0 }}
@@ -184,7 +186,7 @@ export default function AverageDataSection() {
                 />
                 <Line
                   type="monotone"
-                  dataKey="女子"
+                  dataKey={t('avgSection.femaleLabel')}
                   stroke="#f472b6"
                   strokeWidth={2.5}
                   dot={{ fill: '#f472b6', r: 4, strokeWidth: 0 }}
@@ -219,7 +221,7 @@ export default function AverageDataSection() {
 
         {/* 年齢×性別リンクグリッド */}
         <div>
-          <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">年齢別の詳細データを見る</p>
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">{t('avgSection.viewDetail')}</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {ages.map((age) => (
               <div key={age} className="bg-[#F7F9FF] rounded-2xl p-3 border border-gray-100">
@@ -229,13 +231,13 @@ export default function AverageDataSection() {
                     href={`/heikin/${age}sai-male`}
                     className="flex-1 py-2 rounded-xl bg-blue-100 text-blue-700 text-xs font-bold hover:bg-blue-200 transition-colors text-center"
                   >
-                    男子
+                    {t('heikin.male')}
                   </Link>
                   <Link
                     href={`/heikin/${age}sai-female`}
                     className="flex-1 py-2 rounded-xl bg-pink-100 text-pink-700 text-xs font-bold hover:bg-pink-200 transition-colors text-center"
                   >
-                    女子
+                    {t('heikin.female')}
                   </Link>
                 </div>
               </div>

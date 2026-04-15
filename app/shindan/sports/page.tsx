@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Age, FitnessInput } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // 3〜5歳は幼児診断へ、6〜12歳は体力測定診断へ
 const yojiAges = [3, 4, 5];
@@ -10,28 +11,28 @@ const shoAges: Age[] = [6, 7, 8, 9, 10, 11, 12];
 
 // 6〜8歳はシンプル4種目、9〜12歳はフル8種目
 const simpleItems = [
-  { key: '走50m',    label: '50m走',    unit: '秒', hint: '例: 10.5', note: '走るタイムを測定' },
-  { key: '立ち幅跳び', label: '立ち幅跳び', unit: 'cm', hint: '例: 100',  note: '両足で跳んだ距離' },
-  { key: 'ボール投げ', label: 'ボール投げ', unit: 'm',  hint: '例: 8',    note: 'ボールの飛んだ距離' },
-  { key: '長座体前屈', label: '長座体前屈', unit: 'cm', hint: '例: 28',   note: '足先までの距離' },
+  { key: '走50m',    unit: '秒', hint: '例: 10.5', note: '走るタイムを測定' },
+  { key: '立ち幅跳び', unit: 'cm', hint: '例: 100',  note: '両足で跳んだ距離' },
+  { key: 'ボール投げ', unit: 'm',  hint: '例: 8',    note: 'ボールの飛んだ距離' },
+  { key: '長座体前屈', unit: 'cm', hint: '例: 28',   note: '足先までの距離' },
 ];
 
 const fullItems = [
-  { key: '握力',      label: '握力',      unit: 'kg', hint: '例: 12.5' },
-  { key: '上体起こし', label: '上体起こし', unit: '回', hint: '例: 15' },
-  { key: '長座体前屈', label: '長座体前屈', unit: 'cm', hint: '例: 32' },
-  { key: '反復横とび', label: '反復横とび', unit: '点', hint: '例: 35' },
-  { key: 'シャトルラン', label: 'シャトルラン', unit: '回', hint: '例: 40' },
-  { key: '走50m',    label: '50m走',    unit: '秒', hint: '例: 9.8' },
-  { key: '立ち幅跳び', label: '立ち幅跳び', unit: 'cm', hint: '例: 120' },
-  { key: 'ボール投げ', label: 'ボール投げ', unit: 'm',  hint: '例: 12' },
+  { key: '握力',      unit: 'kg', hint: '例: 12.5' },
+  { key: '上体起こし', unit: '回', hint: '例: 15' },
+  { key: '長座体前屈', unit: 'cm', hint: '例: 32' },
+  { key: '反復横とび', unit: '点', hint: '例: 35' },
+  { key: 'シャトルラン', unit: '回', hint: '例: 40' },
+  { key: '走50m',    unit: '秒', hint: '例: 9.8' },
+  { key: '立ち幅跳び', unit: 'cm', hint: '例: 120' },
+  { key: 'ボール投げ', unit: 'm',  hint: '例: 12' },
 ];
 
 type FormData = Partial<FitnessInput>;
-const steps = ['年齢・性別', 'データ入力', '確認'];
 
 export default function SportsAptitudeForm() {
   const router  = useRouter();
+  const { t } = useLanguage();
   const [step, setStep]       = useState(1);
   const [formData, setFormData] = useState<FormData>({ age: 10, gender: 'male' });
 
@@ -39,6 +40,7 @@ export default function SportsAptitudeForm() {
   const isYoji        = yojiAges.includes(currentAge);
   const isSimpleMode  = currentAge >= 6 && currentAge <= 8;
   const fitnessItems  = isSimpleMode ? simpleItems : fullItems;
+  const steps = [t('sportsForm.step1'), t('sportsForm.step2'), t('sportsForm.step3')];
 
   const handleAgeSelect = (age: number) => {
     setFormData({ age: age as Age, gender: formData.gender });
@@ -69,7 +71,7 @@ export default function SportsAptitudeForm() {
     router.push(`/shindan/sports/result?${params.toString()}`);
   };
 
-  const genderLabel = formData.gender === 'male' ? '男の子' : '女の子';
+  const genderLabel = formData.gender === 'male' ? t('common.male') : t('common.female');
 
   return (
     <div className="min-h-screen bg-[#F7F9FF] py-8 px-4">
@@ -77,8 +79,8 @@ export default function SportsAptitudeForm() {
 
         {/* ヘッダー */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-black text-gray-900 mb-1">スポーツ適性診断</h1>
-          <p className="text-sm text-gray-500">3〜12歳のお子さんに対応しています</p>
+          <h1 className="text-2xl font-black text-gray-900 mb-1">{t('sportsForm.title')}</h1>
+          <p className="text-sm text-gray-500">{t('sportsForm.subtitle')}</p>
         </div>
 
         {/* ステップバー */}
@@ -115,11 +117,11 @@ export default function SportsAptitudeForm() {
           {step === 1 && (
             <div className="space-y-7">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">お子さんの年齢</label>
+                <label className="block text-sm font-bold text-gray-700 mb-3">{t('sportsForm.ageLabel')}</label>
 
                 {/* 幼児（3〜5歳） */}
                 <div className="mb-3">
-                  <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">幼児（3〜5歳）</p>
+                  <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">{t('sportsForm.yojiGroup')}</p>
                   <div className="flex gap-2">
                     {yojiAges.map((a) => (
                       <button
@@ -139,7 +141,7 @@ export default function SportsAptitudeForm() {
 
                 {/* 小学生（6〜12歳） */}
                 <div>
-                  <p className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-2">小学生（6〜12歳）</p>
+                  <p className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-2">{t('sportsForm.shoGroup')}</p>
                   <div className="grid grid-cols-4 gap-2">
                     {shoAges.map((a) => (
                       <button
@@ -161,25 +163,25 @@ export default function SportsAptitudeForm() {
               {/* 選択中の年齢に応じた案内 */}
               {isYoji && (
                 <div className="bg-orange-50 rounded-2xl p-4 text-sm text-orange-700 border border-orange-100">
-                  <p className="font-bold mb-1">3〜5歳向けの診断に切り替わります</p>
-                  <p className="text-xs">体力測定ではなく、お子さんの普段の様子を観察して答えるチェックリスト形式です。</p>
+                  <p className="font-bold mb-1">{t('sportsForm.yojiNoticeTitle')}</p>
+                  <p className="text-xs">{t('sportsForm.yojiNoticeBody')}</p>
                 </div>
               )}
               {isSimpleMode && (
                 <div className="bg-blue-50 rounded-2xl p-4 text-sm text-blue-700 border border-blue-100">
-                  <p className="font-bold mb-1">6〜8歳：かんたん4種目モード</p>
-                  <p className="text-xs">50m走・立ち幅跳び・ボール投げ・長座体前屈の4種目で診断します。全部測定できていなくても大丈夫です。</p>
+                  <p className="font-bold mb-1">{t('sportsForm.simpleNoticeTitle')}</p>
+                  <p className="text-xs">{t('sportsForm.simpleNoticeBody')}</p>
                 </div>
               )}
               {!isYoji && !isSimpleMode && (
                 <div className="bg-blue-50 rounded-2xl p-4 text-sm text-blue-700 border border-blue-100">
-                  <p className="font-bold mb-1">9〜12歳：新体力テスト8種目</p>
-                  <p className="text-xs">学校の新体力テストの結果を使います。測定していない種目はスキップできます。</p>
+                  <p className="font-bold mb-1">{t('sportsForm.fullNoticeTitle')}</p>
+                  <p className="text-xs">{t('sportsForm.fullNoticeBody')}</p>
                 </div>
               )}
 
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">性別</label>
+                <label className="block text-sm font-bold text-gray-700 mb-3">{t('sportsForm.genderLabel')}</label>
                 <div className="grid grid-cols-2 gap-3">
                   {(['male', 'female'] as const).map((g) => (
                     <button
@@ -193,7 +195,7 @@ export default function SportsAptitudeForm() {
                           : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                       }`}
                     >
-                      {g === 'male' ? '男の子' : '女の子'}
+                      {g === 'male' ? t('common.male') : t('common.female')}
                     </button>
                   ))}
                 </div>
@@ -205,14 +207,13 @@ export default function SportsAptitudeForm() {
           {step === 2 && (
             <div>
               <div className="bg-blue-50 rounded-2xl px-4 py-3 mb-5 text-sm text-blue-700 font-medium">
-                {currentAge}歳 {genderLabel}のデータを入力してください。
-                測定できていない種目はスキップできます。
+                {t('sportsForm.dataInputHint', { age: currentAge, gender: genderLabel })}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {fitnessItems.map((item) => (
                   <div key={item.key}>
                     <label className="block text-xs font-bold text-gray-600 mb-1.5">
-                      {item.label}
+                      {t(`fitness.${item.key as any}`)}
                       <span className="text-gray-400 font-normal ml-1">({item.unit})</span>
                     </label>
                     <input
@@ -233,19 +234,19 @@ export default function SportsAptitudeForm() {
           {step === 3 && (
             <div className="space-y-5">
               <div className="bg-gray-50 rounded-2xl p-5">
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">入力内容の確認</p>
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">{t('sportsForm.confirmTitle')}</p>
                 <div className="flex gap-6 mb-4">
                   <div>
-                    <p className="text-xs text-gray-500">年齢</p>
+                    <p className="text-xs text-gray-500">{t('sportsForm.ageDisplay')}</p>
                     <p className="text-lg font-black text-gray-900">{currentAge}歳</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500">性別</p>
+                    <p className="text-xs text-gray-500">{t('sportsForm.genderDisplay')}</p>
                     <p className="text-lg font-black text-gray-900">{genderLabel}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500">モード</p>
-                    <p className="text-sm font-bold text-gray-700">{isSimpleMode ? '4種目モード' : '8種目モード'}</p>
+                    <p className="text-xs text-gray-500">{t('sportsForm.modeDisplay')}</p>
+                    <p className="text-sm font-bold text-gray-700">{isSimpleMode ? t('sportsForm.mode4') : t('sportsForm.mode8')}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
@@ -253,7 +254,7 @@ export default function SportsAptitudeForm() {
                     const value = formData[item.key as keyof FitnessInput];
                     return value !== undefined ? (
                       <div key={item.key} className="flex justify-between items-center bg-white rounded-xl px-3 py-2">
-                        <span className="text-xs text-gray-600">{item.label}</span>
+                        <span className="text-xs text-gray-600">{t(`fitness.${item.key as any}`)}</span>
                         <span className="text-sm font-bold text-gray-900">{value}{item.unit}</span>
                       </div>
                     ) : null;
@@ -261,7 +262,7 @@ export default function SportsAptitudeForm() {
                 </div>
               </div>
               <div className="bg-amber-50 rounded-2xl px-4 py-3 text-xs text-amber-700">
-                この内容で診断を開始します。よろしければ「診断する」を押してください。
+                {t('sportsForm.confirmHint')}
               </div>
             </div>
           )}
@@ -277,7 +278,7 @@ export default function SportsAptitudeForm() {
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
               }`}
             >
-              戻る
+              {t('common.back')}
             </button>
 
             {step < 3 ? (
@@ -289,14 +290,14 @@ export default function SportsAptitudeForm() {
                     : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-200'
                 }`}
               >
-                {isYoji ? '幼児診断へ進む' : '次へ'}
+                {isYoji ? t('sportsForm.goYoji') : t('common.next')}
               </button>
             ) : (
               <button
                 onClick={handleSubmit}
                 className="flex-1 py-3 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-bold text-sm transition-all shadow-md shadow-green-200"
               >
-                診断する
+                {t('common.diagnose')}
               </button>
             )}
           </div>
