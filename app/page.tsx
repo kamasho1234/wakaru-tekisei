@@ -314,8 +314,11 @@ export default function Home() {
                       />
                     </div>
                     <div className="flex-1 py-2 pr-3 min-w-0">
-                      <span className="text-yellow-600 text-xs font-bold">{article.tags[0]}</span>
-                      <p className="text-xs font-bold text-gray-900 line-clamp-2 leading-snug mt-0.5">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="text-yellow-600 text-xs font-bold">{article.tags[0]}</span>
+                        <span className="bg-yellow-100 text-yellow-700 text-xs font-bold px-1.5 py-0.5 rounded-full">{article.tags[1]}</span>
+                      </div>
+                      <p className="text-xs font-bold text-gray-900 line-clamp-2 leading-snug">
                         {article.title}
                       </p>
                     </div>
