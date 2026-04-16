@@ -141,6 +141,46 @@ const ARTICLES = [
     filename: 'parent-not-sporty.jpg',
     prompt: 'A Japanese parent who seems unfamiliar with sports playing catch with their young child in a park, both laughing and enjoying the moment, warm afternoon light, photorealistic, high quality, 16:9 aspect ratio',
   },
+  {
+    filename: 'ohtani-shohei-childhood.jpg',
+    prompt: 'A Japanese elementary school boy practicing baseball batting with a wooden bat on a sunny field, determined expression, father coaching nearby, warm afternoon sunlight, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'hanyu-yuzuru-childhood.jpg',
+    prompt: 'A young Japanese boy around 4-6 years old learning figure skating on an indoor ice rink, wearing a scarf and mittens, older sister nearby, soft blue lighting, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'asada-mao-childhood.jpg',
+    prompt: 'A young Japanese girl around 5-7 years old practicing figure skating on an indoor ice rink, pink skating dress, graceful pose, bright arena lighting, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'nishikori-kei-childhood.jpg',
+    prompt: 'A young Japanese boy around 5-7 years old holding a tennis racket almost as tall as himself, practicing on a clay tennis court, focused expression, warm sunny day, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'uchimura-kohei-childhood.jpg',
+    prompt: 'A young Japanese boy around 4-6 years old practicing gymnastics on colorful floor mats in a small family gymnastics studio, parents watching encouragingly, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'yoshida-saori-childhood.jpg',
+    prompt: 'A young Japanese girl around 5-7 years old in a wrestling practice uniform, practicing takedown moves with other children in a traditional Japanese wrestling dojo, determined face, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'ito-mima-childhood.jpg',
+    prompt: 'A young Japanese girl around 4-6 years old playing table tennis with a small paddle, mother coaching her from the other side of the table, bright indoor training room, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'ikee-rikako-childhood.jpg',
+    prompt: 'A young Japanese girl around 4-6 years old swimming in a bright indoor swimming pool, colorful goggles and swim cap, splashing water joyfully, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'nishiya-momiji-childhood.jpg',
+    prompt: 'A young Japanese girl around 6-8 years old learning to ride a skateboard at an outdoor skate park, older brother encouraging her nearby, sunny afternoon, colorful helmet and knee pads, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'horigome-yuto-childhood.jpg',
+    prompt: 'A young Japanese boy around 5-7 years old riding a skateboard at a sunny outdoor park, father watching proudly nearby, joyful expression, urban Tokyo park setting, photorealistic, high quality, 16:9 aspect ratio',
+  },
 ];
 
 async function generateImage(article, retries = 3) {

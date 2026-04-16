@@ -36,6 +36,16 @@ const articles = [
   'coach-trouble',
   'team-bullying-sports',
   'parent-not-sporty',
+  'ohtani-shohei-childhood',
+  'hanyu-yuzuru-childhood',
+  'asada-mao-childhood',
+  'nishikori-kei-childhood',
+  'uchimura-kohei-childhood',
+  'yoshida-saori-childhood',
+  'ito-mima-childhood',
+  'ikee-rikako-childhood',
+  'nishiya-momiji-childhood',
+  'horigome-yuto-childhood',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
