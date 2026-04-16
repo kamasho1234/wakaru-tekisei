@@ -286,88 +286,76 @@ export default function Home() {
       {/* 全国平均データ */}
       <AverageDataSection />
 
-      {/* 選手の子供時代 記事 */}
+      {/* 記事一覧：選手記事 × お役立ち記事 横並び2列 */}
       <section className="py-10 sm:py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-7 sm:mb-10">
-            <p className="text-yellow-500 font-semibold text-xs uppercase tracking-widest mb-2">Athletes</p>
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900">あの選手の子供時代</h2>
-            <p className="text-gray-500 mt-2 text-sm">トップアスリートたちはどんな子供だったのか？</p>
-          </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-5">
-            {athleteArticles.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/articles/${article.slug}`}
-                className="bg-[#F7F9FF] rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
-              >
-                <div className="relative h-32 sm:h-48 overflow-hidden">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-2 left-2 flex flex-wrap gap-1">
-                    {article.tags.map((tag) => (
-                      <span key={tag} className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-0.5 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="p-3 sm:p-4">
-                  <p className="text-xs sm:text-sm font-black text-gray-900 line-clamp-2 leading-snug">
-                    {article.title}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
 
-      {/* お役立ち記事 */}
-      <section className="py-10 sm:py-16 px-4 bg-[#F7F9FF]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-7 sm:mb-10">
-            <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-2">Articles</p>
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900">お役立ち記事</h2>
-            <p className="text-gray-500 mt-2 text-sm">子どものスポーツ・運動発達に役立つ情報をお届けします</p>
-          </div>
+            {/* 左列：あの選手の子供時代 */}
+            <div>
+              <div className="mb-4">
+                <p className="text-yellow-500 font-semibold text-xs uppercase tracking-widest mb-1">Athletes</p>
+                <h2 className="text-lg sm:text-xl font-black text-gray-900">あの選手の子供時代</h2>
+              </div>
+              <div className="flex flex-col gap-2">
+                {athleteArticles.map((article) => (
+                  <Link
+                    key={article.slug}
+                    href={`/articles/${article.slug}`}
+                    className="flex items-center gap-3 bg-[#F7F9FF] rounded-xl border border-gray-100 hover:shadow-sm hover:-translate-y-0.5 transition-all group overflow-hidden"
+                  >
+                    <div className="relative w-20 h-14 shrink-0 overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="flex-1 py-2 pr-3 min-w-0">
+                      <span className="text-yellow-600 text-xs font-bold">{article.tags[0]}</span>
+                      <p className="text-xs font-bold text-gray-900 line-clamp-2 leading-snug mt-0.5">
+                        {article.title}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-5">
-            {latestArticles.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/articles/${article.slug}`}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
-              >
-                <div className="relative h-32 sm:h-44 overflow-hidden">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {article.tags.map((tag) => (
-                      <span key={tag} className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-xs sm:text-sm font-black text-gray-900 line-clamp-2 leading-snug">
-                    {article.title}
-                  </p>
-                </div>
-              </Link>
-            ))}
+            {/* 右列：お役立ち記事 */}
+            <div>
+              <div className="mb-4">
+                <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-1">Articles</p>
+                <h2 className="text-lg sm:text-xl font-black text-gray-900">お役立ち記事</h2>
+              </div>
+              <div className="flex flex-col gap-2">
+                {latestArticles.map((article) => (
+                  <Link
+                    key={article.slug}
+                    href={`/articles/${article.slug}`}
+                    className="flex items-center gap-3 bg-[#F7F9FF] rounded-xl border border-gray-100 hover:shadow-sm hover:-translate-y-0.5 transition-all group overflow-hidden"
+                  >
+                    <div className="relative w-20 h-14 shrink-0 overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="flex-1 py-2 pr-3 min-w-0">
+                      <span className="text-blue-600 text-xs font-bold">{article.tags[0]}</span>
+                      <p className="text-xs font-bold text-gray-900 line-clamp-2 leading-snug mt-0.5">
+                        {article.title}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
