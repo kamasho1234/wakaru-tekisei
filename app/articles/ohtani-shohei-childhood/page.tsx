@@ -24,7 +24,7 @@ export default function OhtaniShoheChildhoodPage() {
   return (
     <ArticleLayout
       title="大谷翔平の子供時代|野球を始めた年齢・家族・幼少期エピソード"
-      heroImage="/images/sport-baseball.jpg"
+      heroImage="/images/articles/ohtani-shohei-childhood.jpg"
       heroAlt="少年が野球の練習をしている様子"
       publishDate="2025年4月"
       tags={['大谷翔平', '野球', '幼少期']}

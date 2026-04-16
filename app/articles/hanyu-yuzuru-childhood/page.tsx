@@ -24,7 +24,7 @@ export default function HanyuYuzuruChildhoodPage() {
   return (
     <ArticleLayout
       title="羽生結弦の子供時代|スケートを始めたきっかけは喘息だった"
-      heroImage="/images/kids-relay.jpg"
+      heroImage="/images/articles/hanyu-yuzuru-childhood.jpg"
       heroAlt="フィギュアスケートを練習する子ども"
       publishDate="2025年4月"
       tags={['羽生結弦', 'フィギュアスケート', '幼少期']}

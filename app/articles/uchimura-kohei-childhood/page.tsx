@@ -24,7 +24,7 @@ export default function UchimuraKoheiChildhoodPage() {
   return (
     <ArticleLayout
       title="内村航平の子供時代｜体操一家で育った「遅咲きの天才」の原点"
-      heroImage="/images/sport-gymnastics.jpg"
+      heroImage="/images/articles/uchimura-kohei-childhood.jpg"
       heroAlt="体操の練習をしている子ども"
       publishDate="2025年4月"
       tags={['内村航平', '体操', '幼少期']}

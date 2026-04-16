@@ -24,7 +24,7 @@ export default function HorigomeYutoChildhoodPage() {
   return (
     <ArticleLayout
       title="堀米雄斗の子供時代｜父の「こっそりスケボー」から始まった五輪2連覇への道"
-      heroImage="/images/kids-running.jpg"
+      heroImage="/images/articles/horigome-yuto-childhood.jpg"
       heroAlt="スケートボードを楽しむ子ども"
       publishDate="2025年4月"
       tags={['堀米雄斗', 'スケートボード', '幼少期']}

@@ -24,7 +24,7 @@ export default function NishiyaMomijiChildhoodPage() {
   return (
     <ArticleLayout
       title="西矢椛の子供時代｜6歳でスケボーを始め13歳で五輪金メダルを獲った少女"
-      heroImage="/images/kids-coach.jpg"
+      heroImage="/images/articles/nishiya-momiji-childhood.jpg"
       heroAlt="スケートボードを練習する子ども"
       publishDate="2025年4月"
       tags={['西矢椛', 'スケートボード', '幼少期']}

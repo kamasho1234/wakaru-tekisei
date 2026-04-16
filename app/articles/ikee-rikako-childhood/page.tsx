@@ -24,7 +24,7 @@ export default function IkeeRikakoChildhoodPage() {
   return (
     <ArticleLayout
       title="池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女"
-      heroImage="/images/sport-swimming.jpg"
+      heroImage="/images/articles/ikee-rikako-childhood.jpg"
       heroAlt="プールで泳ぐ子ども"
       publishDate="2025年4月"
       tags={['池江璃花子', '水泳', '幼少期']}

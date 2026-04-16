@@ -24,7 +24,7 @@ export default function ItoMimaChildhoodPage() {
   return (
     <ArticleLayout
       title="伊藤美誠の子供時代｜2歳で卓球を始め、母と二人三脚で歩んだ道"
-      heroImage="/images/sport-tabletennis.jpg"
+      heroImage="/images/articles/ito-mima-childhood.jpg"
       heroAlt="卓球を練習する子ども"
       publishDate="2025年4月"
       tags={['伊藤美誠', '卓球', '幼少期']}

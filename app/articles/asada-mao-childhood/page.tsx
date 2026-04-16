@@ -24,7 +24,7 @@ export default function AsadaMaoChildhoodPage() {
   return (
     <ArticleLayout
       title="浅田真央の子供時代|5歳でスケートを始めた天才少女の原点"
-      heroImage="/images/kids-running.jpg"
+      heroImage="/images/articles/asada-mao-childhood.jpg"
       heroAlt="フィギュアスケートを楽しむ女の子"
       publishDate="2025年4月"
       tags={['浅田真央', 'フィギュアスケート', '幼少期']}

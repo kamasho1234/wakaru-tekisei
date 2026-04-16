@@ -24,7 +24,7 @@ export default function NishikoriKeiChildhoodPage() {
   return (
     <ArticleLayout
       title="錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年"
-      heroImage="/images/sport-tennis.jpg"
+      heroImage="/images/articles/nishikori-kei-childhood.jpg"
       heroAlt="テニスを練習している子ども"
       publishDate="2025年4月"
       tags={['錦織圭', 'テニス', '幼少期']}

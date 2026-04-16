@@ -24,7 +24,7 @@ export default function YoshidaSaoriChildhoodPage() {
   return (
     <ArticleLayout
       title="吉田沙保里の子供時代｜金メダルを見て泣いた5歳の女の子"
-      heroImage="/images/sport-judo.jpg"
+      heroImage="/images/articles/yoshida-saori-childhood.jpg"
       heroAlt="レスリングの練習をする子ども"
       publishDate="2025年4月"
       tags={['吉田沙保里', 'レスリング', '幼少期']}
