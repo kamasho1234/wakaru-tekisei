@@ -8,6 +8,19 @@ import HeroSlider from '@/components/HeroSlider';
 import CommunityStats from '@/components/CommunityStats';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const athleteArticles = [
+  { slug: 'ohtani-shohei-childhood',  title: '大谷翔平の子供時代｜野球を始めた年齢・家族・幼少期エピソード',          image: '/images/articles/ohtani-shohei-childhood.jpg',  tags: ['大谷翔平', '野球'] },
+  { slug: 'hanyu-yuzuru-childhood',   title: '羽生結弦の子供時代｜スケートを始めたきっかけは喘息だった',              image: '/images/articles/hanyu-yuzuru-childhood.jpg',   tags: ['羽生結弦', 'フィギュア'] },
+  { slug: 'asada-mao-childhood',      title: '浅田真央の子供時代｜5歳でスケートを始めた天才少女の原点',              image: '/images/articles/asada-mao-childhood.jpg',      tags: ['浅田真央', 'フィギュア'] },
+  { slug: 'nishikori-kei-childhood',  title: '錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年',        image: '/images/articles/nishikori-kei-childhood.jpg',  tags: ['錦織圭', 'テニス'] },
+  { slug: 'uchimura-kohei-childhood', title: '内村航平の子供時代｜体操一家で育った「遅咲きの天才」の原点',           image: '/images/articles/uchimura-kohei-childhood.jpg', tags: ['内村航平', '体操'] },
+  { slug: 'yoshida-saori-childhood',  title: '吉田沙保里の子供時代｜金メダルを見て泣いた5歳の女の子',               image: '/images/articles/yoshida-saori-childhood.jpg',  tags: ['吉田沙保里', 'レスリング'] },
+  { slug: 'ito-mima-childhood',       title: '伊藤美誠の子供時代｜2歳で卓球を始め、母と二人三脚で歩んだ道',         image: '/images/articles/ito-mima-childhood.jpg',       tags: ['伊藤美誠', '卓球'] },
+  { slug: 'ikee-rikako-childhood',    title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',       image: '/images/articles/ikee-rikako-childhood.jpg',    tags: ['池江璃花子', '水泳'] },
+  { slug: 'nishiya-momiji-childhood', title: '西矢椛の子供時代｜6歳でスケボーを始め13歳で五輪金メダルを獲った少女', image: '/images/articles/nishiya-momiji-childhood.jpg', tags: ['西矢椛', 'スケボー'] },
+  { slug: 'horigome-yuto-childhood',  title: '堀米雄斗の子供時代｜父の「こっそりスケボー」から始まった五輪2連覇',   image: '/images/articles/horigome-yuto-childhood.jpg',  tags: ['堀米雄斗', 'スケボー'] },
+];
+
 const latestArticles = [
   { slug: 'golden-age',            title: 'ゴールデンエイジとは？9〜12歳が「運動神経の黄金期」と呼ばれる理由', image: '/images/articles/golden-age.jpg',            tags: ['運動発達', 'ゴールデンエイジ'] },
   { slug: 'soccer-aptitude',       title: 'サッカーに向いている子の特徴｜体力データから見る適性の見極め方',     image: '/images/articles/soccer-aptitude.jpg',       tags: ['サッカー', '適性診断'] },
@@ -273,8 +286,51 @@ export default function Home() {
       {/* 全国平均データ */}
       <AverageDataSection />
 
-      {/* 最新記事 */}
+      {/* 選手の子供時代 記事 */}
       <section className="py-10 sm:py-16 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-7 sm:mb-10">
+            <p className="text-yellow-500 font-semibold text-xs uppercase tracking-widest mb-2">Athletes</p>
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900">あの選手の子供時代</h2>
+            <p className="text-gray-500 mt-2 text-sm">トップアスリートたちはどんな子供だったのか？</p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
+            {athleteArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/articles/${article.slug}`}
+                className="bg-[#F7F9FF] rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+              >
+                <div className="relative h-32 sm:h-48 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-2 left-2 flex flex-wrap gap-1">
+                    {article.tags.map((tag) => (
+                      <span key={tag} className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-0.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="p-3 sm:p-4">
+                  <p className="text-xs sm:text-sm font-black text-gray-900 line-clamp-2 leading-snug">
+                    {article.title}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* お役立ち記事 */}
+      <section className="py-10 sm:py-16 px-4 bg-[#F7F9FF]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-7 sm:mb-10">
             <p className="text-blue-600 font-semibold text-xs uppercase tracking-widest mb-2">Articles</p>
@@ -282,14 +338,14 @@ export default function Home() {
             <p className="text-gray-500 mt-2 text-sm">子どものスポーツ・運動発達に役立つ情報をお届けします</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
             {latestArticles.map((article) => (
               <Link
                 key={article.slug}
                 href={`/articles/${article.slug}`}
-                className="bg-[#F7F9FF] rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
               >
-                <div className="relative h-36 sm:h-44 overflow-hidden">
+                <div className="relative h-32 sm:h-44 overflow-hidden">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -298,7 +354,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
-                <div className="p-4">
+                <div className="p-3 sm:p-4">
                   <div className="flex flex-wrap gap-1 mb-2">
                     {article.tags.map((tag) => (
                       <span key={tag} className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full">
@@ -306,7 +362,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm font-black text-gray-900 line-clamp-2 leading-snug">
+                  <p className="text-xs sm:text-sm font-black text-gray-900 line-clamp-2 leading-snug">
                     {article.title}
                   </p>
                 </div>
