@@ -46,6 +46,16 @@ const articles = [
   'ikee-rikako-childhood',
   'nishiya-momiji-childhood',
   'horigome-yuto-childhood',
+  'age-3-sports',
+  'age-4-sports',
+  'age-5-sports',
+  'age-6-sports',
+  'age-7-sports',
+  'age-8-sports',
+  'age-9-sports',
+  'age-10-sports',
+  'age-11-sports',
+  'age-12-sports',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

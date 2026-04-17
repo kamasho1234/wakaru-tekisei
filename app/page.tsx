@@ -32,6 +32,16 @@ const latestArticles = [
   { slug: 'motor-development',     title: '子どもの運動神経はいつまでに鍛えれば良い？年齢別発達の目安',        image: '/images/articles/motor-development.jpg',     tags: ['運動神経', '発達'] },
   { slug: 'gymnastics-aptitude',   title: '体操・体育系に向いている子の特徴｜柔軟性と巧緻性で見る適性',       image: '/images/articles/gymnastics-aptitude.jpg',   tags: ['体操', '柔軟性'] },
   { slug: 'martial-arts-aptitude', title: '空手・柔道に向いている子の特徴｜武道で伸びる子の共通点',           image: '/images/articles/martial-arts-aptitude.jpg', tags: ['空手', '柔道'] },
+  { slug: 'age-3-sports',          title: '3歳の子どもに向いているスポーツ｜運動発達の特徴と習い事の始め方',    image: '/images/articles/age-3-sports.jpg',          tags: ['3歳', '幼児'] },
+  { slug: 'age-4-sports',          title: '4歳の子どもに向いているスポーツ｜運動発達の特徴と習い事の選び方',    image: '/images/articles/age-4-sports.jpg',          tags: ['4歳', '幼児'] },
+  { slug: 'age-5-sports',          title: '5歳の子どもに向いているスポーツ｜幼児期後半の運動発達と習い事',      image: '/images/articles/age-5-sports.jpg',          tags: ['5歳', '幼児'] },
+  { slug: 'age-6-sports',          title: '6歳の子どもに向いているスポーツ｜小学校入学期の運動発達',           image: '/images/articles/age-6-sports.jpg',          tags: ['6歳', '小学1年生'] },
+  { slug: 'age-7-sports',          title: '7歳の子どもに向いているスポーツ｜小学2年生の運動発達と適性',        image: '/images/articles/age-7-sports.jpg',          tags: ['7歳', '小学2年生'] },
+  { slug: 'age-8-sports',          title: '8歳の子どもに向いているスポーツ｜小学3年生の巧緻性発達',           image: '/images/articles/age-8-sports.jpg',          tags: ['8歳', '小学3年生'] },
+  { slug: 'age-9-sports',          title: '9歳の子どもに向いているスポーツ｜ゴールデンエイジ開始',             image: '/images/articles/age-9-sports.jpg',          tags: ['9歳', 'ゴールデンエイジ'] },
+  { slug: 'age-10-sports',         title: '10歳の子どもに向いているスポーツ｜ゴールデンエイジ中期',            image: '/images/articles/age-10-sports.jpg',         tags: ['10歳', 'ゴールデンエイジ'] },
+  { slug: 'age-11-sports',         title: '11歳の子どもに向いているスポーツ｜ゴールデンエイジ後期',            image: '/images/articles/age-11-sports.jpg',         tags: ['11歳', '小学6年生'] },
+  { slug: 'age-12-sports',         title: '12歳の子どもに向いているスポーツ｜ゴールデンエイジ終期',            image: '/images/articles/age-12-sports.jpg',         tags: ['12歳', '中学1年生'] },
 ];
 
 const sportImages = [

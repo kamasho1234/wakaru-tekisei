@@ -181,6 +181,46 @@ const ARTICLES = [
     filename: 'horigome-yuto-childhood.jpg',
     prompt: 'A young Japanese boy around 5-7 years old riding a skateboard at a sunny outdoor park, father watching proudly nearby, joyful expression, urban Tokyo park setting, photorealistic, high quality, 16:9 aspect ratio',
   },
+  {
+    filename: 'age-3-sports.jpg',
+    prompt: 'Japanese toddler aged 3 doing fun gymnastics stretches on colorful mats with a cheerful instructor, bright indoor gym, smiling and playful, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-4-sports.jpg',
+    prompt: 'Japanese 4-year-old child kicking a colorful soccer ball in a sunny park, wearing tiny soccer cleats, joyful expression, parent watching from sideline, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-5-sports.jpg',
+    prompt: 'Japanese 5-year-old child in a gymnastics class doing a forward roll on a blue mat, cheerful instructor guiding, bright colorful gym, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-6-sports.jpg',
+    prompt: 'Japanese first-grade elementary school children doing physical education class outdoors, running and playing games together, school uniform PE clothes, sunny day, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-7-sports.jpg',
+    prompt: 'Japanese children aged 7 playing team sports together in a school gymnasium, passing a ball, teamwork and coordination, warm indoor lighting, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-8-sports.jpg',
+    prompt: 'Japanese 8-year-old child practicing tennis with a small racket on a tennis court, concentrating on hitting the ball, coach watching, bright outdoor setting, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-9-sports.jpg',
+    prompt: 'Japanese children aged 9 trying various sports activities in a golden hour park setting, soccer swimming gymnastics equipment around, energetic and excited, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-10-sports.jpg',
+    prompt: 'Japanese 10-year-old child in serious sports practice, focused expression, dribbling basketball in a bright gymnasium, athletic clothing, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-11-sports.jpg',
+    prompt: 'Japanese 11-year-old child training intensely at a sports club practice, determined face, teammates around, indoor sports facility, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'age-12-sports.jpg',
+    prompt: 'Japanese 12-year-old child in middle school sports practice, confident and athletic posture, soccer field or gymnasium, sunset golden light, photorealistic, high quality, 16:9 aspect ratio',
+  },
 ];
 
 async function generateImage(article, retries = 3) {
