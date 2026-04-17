@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どもの運動神経はいつまでに鍛えれば良い?年齢別発達の目安と対処法',
     description:
       '子どもの運動神経の発達段階を年齢別に解説。「うちの子は運動が苦手」と感じる前に知っておきたい、年齢ごとの特徴と親ができることをご紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/motor-development.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/motor-development',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの運動神経はいつまでに鍛えれば良い?年齢別発達の目安と対処法',
-    images: ['/og-image.png'],
+    images: ['/images/articles/motor-development.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function MotorDevelopmentPage() {
       heroImage="/images/articles/motor-development.jpg"
       heroAlt="リレーをしている子どもたち"
       publishDate="2025年4月"
+      slug="motor-development"
+      description="子どもの運動神経の発達段階を年齢別に解説。「うちの子は運動が苦手」と感じる前に知っておきたい、年齢ごとの特徴と親ができることをご紹介します。"
       tags={['運動神経', '発達', '子育て']}
       shareText="子どもの運動神経はいつまでに伸ばせるの?年齢別の発達目安と対処法を解説。 #子育て #運動神経"
     >

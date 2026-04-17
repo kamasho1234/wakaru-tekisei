@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '不器用な子・運動が苦手な子は伸びない？正しい関わり方',
     description:
       'ボールが取れない、縄跳びが苦手、体育が嫌いな子どもへの関わり方を解説。不器用さの原因と、親ができるサポート方法。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/child-clumsy.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-clumsy',
   },
   twitter: {
     card: 'summary_large_image',
     title: '不器用な子・運動が苦手な子は伸びない？正しい関わり方',
-    images: ['/og-image.png'],
+    images: ['/images/articles/child-clumsy.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ChildClumsynessPage() {
       heroImage="/images/articles/child-clumsy.jpg"
       heroAlt="ゆっくり練習している子どもを見守る親"
       publishDate="2025年4月"
+      slug="child-clumsy"
+      description="ボールが取れない、縄跳びが苦手、体育が嫌いな子どもへの関わり方を解説。不器用さの原因と、親ができるサポート方法。"
       tags={['運動が苦手', '不器用', '子育て']}
       shareText="不器用・運動が苦手な子どもへの正しい関わり方。焦らず伸ばすコツを解説。 #子育て #運動が苦手"
     >

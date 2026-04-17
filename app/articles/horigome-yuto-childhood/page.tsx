@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '堀米雄斗の子供時代｜父の「こっそりスケボー」から始まった五輪2連覇への道',
     description:
       'スケートボード五輪2連覇の堀米雄斗選手の子供時代。スケボーを引退した父がこっそり息子に教えたのがすべての始まりでした。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/horigome-yuto-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/horigome-yuto-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '堀米雄斗の子供時代｜父の「こっそりスケボー」から始まった五輪2連覇への道',
-    images: ['/og-image.png'],
+    images: ['/images/articles/horigome-yuto-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function HorigomeYutoChildhoodPage() {
       heroImage="/images/articles/horigome-yuto-childhood.jpg"
       heroAlt="スケートボードを楽しむ子ども"
       publishDate="2025年4月"
+      slug="horigome-yuto-childhood"
+      description="スケートボード五輪2連覇の堀米雄斗選手の子供時代。スケボーを引退した父がこっそり息子に教えたのがすべての始まりでした。"
       tags={['堀米雄斗', 'スケートボード', '幼少期']}
       shareText="堀米雄斗選手の父がスケボーをこっそり息子に教えた話。五輪2連覇の原点。 #堀米雄斗 #スケートボード"
       citations={['https://ja.wikipedia.org/wiki/%E5%A0%80%E7%B1%B3%E9%9B%84%E6%96%97']}

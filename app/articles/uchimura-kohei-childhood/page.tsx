@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '内村航平の子供時代｜体操一家で育った「遅咲きの天才」の原点',
     description:
       '体操界の王者・内村航平選手の子供時代。両親が体操教室を経営する中で3歳から始めた体操。最初は妹よりも上達が遅かった意外な事実も。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/uchimura-kohei-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/uchimura-kohei-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '内村航平の子供時代｜体操一家で育った「遅咲きの天才」の原点',
-    images: ['/og-image.png'],
+    images: ['/images/articles/uchimura-kohei-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function UchimuraKoheiChildhoodPage() {
       heroImage="/images/articles/uchimura-kohei-childhood.jpg"
       heroAlt="体操の練習をしている子ども"
       publishDate="2025年4月"
+      slug="uchimura-kohei-childhood"
+      description="体操界の王者・内村航平選手の子供時代。両親が体操教室を経営する中で3歳から始めた体操。最初は妹よりも上達が遅かった意外な事実も。"
       tags={['内村航平', '体操', '幼少期']}
       shareText="内村航平選手が体操を始めた3歳から。最初は妹より下手だった？意外な幼少期エピソード。 #内村航平 #体操"
       citations={['https://ja.wikipedia.org/wiki/%E5%86%85%E6%9D%91%E8%88%AA%E5%B9%B3']}

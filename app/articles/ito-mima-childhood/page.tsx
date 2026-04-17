@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '伊藤美誠の子供時代｜2歳で卓球を始め、母と二人三脚で歩んだ道',
     description:
       '卓球界のスター・伊藤美誠選手の子供時代。元卓球選手の母のもとで2歳から始め、1日8時間練習した幼少期の真実を紹介。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/ito-mima-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ito-mima-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '伊藤美誠の子供時代｜2歳で卓球を始め、母と二人三脚で歩んだ道',
-    images: ['/og-image.png'],
+    images: ['/images/articles/ito-mima-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ItoMimaChildhoodPage() {
       heroImage="/images/articles/ito-mima-childhood.jpg"
       heroAlt="卓球を練習する子ども"
       publishDate="2025年4月"
+      slug="ito-mima-childhood"
+      description="卓球界のスター・伊藤美誠選手の子供時代。元卓球選手の母のもとで2歳から始め、1日8時間練習した幼少期の真実を紹介。"
       tags={['伊藤美誠', '卓球', '幼少期']}
       shareText="伊藤美誠選手が2歳で卓球を始め、1日8時間練習した幼少期の話。 #伊藤美誠 #卓球"
       citations={['https://ja.wikipedia.org/wiki/%E4%BC%8A%E8%97%A4%E7%BE%8E%E8%AA%A0']}

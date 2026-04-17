@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: 'スポーツのコーチに不信感…親はどう対処すべき？',
     description:
       '指導が厳しすぎる、怒鳴る、えこひいきがある。子どものコーチに不満を持ったとき、親としての正しい対処法を解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/coach-trouble.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/coach-trouble',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツのコーチに不信感…親はどう対処すべき？',
-    images: ['/og-image.png'],
+    images: ['/images/articles/coach-trouble.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function CoachTroublePage() {
       heroImage="/images/articles/coach-trouble.jpg"
       heroAlt="子どもとコーチが話し合っている様子"
       publishDate="2025年4月"
+      slug="coach-trouble"
+      description="指導が厳しすぎる、怒鳴る、えこひいきがある。子どものコーチに不満を持ったとき、親としての正しい対処法を解説します。"
       tags={['コーチ', 'スポーツ', '保護者']}
       shareText="子どもを怒鳴るコーチ、えこひいきするコーチ。保護者としての正しい対処法を解説。 #子育て #スポーツ"
     >

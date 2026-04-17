@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '足が遅い子は運動神経が悪いの？親が知っておくべき本当のこと',
     description:
       '子どもの足が遅くて心配な親御さんへ。「運動神経」の科学的な意味と、足の速さだけでは判断できない運動能力の本質を解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/child-slow-runner.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-slow-runner',
   },
   twitter: {
     card: 'summary_large_image',
     title: '足が遅い子は運動神経が悪いの？親が知っておくべき本当のこと',
-    images: ['/og-image.png'],
+    images: ['/images/articles/child-slow-runner.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ChildSlowRunnerPage() {
       heroImage="/images/articles/child-slow-runner.jpg"
       heroAlt="走る練習をしている子どもと見守る親"
       publishDate="2025年4月"
+      slug="child-slow-runner"
+      description="子どもの足が遅くて心配な親御さんへ。「運動神経」の科学的な意味と、足の速さだけでは判断できない運動能力の本質を解説します。"
       tags={['運動神経', '足の速さ', '子育て']}
       shareText="「足が遅い=運動神経が悪い」は誤解かも。子どもの運動能力の本当の見方を解説。 #子育て #運動神経"
     >

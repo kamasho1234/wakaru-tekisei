@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '親の期待がプレッシャーになっていないか？スポーツ心理学で考える',
     description:
       '応援のつもりが子どものプレッシャーに。親の言動が子どものスポーツパフォーマンスに与える影響を、心理学の知見で解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/parent-pressure-sports.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/parent-pressure-sports',
   },
   twitter: {
     card: 'summary_large_image',
     title: '親の期待がプレッシャーになっていないか？スポーツ心理学で考える',
-    images: ['/og-image.png'],
+    images: ['/images/articles/parent-pressure-sports.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ParentPressureSportsPage() {
       heroImage="/images/articles/parent-pressure-sports.jpg"
       heroAlt="試合を観戦している親と緊張している子ども"
       publishDate="2025年4月"
+      slug="parent-pressure-sports"
+      description="応援のつもりが子どものプレッシャーに。親の言動が子どものスポーツパフォーマンスに与える影響を、心理学の知見で解説します。"
       tags={['親のプレッシャー', 'スポーツ心理学', '子育て']}
       shareText="応援のつもりが子どもへのプレッシャーに。スポーツ心理学が教える正しい親の関わり方。 #子育て #スポーツ心理"
     >

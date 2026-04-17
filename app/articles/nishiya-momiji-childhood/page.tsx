@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '西矢椛の子供時代｜6歳でスケボーを始め13歳で五輪金メダルを獲った少女',
     description:
       '史上最年少の五輪金メダリスト・西矢椛選手の子供時代。6歳でスケートボードを始め、13歳330日で金メダルを獲るまでの物語。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/nishiya-momiji-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/nishiya-momiji-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '西矢椛の子供時代｜6歳でスケボーを始め13歳で五輪金メダルを獲った少女',
-    images: ['/og-image.png'],
+    images: ['/images/articles/nishiya-momiji-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function NishiyaMomijiChildhoodPage() {
       heroImage="/images/articles/nishiya-momiji-childhood.jpg"
       heroAlt="スケートボードを練習する子ども"
       publishDate="2025年4月"
+      slug="nishiya-momiji-childhood"
+      description="史上最年少の五輪金メダリスト・西矢椛選手の子供時代。6歳でスケートボードを始め、13歳330日で金メダルを獲るまでの物語。"
       tags={['西矢椛', 'スケートボード', '幼少期']}
       shareText="西矢椛選手が6歳でスケボーを始め13歳で五輪金メダルを獲った話。 #西矢椛 #スケートボード"
       citations={['https://ja.wikipedia.org/wiki/%E8%A5%BF%E7%9F%A2%E6%A4%9B']}

@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どもの試合を正しく応援する方法：NGとOKを解説',
     description:
       '子どもの試合、どう応援するのが正解？過干渉になりやすい保護者の応援について、スポーツ心理学から正しい方法を解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/how-to-cheer-kids.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/how-to-cheer-kids',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの試合を正しく応援する方法：NGとOKを解説',
-    images: ['/og-image.png'],
+    images: ['/images/articles/how-to-cheer-kids.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function HowToCheerKidsPage() {
       heroImage="/images/articles/how-to-cheer-kids.jpg"
       heroAlt="子どもの試合を温かく見守る保護者たち"
       publishDate="2025年4月"
+      slug="how-to-cheer-kids"
+      description="子どもの試合、どう応援するのが正解？過干渉になりやすい保護者の応援について、スポーツ心理学から正しい方法を解説します。"
       tags={['応援', '保護者', 'スポーツ']}
       shareText="子どもの試合での正しい応援とNGな応援。スポーツ心理学から解説。 #子育て #保護者の応援"
     >

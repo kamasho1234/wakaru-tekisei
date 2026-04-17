@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '思春期前後の女の子とスポーツ：親が知っておくべきこと',
     description:
       '10～13歳ごろの思春期を迎えた女の子のスポーツ参加。体の変化とスポーツの関係、親が注意すべきことを解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/girls-sports-puberty.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/girls-sports-puberty',
   },
   twitter: {
     card: 'summary_large_image',
     title: '思春期前後の女の子とスポーツ：親が知っておくべきこと',
-    images: ['/og-image.png'],
+    images: ['/images/articles/girls-sports-puberty.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function GirlsSportsPubertyPage() {
       heroImage="/images/articles/girls-sports-puberty.jpg"
       heroAlt="スポーツを楽しむ女の子たち"
       publishDate="2025年4月"
+      slug="girls-sports-puberty"
+      description="10～13歳ごろの思春期を迎えた女の子のスポーツ参加。体の変化とスポーツの関係、親が注意すべきことを解説します。"
       tags={['思春期', '女の子', 'スポーツ']}
       shareText="思春期前後の女の子とスポーツの関係。親が知っておくべき体の変化と注意点。 #子育て #女の子スポーツ"
     >

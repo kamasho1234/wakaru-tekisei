@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '大谷翔平の子供時代|野球を始めた年齢・家族・幼少期エピソード',
     description:
       '二刀流で世界を席巻する大谷翔平選手の子供時代を紹介。いつ野球を始め、どんな少年だったのか。親御さんへのヒントも。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/ohtani-shohei-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ohtani-shohei-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '大谷翔平の子供時代|野球を始めた年齢・家族・幼少期エピソード',
-    images: ['/og-image.png'],
+    images: ['/images/articles/ohtani-shohei-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function OhtaniShoheChildhoodPage() {
       heroImage="/images/articles/ohtani-shohei-childhood.jpg"
       heroAlt="少年が野球の練習をしている様子"
       publishDate="2025年4月"
+      slug="ohtani-shohei-childhood"
+      description="二刀流で世界を席巻する大谷翔平選手の子供時代を紹介。いつ野球を始め、どんな少年だったのか。親御さんへのヒントも。"
       tags={['大谷翔平', '野球', '幼少期']}
       shareText="大谷翔平選手の子供時代を知っていますか？野球を始めた年齢や家族背景を解説。 #大谷翔平 #野球少年"
       citations={['https://ja.wikipedia.org/wiki/%E5%A4%A7%E8%B0%B7%E7%BF%94%E5%B9%B3']}

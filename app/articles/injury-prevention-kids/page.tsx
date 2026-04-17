@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どものスポーツ障害を防ぐために親ができること',
     description:
       '成長期の子どもはスポーツ障害のリスクが高い。親が知っておくべき予防法と、注意すべき痛みのサインを解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/injury-prevention-kids.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/injury-prevention-kids',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どものスポーツ障害を防ぐために親ができること',
-    images: ['/og-image.png'],
+    images: ['/images/articles/injury-prevention-kids.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function InjuryPreventionKidsPage() {
       heroImage="/images/articles/injury-prevention-kids.jpg"
       heroAlt="ウォームアップをしている子ども"
       publishDate="2025年4月"
+      slug="injury-prevention-kids"
+      description="成長期の子どもはスポーツ障害のリスクが高い。親が知っておくべき予防法と、注意すべき痛みのサインを解説します。"
       tags={['スポーツ障害', '怪我予防', '子育て']}
       shareText="子どものスポーツ障害を防ぐために親が知っておくべきこと。 #子育て #スポーツ障害"
     >

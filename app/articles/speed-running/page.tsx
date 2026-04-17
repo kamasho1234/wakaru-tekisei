@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '50m走が速い子の特徴と走力を伸ばす方法|新体力テストから読み解く瞬発力',
     description:
       '50m走のタイムと子どもの運動適性の関係を解説。走力を伸ばすためのポイントと、走ることが得意な子に向いているスポーツを紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/speed-running.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/speed-running',
   },
   twitter: {
     card: 'summary_large_image',
     title: '50m走が速い子の特徴と走力を伸ばす方法|新体力テストから読み解く瞬発力',
-    images: ['/og-image.png'],
+    images: ['/images/articles/speed-running.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function SpeedRunningPage() {
       heroImage="/images/articles/speed-running.jpg"
       heroAlt="走っている子ども"
       publishDate="2025年4月"
+      slug="speed-running"
+      description="50m走のタイムと子どもの運動適性の関係を解説。走力を伸ばすためのポイントと、走ることが得意な子に向いているスポーツを紹介します。"
       tags={['50m走', '瞬発力', '体力テスト']}
       shareText="50m走が速い子どもの特徴と、走力をさらに伸ばすポイントを解説! #陸上 #子育て #新体力テスト"
     >

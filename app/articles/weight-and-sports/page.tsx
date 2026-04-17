@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '体が大きい子・小さい子に向いているスポーツはどれ？',
     description:
       '体格はスポーツ適性に関係する？体が大きい子・小さい子それぞれに向いているスポーツを、データと特性から解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/weight-and-sports.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/weight-and-sports',
   },
   twitter: {
     card: 'summary_large_image',
     title: '体が大きい子・小さい子に向いているスポーツはどれ？',
-    images: ['/og-image.png'],
+    images: ['/images/articles/weight-and-sports.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function WeightAndSportsPage() {
       heroImage="/images/articles/weight-and-sports.jpg"
       heroAlt="様々な体格の子どもたちがスポーツをしている様子"
       publishDate="2025年4月"
+      slug="weight-and-sports"
+      description="体格はスポーツ適性に関係する？体が大きい子・小さい子それぞれに向いているスポーツを、データと特性から解説します。"
       tags={['体格', 'スポーツ適性', '子育て']}
       shareText="体が大きい子・小さい子、それぞれに向いているスポーツを解説。 #子育て #スポーツ適性"
     >

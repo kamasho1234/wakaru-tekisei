@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どもがスポーツに興味がない…無理に始めさせるべき？',
     description:
       '習い事にスポーツを考えているけれど、子どもが乗り気でない。無理強いすべき？待つべき？親の悩みに答えます。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/child-not-interested.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-not-interested',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どもがスポーツに興味がない…無理に始めさせるべき？',
-    images: ['/og-image.png'],
+    images: ['/images/articles/child-not-interested.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ChildNotInterestedPage() {
       heroImage="/images/articles/child-not-interested.jpg"
       heroAlt="スポーツよりも読書が好きな子ども"
       publishDate="2025年4月"
+      slug="child-not-interested"
+      description="習い事にスポーツを考えているけれど、子どもが乗り気でない。無理強いすべき？待つべき？親の悩みに答えます。"
       tags={['習い事', 'スポーツ嫌い', '子育て']}
       shareText="スポーツに興味がない子どもへの接し方。強制はNGな理由と自然な引き出し方。 #子育て #習い事"
     >

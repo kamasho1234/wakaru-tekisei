@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: 'ゴールデンエイジとは？9～12歳が「運動神経の黄金期」と呼ばれる理由',
     description:
       '子どもの運動神経発達において最も重要な時期「ゴールデンエイジ」を解説。9～12歳にできることと、この時期を最大限に活かす方法をご紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/golden-age.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/golden-age',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ゴールデンエイジとは？9～12歳が「運動神経の黄金期」と呼ばれる理由',
-    images: ['/og-image.png'],
+    images: ['/images/articles/golden-age.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function GoldenAgePage() {
       heroImage="/images/articles/golden-age.jpg"
       heroAlt="子どもにスポーツを教えるコーチ"
       publishDate="2025年4月"
+      slug="golden-age"
+      description="子どもの運動神経発達において最も重要な時期「ゴールデンエイジ」を解説。9～12歳にできることと、この時期を最大限に活かす方法をご紹介します。"
       tags={['運動発達', 'ゴールデンエイジ', '小学生']}
       shareText="「ゴールデンエイジ」9～12歳が運動神経の黄金期と呼ばれる理由を解説。お子さんの適性を見逃さないで！ #子育て #スポーツ適性"
     >
@@ -218,6 +220,55 @@ export default function GoldenAgePage() {
           9～12歳のゴールデンエイジは、子どもの運動神経発達において本当に大切な時期です。この時期にどのような運動経験をするかで、その後の可能性は大きく変わります。ですが、焦らず、楽しく、多様な経験をさせることが最も効果的です。お子さんの個性と適性に合わせて、最高の環境を整えてあげてください。
         </p>
       </div>
+
+      {/* FAQ */}
+      <div>
+        <h2 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2">
+          <span className="w-1 h-6 bg-blue-500 rounded-full inline-block"></span>
+          よくある質問
+        </h2>
+        <div className="space-y-4">
+          <details className="bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <summary className="px-5 py-4 font-bold text-gray-900 cursor-pointer text-sm">ゴールデンエイジはいつからいつまでですか？</summary>
+            <p className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">ゴールデンエイジは9歳から12歳の時期を指します。この前の3〜8歳は「プレゴールデンエイジ」、後の13〜15歳は「ポストゴールデンエイジ」と呼ばれます。</p>
+          </details>
+          <details className="bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <summary className="px-5 py-4 font-bold text-gray-900 cursor-pointer text-sm">ゴールデンエイジを過ぎたらスポーツは上達しませんか？</summary>
+            <p className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">そんなことはありません。ゴールデンエイジを過ぎても、スポーツの習得は十分可能です。ただし、12歳以降は神経系の発達が落ち着くため、技術習得のスピードは若干落ちる傾向があります。筋力は13歳以降に大きく発達するため、競技によっては後から伸びるものもあります。</p>
+          </details>
+          <details className="bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <summary className="px-5 py-4 font-bold text-gray-900 cursor-pointer text-sm">ゴールデンエイジに1つのスポーツに絞るべきですか？</summary>
+            <p className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">スポーツ科学的には、ゴールデンエイジは複数のスポーツを経験する「多様な運動経験」が推奨されています。1つに絞ると特定の動作は上達しますが、総合的な運動能力の発達が偏る可能性があります。まずは色々なスポーツを試してから、子どもが「好き」と感じるものを見つけるのが理想的です。</p>
+          </details>
+        </div>
+      </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'ゴールデンエイジはいつからいつまでですか？',
+                acceptedAnswer: { '@type': 'Answer', text: 'ゴールデンエイジは9歳から12歳の時期を指します。この前の3〜8歳は「プレゴールデンエイジ」、後の13〜15歳は「ポストゴールデンエイジ」と呼ばれます。' },
+              },
+              {
+                '@type': 'Question',
+                name: 'ゴールデンエイジを過ぎたらスポーツは上達しませんか？',
+                acceptedAnswer: { '@type': 'Answer', text: 'そんなことはありません。12歳以降も技術習得は可能です。筋力は13歳以降に大きく発達するため、競技によっては後から伸びるものもあります。' },
+              },
+              {
+                '@type': 'Question',
+                name: 'ゴールデンエイジに1つのスポーツに絞るべきですか？',
+                acceptedAnswer: { '@type': 'Answer', text: 'スポーツ科学的には複数のスポーツを経験する「多様な運動経験」が推奨されています。まず色々なスポーツを試してから子どもが好きなものを見つけるのが理想的です。' },
+              },
+            ],
+          }),
+        }}
+      />
     </ArticleLayout>
   );
 }

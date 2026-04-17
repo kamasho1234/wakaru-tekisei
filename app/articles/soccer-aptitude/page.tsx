@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: 'サッカーに向いている子の特徴|体力データから見る適性の見極め方',
     description:
       '子どもがサッカーに向いているかどうかの見極め方を、新体力テストデータを使って解説。持久力・敏捷性・瞬発力の目安値も紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/soccer-aptitude.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/soccer-aptitude',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'サッカーに向いている子の特徴|体力データから見る適性の見極め方',
-    images: ['/og-image.png'],
+    images: ['/images/articles/soccer-aptitude.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function SoccerAptitudePage() {
       heroImage="/images/articles/soccer-aptitude.jpg"
       heroAlt="サッカーをしている子どもたち"
       publishDate="2025年4月"
+      slug="soccer-aptitude"
+      description="子どもがサッカーに向いているかどうかの見極め方を、新体力テストデータを使って解説。持久力・敏捷性・瞬発力の目安値も紹介します。"
       tags={['サッカー', '適性診断', '体力テスト']}
       shareText="サッカーに向いている子の特徴を体力データで解説。新体力テストとの関連も。 #子育て #サッカー少年団"
     >

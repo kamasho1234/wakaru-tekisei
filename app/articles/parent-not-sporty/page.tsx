@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '親が運動オンチでも子どもは運動できる？遺伝と環境を解説',
     description:
       '運動が苦手な親から生まれた子どもは運動が苦手になるの？遺伝と環境の影響を科学的に解説し、運動オンチな親でもできることを紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/parent-not-sporty.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/parent-not-sporty',
   },
   twitter: {
     card: 'summary_large_image',
     title: '親が運動オンチでも子どもは運動できる？遺伝と環境を解説',
-    images: ['/og-image.png'],
+    images: ['/images/articles/parent-not-sporty.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ParentNotSportyPage() {
       heroImage="/images/articles/parent-not-sporty.jpg"
       heroAlt="一緒に体を動かす親子"
       publishDate="2025年4月"
+      slug="parent-not-sporty"
+      description="運動が苦手な親から生まれた子どもは運動が苦手になるの？遺伝と環境の影響を科学的に解説し、運動オンチな親でもできることを紹介します。"
       tags={['遺伝', '運動能力', '子育て']}
       shareText="親が運動オンチでも子どもは運動できる？遺伝と環境の影響を科学的に解説。 #子育て #運動神経"
     >

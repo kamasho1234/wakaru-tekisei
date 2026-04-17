@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '空手・柔道に向いている子の特徴|武道で伸びる子の共通点と習い事効果',
     description:
       '空手と柔道それぞれに向いている子の特徴を体力・性格の両面から解説。武道を習わせることで得られる精神的な効果も紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/martial-arts-aptitude.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/martial-arts-aptitude',
   },
   twitter: {
     card: 'summary_large_image',
     title: '空手・柔道に向いている子の特徴|武道で伸びる子の共通点と習い事効果',
-    images: ['/og-image.png'],
+    images: ['/images/articles/martial-arts-aptitude.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function MartialArtsAptitudePage() {
       heroImage="/images/articles/martial-arts-aptitude.jpg"
       heroAlt="空手をしている子どもたち"
       publishDate="2025年4月"
+      slug="martial-arts-aptitude"
+      description="空手と柔道それぞれに向いている子の特徴を体力・性格の両面から解説。武道を習わせることで得られる精神的な効果も紹介します。"
       tags={['空手', '柔道', '武道', '習い事']}
       shareText="空手・柔道に向いている子の特徴と武道で伸びる子の共通点を解説。礼儀も身につく! #空手 #柔道 #子育て"
     >

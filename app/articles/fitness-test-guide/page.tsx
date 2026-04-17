@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '小学生の新体力テスト完全ガイド|8種目の見方と平均値の活用法',
     description:
       '文部科学省の新体力テスト8種目を解説。種目ごとの測定方法と全国平均値、結果をスポーツ選びに活かす方法をわかりやすく説明します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/fitness-test-guide.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/fitness-test-guide',
   },
   twitter: {
     card: 'summary_large_image',
     title: '小学生の新体力テスト完全ガイド|8種目の見方と平均値の活用法',
-    images: ['/og-image.png'],
+    images: ['/images/articles/fitness-test-guide.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function FitnessTestGuidePage() {
       heroImage="/images/articles/fitness-test-guide.jpg"
       heroAlt="新体力テストで走っている子ども"
       publishDate="2025年4月"
+      slug="fitness-test-guide"
+      description="文部科学省の新体力テスト8種目を解説。種目ごとの測定方法と全国平均値、結果をスポーツ選びに活かす方法をわかりやすく説明します。"
       tags={['新体力テスト', '体力測定', '小学生']}
       shareText="新体力テストの結果を子どものスポーツ選びに活かす方法を解説。8種目の意味がわかります。 #新体力テスト #子育て"
     >

@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '体操・体育系に向いている子の特徴|柔軟性と巧緻性で見る適性診断',
     description:
       '子どもが体操や新体操に向いているかどうかを柔軟性・巧緻性のデータから解説。体操を習わせるメリットと適切な開始年齢も紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/gymnastics-aptitude.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/gymnastics-aptitude',
   },
   twitter: {
     card: 'summary_large_image',
     title: '体操・体育系に向いている子の特徴|柔軟性と巧緻性で見る適性診断',
-    images: ['/og-image.png'],
+    images: ['/images/articles/gymnastics-aptitude.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function GymnasticsAptitudePage() {
       heroImage="/images/articles/gymnastics-aptitude.jpg"
       heroAlt="体操をしている子ども"
       publishDate="2025年4月"
+      slug="gymnastics-aptitude"
+      description="子どもが体操や新体操に向いているかどうかを柔軟性・巧緻性のデータから解説。体操を習わせるメリットと適切な開始年齢も紹介します。"
       tags={['体操', '適性診断', '柔軟性']}
       shareText="体操に向いている子の特徴を柔軟性・巧緻性のデータで解説。長座体前屈が目安! #体操 #子育て"
     >

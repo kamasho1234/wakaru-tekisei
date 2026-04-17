@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '習い事のスポーツを「辞めたい」と言ったときの正しい対応',
     description:
       '子どもがスポーツの習い事を辞めたいと言い出した。続けさせるべき？辞めさせるべき？状況別の判断基準を解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/child-quit-sports.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-quit-sports',
   },
   twitter: {
     card: 'summary_large_image',
     title: '習い事のスポーツを「辞めたい」と言ったときの正しい対応',
-    images: ['/og-image.png'],
+    images: ['/images/articles/child-quit-sports.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function ChildQuitSportsPage() {
       heroImage="/images/articles/child-quit-sports.jpg"
       heroAlt="悩んでいる子どもと話し合う親"
       publishDate="2025年4月"
+      slug="child-quit-sports"
+      description="子どもがスポーツの習い事を辞めたいと言い出した。続けさせるべき？辞めさせるべき？状況別の判断基準を解説します。"
       tags={['習い事', 'スポーツを辞める', '子育て']}
       shareText="子どもが「スポーツ辞めたい」と言ったとき。続けさせるべき？正しい判断基準を解説。 #子育て #習い事"
     >

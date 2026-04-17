@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '羽生結弦の子供時代|スケートを始めたきっかけは喘息だった',
     description:
       'フィギュアスケート界のレジェンド・羽生結弦選手の子供時代。喘息をきっかけにスケートを始めた経緯と、幼少期のエピソードを紹介。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/hanyu-yuzuru-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/hanyu-yuzuru-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '羽生結弦の子供時代|スケートを始めたきっかけは喘息だった',
-    images: ['/og-image.png'],
+    images: ['/images/articles/hanyu-yuzuru-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function HanyuYuzuruChildhoodPage() {
       heroImage="/images/articles/hanyu-yuzuru-childhood.jpg"
       heroAlt="フィギュアスケートを練習する子ども"
       publishDate="2025年4月"
+      slug="hanyu-yuzuru-childhood"
+      description="フィギュアスケート界のレジェンド・羽生結弦選手の子供時代。喘息をきっかけにスケートを始めた経緯と、幼少期のエピソードを紹介。"
       tags={['羽生結弦', 'フィギュアスケート', '幼少期']}
       shareText="羽生結弦選手が喘息をきっかけにスケートを始めた話を知っていますか？ #羽生結弦 #フィギュアスケート"
       citations={['https://ja.wikipedia.org/wiki/%E7%BE%BD%E7%94%9F%E7%B5%90%E5%BC%A6']}

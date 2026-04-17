@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '浅田真央の子供時代|5歳でスケートを始めた天才少女の原点',
     description:
       '伝説のフィギュアスケーター・浅田真央選手の子供時代を紹介。5歳でスケートを始め、8歳で全国大会に出場するまでの軌跡。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/asada-mao-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/asada-mao-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '浅田真央の子供時代|5歳でスケートを始めた天才少女の原点',
-    images: ['/og-image.png'],
+    images: ['/images/articles/asada-mao-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function AsadaMaoChildhoodPage() {
       heroImage="/images/articles/asada-mao-childhood.jpg"
       heroAlt="フィギュアスケートを楽しむ女の子"
       publishDate="2025年4月"
+      slug="asada-mao-childhood"
+      description="伝説のフィギュアスケーター・浅田真央選手の子供時代を紹介。5歳でスケートを始め、8歳で全国大会に出場するまでの軌跡。"
       tags={['浅田真央', 'フィギュアスケート', '幼少期']}
       shareText="浅田真央選手が5歳でスケートを始めた話。天才少女の原点を解説。 #浅田真央 #フィギュアスケート"
       citations={['https://ja.wikipedia.org/wiki/%E6%B5%85%E7%94%B0%E7%9C%9F%E5%A4%AE']}

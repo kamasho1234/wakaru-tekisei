@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '何歳からスポーツを始めるべき？年齢別の適切なタイミング',
     description:
       '子どものスポーツはいつ始めるのがベスト？文科省の運動能力発達データとスポーツ別の開始推奨年齢を詳しく解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/sport-start-timing.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/sport-start-timing',
   },
   twitter: {
     card: 'summary_large_image',
     title: '何歳からスポーツを始めるべき？年齢別の適切なタイミング',
-    images: ['/og-image.png'],
+    images: ['/images/articles/sport-start-timing.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function SportStartTimingPage() {
       heroImage="/images/articles/sport-start-timing.jpg"
       heroAlt="様々な年齢の子どもたちがスポーツを楽しむ様子"
       publishDate="2025年4月"
+      slug="sport-start-timing"
+      description="子どものスポーツはいつ始めるのがベスト？文科省の運動能力発達データとスポーツ別の開始推奨年齢を詳しく解説します。"
       tags={['スポーツ開始年齢', '習い事', '子育て']}
       shareText="子どものスポーツ、何歳から始めるのがベスト？年齢別の適切なタイミングを解説。 #子育て #習い事"
     >

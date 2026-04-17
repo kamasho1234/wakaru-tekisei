@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: 'スポーツをすると身長が止まる？科学的に正しい知識を解説',
     description:
       '「バレーは身長が伸びる」「筋トレで身長が止まる」本当？子どものスポーツと身長の関係を科学データで徹底解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/height-and-sports.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/height-and-sports',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツをすると身長が止まる？科学的に正しい知識を解説',
-    images: ['/og-image.png'],
+    images: ['/images/articles/height-and-sports.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function HeightAndSportsPage() {
       heroImage="/images/articles/height-and-sports.jpg"
       heroAlt="身長を測っている子ども"
       publishDate="2025年4月"
+      slug="height-and-sports"
+      description="「バレーは身長が伸びる」「筋トレで身長が止まる」本当？子どものスポーツと身長の関係を科学データで徹底解説します。"
       tags={['身長', 'スポーツ', '成長']}
       shareText="スポーツで身長が止まるって本当？科学的な真実を解説します。 #子育て #身長"
     >

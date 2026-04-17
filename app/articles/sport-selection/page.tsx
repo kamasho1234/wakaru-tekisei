@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どもの習い事でスポーツを選ぶ5つのポイント|後悔しない選び方',
     description:
       '子どもに合ったスポーツの習い事の選び方を5つのポイントで解説。適性・興味・体力・時期・環境を考慮した後悔しない選び方をご紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/sport-selection.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/sport-selection',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの習い事でスポーツを選ぶ5つのポイント|後悔しない選び方',
-    images: ['/og-image.png'],
+    images: ['/images/articles/sport-selection.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function SportSelectionPage() {
       heroImage="/images/articles/sport-selection.jpg"
       heroAlt="子どもにスポーツを指導するコーチ"
       publishDate="2025年4月"
+      slug="sport-selection"
+      description="子どもに合ったスポーツの習い事の選び方を5つのポイントで解説。適性・興味・体力・時期・環境を考慮した後悔しない選び方をご紹介します。"
       tags={['習い事', 'スポーツ選び', '子育て']}
       shareText="子どものスポーツ習い事で後悔しない選び方5つのポイント。適性診断も活用しよう! #子育て #習い事"
     >

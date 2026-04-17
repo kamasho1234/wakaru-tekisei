@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どもの練習しすぎ（オーバートレーニング）のサインと対処法',
     description:
       '頑張りすぎの子どもは危険信号が出ています。オーバートレーニング症候群の症状と、親が気づくべきサインを解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/overtraining-kids.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/overtraining-kids',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの練習しすぎ（オーバートレーニング）のサインと対処法',
-    images: ['/og-image.png'],
+    images: ['/images/articles/overtraining-kids.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function OvertainingKidsPage() {
       heroImage="/images/articles/overtraining-kids.jpg"
       heroAlt="疲れた様子で休んでいる子ども"
       publishDate="2025年4月"
+      slug="overtraining-kids"
+      description="頑張りすぎの子どもは危険信号が出ています。オーバートレーニング症候群の症状と、親が気づくべきサインを解説します。"
       tags={['オーバートレーニング', 'スポーツ障害', '子育て']}
       shareText="子どもの練習しすぎのサインを見逃さないで。オーバートレーニング症候群を解説。 #子育て #スポーツ障害"
     >

@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '成長板（骨端線）損傷とは？子どものスポーツで注意すべきこと',
     description:
       '子どもの骨には大人にはない「成長板」があります。スポーツ中の成長板損傷のリスクと、親が注意すべきことを解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/growth-plate-injury.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/growth-plate-injury',
   },
   twitter: {
     card: 'summary_large_image',
     title: '成長板（骨端線）損傷とは？子どものスポーツで注意すべきこと',
-    images: ['/og-image.png'],
+    images: ['/images/articles/growth-plate-injury.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function GrowthPlateInjuryPage() {
       heroImage="/images/articles/growth-plate-injury.jpg"
       heroAlt="膝を押さえている子どもと心配する親"
       publishDate="2025年4月"
+      slug="growth-plate-injury"
+      description="子どもの骨には大人にはない「成長板」があります。スポーツ中の成長板損傷のリスクと、親が注意すべきことを解説します。"
       tags={['成長板', '骨端線', 'スポーツ障害']}
       shareText="子どもの骨の「成長板」損傷リスクとスポーツの関係。親が知っておくべき知識。 #子育て #スポーツ障害"
     >

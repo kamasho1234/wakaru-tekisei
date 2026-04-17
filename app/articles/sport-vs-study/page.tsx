@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: 'スポーツと勉強の両立はできる？脳科学が教える意外な関係',
     description:
       'スポーツに時間を取られて成績が下がる？実は逆。運動が脳の学習能力を高めることが科学的に証明されています。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/sport-vs-study.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/sport-vs-study',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツと勉強の両立はできる？脳科学が教える意外な関係',
-    images: ['/og-image.png'],
+    images: ['/images/articles/sport-vs-study.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function SportVsStudyPage() {
       heroImage="/images/articles/sport-vs-study.jpg"
       heroAlt="勉強とスポーツを両立している子ども"
       publishDate="2025年4月"
+      slug="sport-vs-study"
+      description="スポーツに時間を取られて成績が下がる？実は逆。運動が脳の学習能力を高めることが科学的に証明されています。"
       tags={['勉強との両立', '脳科学', 'スポーツ']}
       shareText="スポーツすると頭が良くなる？脳科学が証明する運動と学習能力の関係。 #子育て #勉強"
     >

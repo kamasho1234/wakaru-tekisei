@@ -13,8 +13,12 @@ interface ArticleLayoutProps {
   tags: string[];
   shareText: string;
   citations?: string[];
+  slug?: string;
+  description?: string;
   children: ReactNode;
 }
+
+const siteUrl = 'https://tekisei-sport.com';
 
 export default function ArticleLayout({
   title,
@@ -24,10 +28,51 @@ export default function ArticleLayout({
   tags,
   shareText,
   citations,
+  slug,
+  description,
   children,
 }: ArticleLayoutProps) {
+  const articleUrl = slug ? `${siteUrl}/articles/${slug}` : siteUrl;
+  const imageUrl = `${siteUrl}${heroImage}`;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description ?? title,
+    image: imageUrl,
+    url: articleUrl,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: {
+      '@type': 'Organization',
+      name: 'わかる！子どものスポーツ適性',
+      url: siteUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'わかる！子どものスポーツ適性',
+      url: siteUrl,
+      logo: { '@type': 'ImageObject', url: `${siteUrl}/icon.png` },
+    },
+    keywords: tags.join(', '),
+    inLanguage: 'ja',
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'トップ', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: '記事一覧', item: `${siteUrl}/articles` },
+      { '@type': 'ListItem', position: 3, name: title, item: articleUrl },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-[#F7F9FF]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* パンくずリスト */}
       <div className="max-w-3xl mx-auto px-4 py-4 text-sm text-gray-500">
         <Link href="/" className="hover:text-gray-900">

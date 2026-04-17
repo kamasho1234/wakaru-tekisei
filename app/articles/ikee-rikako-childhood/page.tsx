@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',
     description:
       '競泳のスター・池江璃花子選手の子供時代。3歳から水泳を始め、白血病を乗り越えたその原点を紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/ikee-rikako-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ikee-rikako-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',
-    images: ['/og-image.png'],
+    images: ['/images/articles/ikee-rikako-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function IkeeRikakoChildhoodPage() {
       heroImage="/images/articles/ikee-rikako-childhood.jpg"
       heroAlt="プールで泳ぐ子ども"
       publishDate="2025年4月"
+      slug="ikee-rikako-childhood"
+      description="競泳のスター・池江璃花子選手の子供時代。3歳から水泳を始め、白血病を乗り越えたその原点を紹介します。"
       tags={['池江璃花子', '水泳', '幼少期']}
       shareText="池江璃花子選手が3歳で水泳を始め5歳で4泳法を習得した話。白血病を乗り越えた原点。 #池江璃花子 #水泳"
       citations={['https://ja.wikipedia.org/wiki/%E6%B1%A0%E6%B1%9F%E7%92%83%E8%8A%B1%E5%AD%90']}

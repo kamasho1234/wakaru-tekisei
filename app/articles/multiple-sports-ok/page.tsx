@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '子どもが複数のスポーツを掛け持ちしても大丈夫？メリットと注意点',
     description:
       'サッカーと水泳を両方やりたい、体操と体育クラブを掛け持ちしたい。複数スポーツ習い事の科学的なメリットと注意点を解説。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/multiple-sports-ok.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/multiple-sports-ok',
   },
   twitter: {
     card: 'summary_large_image',
     title: '子どもが複数のスポーツを掛け持ちしても大丈夫？メリットと注意点',
-    images: ['/og-image.png'],
+    images: ['/images/articles/multiple-sports-ok.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function MultipleSportsOkPage() {
       heroImage="/images/articles/multiple-sports-ok.jpg"
       heroAlt="複数のスポーツ用具を持った子ども"
       publishDate="2025年4月"
+      slug="multiple-sports-ok"
+      description="サッカーと水泳を両方やりたい、体操と体育クラブを掛け持ちしたい。複数スポーツ習い事の科学的なメリットと注意点を解説。"
       tags={['掛け持ち', '習い事', 'マルチスポーツ']}
       shareText="子どもの習い事スポーツ掛け持ちはOK？科学的なメリットと注意点。 #子育て #習い事"
     >

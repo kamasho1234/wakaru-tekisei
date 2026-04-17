@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: 'スポーツチームでのいじめ・人間関係トラブル。親の対処法',
     description:
       'チームメイトとの関係が心配、上下関係が気になる。スポーツチーム特有のいじめ・人間関係問題を親はどう解決すればいいか。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/team-bullying-sports.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/team-bullying-sports',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツチームでのいじめ・人間関係トラブル。親の対処法',
-    images: ['/og-image.png'],
+    images: ['/images/articles/team-bullying-sports.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function TeamBullyingSportsPage() {
       heroImage="/images/articles/team-bullying-sports.jpg"
       heroAlt="仲良く練習する子どもたちのチーム"
       publishDate="2025年4月"
+      slug="team-bullying-sports"
+      description="チームメイトとの関係が心配、上下関係が気になる。スポーツチーム特有のいじめ・人間関係問題を親はどう解決すればいいか。"
       tags={['いじめ', 'スポーツチーム', '人間関係']}
       shareText="スポーツチームでのいじめや人間関係トラブル。親としての正しい対処法を解説。 #子育て #いじめ"
     >

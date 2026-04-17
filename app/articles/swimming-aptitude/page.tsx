@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '水泳に向いている子の特徴|持久力と柔軟性で見る習い事適性',
     description:
       '子どもが水泳に向いているかどうかの判断ポイントを解説。持久力・柔軟性・筋力の関係と、水泳教室選びのコツも紹介します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/swimming-aptitude.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/swimming-aptitude',
   },
   twitter: {
     card: 'summary_large_image',
     title: '水泳に向いている子の特徴|持久力と柔軟性で見る習い事適性',
-    images: ['/og-image.png'],
+    images: ['/images/articles/swimming-aptitude.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function SwimmingAptitudePage() {
       heroImage="/images/articles/swimming-aptitude.jpg"
       heroAlt="プールで泳ぐ子どもたち"
       publishDate="2025年4月"
+      slug="swimming-aptitude"
+      description="子どもが水泳に向いているかどうかの判断ポイントを解説。持久力・柔軟性・筋力の関係と、水泳教室選びのコツも紹介します。"
       tags={['水泳', '適性診断', '習い事']}
       shareText="水泳に向いている子の特徴を持久力・柔軟性のデータで解説。習わせる前に確認! #子育て #水泳"
     >

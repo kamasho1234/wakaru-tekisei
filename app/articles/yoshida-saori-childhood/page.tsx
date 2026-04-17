@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '吉田沙保里の子供時代｜金メダルを見て泣いた5歳の女の子',
     description:
       '霊長類最強女子・吉田沙保里選手の子供時代。5歳の初試合で敗れ、金メダルを見て泣いたことが原点。レスリング一家での幼少期を紹介。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/yoshida-saori-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/yoshida-saori-childhood',
   },
   twitter: {
     card: 'summary_large_image',
     title: '吉田沙保里の子供時代｜金メダルを見て泣いた5歳の女の子',
-    images: ['/og-image.png'],
+    images: ['/images/articles/yoshida-saori-childhood.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function YoshidaSaoriChildhoodPage() {
       heroImage="/images/articles/yoshida-saori-childhood.jpg"
       heroAlt="レスリングの練習をする子ども"
       publishDate="2025年4月"
+      slug="yoshida-saori-childhood"
+      description="霊長類最強女子・吉田沙保里選手の子供時代。5歳の初試合で敗れ、金メダルを見て泣いたことが原点。レスリング一家での幼少期を紹介。"
       tags={['吉田沙保里', 'レスリング', '幼少期']}
       shareText="吉田沙保里選手が5歳で試合に負けて「金メダルがほしい」と泣いた話。 #吉田沙保里 #レスリング"
       citations={['https://ja.wikipedia.org/wiki/%E5%90%89%E7%94%B0%E6%B2%99%E4%BF%9D%E9%87%8C']}

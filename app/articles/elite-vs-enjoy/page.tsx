@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     title: '強いチームと楽しいチーム、どちらに入れるべき？判断基準を解説',
     description:
       '勝利を追求する強豪チームか、楽しさ重視のチームか。子どものスポーツチーム選びで迷う親御さんへ、判断基準を解説します。',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/articles/elite-vs-enjoy.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/elite-vs-enjoy',
   },
   twitter: {
     card: 'summary_large_image',
     title: '強いチームと楽しいチーム、どちらに入れるべき？判断基準を解説',
-    images: ['/og-image.png'],
+    images: ['/images/articles/elite-vs-enjoy.jpg'],
   },
 };
 
@@ -27,6 +27,8 @@ export default function EliteVsEnjoyPage() {
       heroImage="/images/articles/elite-vs-enjoy.jpg"
       heroAlt="チームメイトと笑顔でスポーツを楽しむ子どもたち"
       publishDate="2025年4月"
+      slug="elite-vs-enjoy"
+      description="勝利を追求する強豪チームか、楽しさ重視のチームか。子どものスポーツチーム選びで迷う親御さんへ、判断基準を解説します。"
       tags={['チーム選び', '習い事', 'スポーツ']}
       shareText="強いチームvs楽しいチーム、どちらが子どもの成長に良い？正しい選び方を解説。 #子育て #習い事"
     >
