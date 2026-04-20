@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/uchimura-kohei-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/uchimura-kohei-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '内村航平の子供時代｜体操一家で育った「遅咲きの天才」の原点',

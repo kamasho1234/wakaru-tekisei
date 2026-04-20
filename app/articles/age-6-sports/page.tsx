@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-6-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-6-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '6歳の子どもに向いているスポーツ｜小学校入学期の運動発達と習い事の選び方',

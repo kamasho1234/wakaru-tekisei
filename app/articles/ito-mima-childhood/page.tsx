@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ito-mima-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/ito-mima-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '伊藤美誠の子供時代｜2歳で卓球を始め、母と二人三脚で歩んだ道',

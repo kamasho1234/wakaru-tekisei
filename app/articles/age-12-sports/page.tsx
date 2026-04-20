@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-12-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-12-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '12歳の子どもに向いているスポーツ｜ゴールデンエイジ終期と思春期スポーツ戦略',

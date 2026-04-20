@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-slow-runner',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/child-slow-runner',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '足が遅い子は運動神経が悪いの？親が知っておくべき本当のこと',

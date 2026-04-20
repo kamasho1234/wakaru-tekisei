@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/sport-vs-study',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/sport-vs-study',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツと勉強の両立はできる？脳科学が教える意外な関係',

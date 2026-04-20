@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/height-and-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/height-and-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツをすると身長が止まる？科学的に正しい知識を解説',

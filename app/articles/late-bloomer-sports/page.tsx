@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/late-bloomer-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/late-bloomer-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツの「晩成型」とは？子どもの成長を焦らなくていい理由',

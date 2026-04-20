@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/basketball-aptitude',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/basketball-aptitude',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'バスケットボールに向いている子の特徴|敏捷性と瞬発力で見る適性',

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-8-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-8-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '8歳の子どもに向いているスポーツ｜小学3年生の巧緻性発達とスポーツ適性',

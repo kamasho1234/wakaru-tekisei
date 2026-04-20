@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/nishiya-momiji-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/nishiya-momiji-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '西矢椛の子供時代｜6歳でスケボーを始め13歳で五輪金メダルを獲った少女',

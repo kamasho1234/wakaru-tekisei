@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-quit-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/child-quit-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '習い事のスポーツを「辞めたい」と言ったときの正しい対応',

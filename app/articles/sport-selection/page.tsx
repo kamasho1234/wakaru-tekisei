@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/sport-selection',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/sport-selection',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの習い事でスポーツを選ぶ5つのポイント|後悔しない選び方',

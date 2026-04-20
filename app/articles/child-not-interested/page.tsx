@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-not-interested',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/child-not-interested',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どもがスポーツに興味がない…無理に始めさせるべき？',

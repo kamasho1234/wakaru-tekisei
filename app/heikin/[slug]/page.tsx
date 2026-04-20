@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${age}歳(${genderJp})の新体力テスト全国平均 | 8種目一覧 | わかる！子どものスポーツ適性`,
     description: `${age}歳${genderJp}の新体力テスト8種目の全国平均値。握力、上体起こし、長座体前屈、反復横とび、シャトルラン、50m走、立ち幅跳び、ボール投げの平均値を掲載しています。`,
+    alternates: {
+      canonical: `https://tekisei-sport.com/heikin/${slug}`,
+    },
   };
 }
 

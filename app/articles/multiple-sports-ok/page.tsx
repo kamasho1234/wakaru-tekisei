@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/multiple-sports-ok',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/multiple-sports-ok',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どもが複数のスポーツを掛け持ちしても大丈夫？メリットと注意点',

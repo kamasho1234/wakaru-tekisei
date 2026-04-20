@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-7-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-7-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '7歳の子どもに向いているスポーツ｜小学2年生の運動発達と適性の見極め方',

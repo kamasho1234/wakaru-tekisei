@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/girls-sports-puberty',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/girls-sports-puberty',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '思春期前後の女の子とスポーツ：親が知っておくべきこと',

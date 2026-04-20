@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/weight-and-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/weight-and-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '体が大きい子・小さい子に向いているスポーツはどれ？',

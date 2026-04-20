@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-11-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-11-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '11歳の子どもに向いているスポーツ｜ゴールデンエイジ後期と専門化の始め方',

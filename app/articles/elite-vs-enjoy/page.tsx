@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/elite-vs-enjoy',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/elite-vs-enjoy',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '強いチームと楽しいチーム、どちらに入れるべき？判断基準を解説',

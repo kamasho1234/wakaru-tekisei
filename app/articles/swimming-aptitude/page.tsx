@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/swimming-aptitude',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/swimming-aptitude',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '水泳に向いている子の特徴|持久力と柔軟性で見る習い事適性',

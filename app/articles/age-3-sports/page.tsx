@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-3-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-3-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '3歳の子どもに向いているスポーツ｜運動発達の特徴と習い事の始め方',

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/team-bullying-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/team-bullying-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツチームでのいじめ・人間関係トラブル。親の対処法',

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/fitness-test-guide',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/fitness-test-guide',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '小学生の新体力テスト完全ガイド|8種目の見方と平均値の活用法',

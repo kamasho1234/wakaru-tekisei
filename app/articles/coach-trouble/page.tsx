@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/coach-trouble',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/coach-trouble',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'スポーツのコーチに不信感…親はどう対処すべき？',

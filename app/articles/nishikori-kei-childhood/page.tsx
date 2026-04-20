@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/nishikori-kei-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/nishikori-kei-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年',

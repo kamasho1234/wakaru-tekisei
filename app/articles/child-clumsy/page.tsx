@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/child-clumsy',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/child-clumsy',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '不器用な子・運動が苦手な子は伸びない？正しい関わり方',

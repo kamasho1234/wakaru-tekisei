@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/martial-arts-aptitude',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/martial-arts-aptitude',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '空手・柔道に向いている子の特徴|武道で伸びる子の共通点と習い事効果',

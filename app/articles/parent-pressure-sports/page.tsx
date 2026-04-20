@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/parent-pressure-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/parent-pressure-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '親の期待がプレッシャーになっていないか？スポーツ心理学で考える',

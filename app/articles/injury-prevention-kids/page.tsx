@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/injury-prevention-kids',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/injury-prevention-kids',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どものスポーツ障害を防ぐために親ができること',

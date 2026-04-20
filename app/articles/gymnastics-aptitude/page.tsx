@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/gymnastics-aptitude',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/gymnastics-aptitude',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '体操・体育系に向いている子の特徴|柔軟性と巧緻性で見る適性診断',

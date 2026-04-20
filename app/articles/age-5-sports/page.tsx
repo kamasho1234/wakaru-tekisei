@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-5-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-5-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '5歳の子どもに向いているスポーツ｜幼児期後半の運動発達と習い事の選び方',

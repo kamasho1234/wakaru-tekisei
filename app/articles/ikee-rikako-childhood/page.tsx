@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ikee-rikako-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/ikee-rikako-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',

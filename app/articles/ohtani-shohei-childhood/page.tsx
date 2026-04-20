@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ohtani-shohei-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/ohtani-shohei-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '大谷翔平の子供時代|野球を始めた年齢・家族・幼少期エピソード',

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/motor-development',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/motor-development',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの運動神経はいつまでに鍛えれば良い?年齢別発達の目安と対処法',

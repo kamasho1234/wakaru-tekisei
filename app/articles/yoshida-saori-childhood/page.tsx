@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/yoshida-saori-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/yoshida-saori-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '吉田沙保里の子供時代｜金メダルを見て泣いた5歳の女の子',

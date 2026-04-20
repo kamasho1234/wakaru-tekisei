@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/overtraining-kids',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/overtraining-kids',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの練習しすぎ（オーバートレーニング）のサインと対処法',

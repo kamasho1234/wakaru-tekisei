@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/age-10-sports',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/age-10-sports',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '10歳の子どもに向いているスポーツ｜ゴールデンエイジ中期の技術習得と専門化',

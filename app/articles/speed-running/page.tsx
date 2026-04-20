@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/speed-running',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/speed-running',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '50m走が速い子の特徴と走力を伸ばす方法|新体力テストから読み解く瞬発力',

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/soccer-aptitude',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/soccer-aptitude',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'サッカーに向いている子の特徴|体力データから見る適性の見極め方',

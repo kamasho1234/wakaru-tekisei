@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/how-to-cheer-kids',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/how-to-cheer-kids',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '子どもの試合を正しく応援する方法：NGとOKを解説',

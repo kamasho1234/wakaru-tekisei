@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/hanyu-yuzuru-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/hanyu-yuzuru-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '羽生結弦の子供時代|スケートを始めたきっかけは喘息だった',

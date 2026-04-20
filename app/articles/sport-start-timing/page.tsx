@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/sport-start-timing',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/sport-start-timing',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '何歳からスポーツを始めるべき？年齢別の適切なタイミング',

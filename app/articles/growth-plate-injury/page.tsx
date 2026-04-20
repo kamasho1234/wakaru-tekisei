@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/growth-plate-injury',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/growth-plate-injury',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '成長板（骨端線）損傷とは？子どものスポーツで注意すべきこと',

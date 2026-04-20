@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/parent-not-sporty',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/parent-not-sporty',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '親が運動オンチでも子どもは運動できる？遺伝と環境を解説',

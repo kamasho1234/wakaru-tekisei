@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/horigome-yuto-childhood',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/horigome-yuto-childhood',
+  },
   twitter: {
     card: 'summary_large_image',
     title: '堀米雄斗の子供時代｜父の「こっそりスケボー」から始まった五輪2連覇への道',

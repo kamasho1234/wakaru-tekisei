@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     type: 'article',
     url: 'https://tekisei-sport.com/articles/golden-age',
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/articles/golden-age',
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'ゴールデンエイジとは？9～12歳が「運動神経の黄金期」と呼ばれる理由',
