@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     description: '新体力テストの数値を入力するだけで、向いているスポーツと運動発達が今すぐ分かります。無料・登録不要。',
     images: ['/og-image.png'],
   },
+  alternates: {
+    canonical: 'https://tekisei-sport.com/',
+  },
   robots: {
     index: true,
     follow: true,
