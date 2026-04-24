@@ -182,6 +182,26 @@ const ARTICLES = [
     prompt: 'A young Japanese boy around 5-7 years old riding a skateboard at a sunny outdoor park, father watching proudly nearby, joyful expression, urban Tokyo park setting, photorealistic, high quality, 16:9 aspect ratio',
   },
   {
+    filename: 'kitajima-kosuke-childhood.jpg',
+    prompt: 'A young Japanese chubby boy around 6 years old learning breaststroke in a bright indoor swimming pool, swimming instructor guiding him, colorful goggles, excited expression, blue water reflections, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'fukuhara-ai-childhood.jpg',
+    prompt: 'A young Japanese girl around 3-5 years old playing table tennis with a small paddle, mother coaching from across the table with a smile, bright indoor training room, focused and adorable expression, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'miyazato-ai-childhood.jpg',
+    prompt: 'A young Japanese girl around 4-6 years old swinging a small golf club on a sunny golf course in Okinawa, father and two older brothers watching encouragingly, tropical greenery in background, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'nakamura-shunsuke-childhood.jpg',
+    prompt: 'A small Japanese elementary school boy practicing soccer free kicks alone against a wall in an urban park, determined expression, worn soccer ball, afternoon sunlight, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'ishikawa-kasumi-childhood.jpg',
+    prompt: 'A young Japanese girl around 5-7 years old practicing table tennis with her father in a home training room, father is a coach demonstrating technique, warm indoor lighting, focused expressions, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
     filename: 'age-3-sports.jpg',
     prompt: 'Japanese toddler aged 3 doing fun gymnastics stretches on colorful mats with a cheerful instructor, bright indoor gym, smiling and playful, photorealistic, high quality, 16:9 aspect ratio',
   },
