@@ -34,6 +34,10 @@ const athleteArticles = [
   { slug: 'takahashi-ran-childhood',       title: '高橋藍の子供時代｜兄の背中を追ってバレー界の新星へ',                    image: '/images/articles/takahashi-ran-childhood.jpg',       tags: ['高橋藍', 'バレー'] },
   { slug: 'nakayama-funa-childhood',       title: '中山楓奈の子供時代｜2大会連続五輪メダリストの原点',                      image: '/images/articles/nakayama-funa-childhood.jpg',       tags: ['中山楓奈', 'スケボー'] },
   { slug: 'seto-daiya-childhood',          title: '瀬戸大也の子供時代｜4歳から始めた水泳で世界選手権金メダリストへ',        image: '/images/articles/seto-daiya-childhood.jpg',          tags: ['瀬戸大也', '水泳'] },
+  { slug: 'murakami-munetaka-childhood',   title: '村上宗隆の子供時代｜小学校から始めた野球で三冠王・ホームラン王への道',   image: '/images/articles/murakami-munetaka-childhood.jpg',   tags: ['村上宗隆', '野球'] },
+  { slug: 'suzuki-seiya-childhood',        title: '鈴木誠也の子供時代｜東京下町から広島・MLBへ駆け上がった野球人生',       image: '/images/articles/suzuki-seiya-childhood.jpg',        tags: ['鈴木誠也', '野球'] },
+  { slug: 'darvish-yu-childhood',          title: 'ダルビッシュ有の子供時代｜大阪で始めた野球でMLBを代表する投手へ',       image: '/images/articles/darvish-yu-childhood.jpg',          tags: ['ダルビッシュ有', '野球'] },
+  { slug: 'kikuchi-yusei-childhood',       title: '菊池雄星の子供時代｜大谷翔平と同じ花巻東から世界へ羽ばたいた左腕',     image: '/images/articles/kikuchi-yusei-childhood.jpg',       tags: ['菊池雄星', '野球'] },
 ];
 
 const latestArticles = [
