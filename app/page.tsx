@@ -38,6 +38,17 @@ const athleteArticles = [
   { slug: 'suzuki-seiya-childhood',        title: '鈴木誠也の子供時代｜東京下町から広島・MLBへ駆け上がった野球人生',       image: '/images/articles/suzuki-seiya-childhood.jpg',        tags: ['鈴木誠也', '野球'] },
   { slug: 'darvish-yu-childhood',          title: 'ダルビッシュ有の子供時代｜大阪で始めた野球でMLBを代表する投手へ',       image: '/images/articles/darvish-yu-childhood.jpg',          tags: ['ダルビッシュ有', '野球'] },
   { slug: 'kikuchi-yusei-childhood',       title: '菊池雄星の子供時代｜大谷翔平と同じ花巻東から世界へ羽ばたいた左腕',     image: '/images/articles/kikuchi-yusei-childhood.jpg',       tags: ['菊池雄星', '野球'] },
+  { slug: 'mitoma-kaoru-childhood',        title: '三笘薫の子供時代｜川崎生まれのドリブラーがプレミアリーグへ至るまで',   image: '/images/articles/mitoma-kaoru-childhood.jpg',        tags: ['三笘薫', 'サッカー'] },
+  { slug: 'doan-ritsu-childhood',          title: '堂安律の子供時代｜ガンバ大阪の名門アカデミーからブンデスリーガへ',     image: '/images/articles/doan-ritsu-childhood.jpg',          tags: ['堂安律', 'サッカー'] },
+  { slug: 'ito-junya-childhood',           title: '伊東純也の子供時代｜遅咲きのスプリンターが世界トップへ駆け上がるまで', image: '/images/articles/ito-junya-childhood.jpg',           tags: ['伊東純也', 'サッカー'] },
+  { slug: 'tomiyasu-takehiro-childhood',   title: '冨安健洋の子供時代｜福岡育ちの万能DFがアーセナルの主力へ至るまで',   image: '/images/articles/tomiyasu-takehiro-childhood.jpg',   tags: ['冨安健洋', 'サッカー'] },
+  { slug: 'minamino-takumi-childhood',     title: '南野拓実の子供時代｜セレッソ大阪の英才教育からリバプールへ',           image: '/images/articles/minamino-takumi-childhood.jpg',     tags: ['南野拓実', 'サッカー'] },
+  { slug: 'kubo-takefusa-childhood',       title: '久保建英の子供時代｜10歳でバルセロナに渡った天才少年の原点',           image: '/images/articles/kubo-takefusa-childhood.jpg',       tags: ['久保建英', 'サッカー'] },
+  { slug: 'endo-wataru-childhood',         title: '遠藤航の子供時代｜横浜生まれの闘将がリバプールの主将へ至るまで',       image: '/images/articles/endo-wataru-childhood.jpg',         tags: ['遠藤航', 'サッカー'] },
+  { slug: 'nakata-hidetoshi-childhood',    title: '中田英寿の子供時代｜山梨の少年がセリエAのスターへ—日本サッカーの先駆者', image: '/images/articles/nakata-hidetoshi-childhood.jpg',    tags: ['中田英寿', 'サッカー'] },
+  { slug: 'nagatomo-yuto-childhood',       title: '長友佑都の子供時代｜愛媛の少年がインテル・ミランの左SBへ這い上がるまで', image: '/images/articles/nagatomo-yuto-childhood.jpg',       tags: ['長友佑都', 'サッカー'] },
+  { slug: 'kagawa-shinji-childhood',       title: '香川真司の子供時代｜セレッソ大阪の神童がドルトムントとマンUへ',       image: '/images/articles/kagawa-shinji-childhood.jpg',       tags: ['香川真司', 'サッカー'] },
+  { slug: 'honda-keisuke-childhood',       title: '本田圭佑の子供時代｜大阪の少年がACミランのエースへ—強さの原点',       image: '/images/articles/honda-keisuke-childhood.jpg',       tags: ['本田圭佑', 'サッカー'] },
 ];
 
 const latestArticles = [
