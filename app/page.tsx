@@ -72,6 +72,16 @@ const latestArticles = [
   { slug: 'age-10-sports',         title: '10歳の子どもに向いているスポーツ｜ゴールデンエイジ中期',            image: '/images/articles/age-10-sports.jpg',         tags: ['10歳', 'ゴールデンエイジ'] },
   { slug: 'age-11-sports',         title: '11歳の子どもに向いているスポーツ｜ゴールデンエイジ後期',            image: '/images/articles/age-11-sports.jpg',         tags: ['11歳', '小学6年生'] },
   { slug: 'age-12-sports',         title: '12歳の子どもに向いているスポーツ｜ゴールデンエイジ終期',            image: '/images/articles/age-12-sports.jpg',         tags: ['12歳', '中学1年生'] },
+  { slug: 'kids-nutrition-sports',  title: '子どものスポーツと栄養・食事の基本｜運動能力を引き出す食べ方',      image: '/images/articles/kids-nutrition-sports.jpg',  tags: ['栄養', '食事'] },
+  { slug: 'indoor-rainy-day-sports', title: '雨の日でもできる子どもの室内スポーツ・運動10選',                  image: '/images/articles/indoor-rainy-day-sports.jpg', tags: ['室内運動', '雨の日'] },
+  { slug: 'kids-sleep-sports',      title: '子どものスポーツと睡眠の関係｜成長ホルモンと回復力を最大化する方法', image: '/images/articles/kids-sleep-sports.jpg',      tags: ['睡眠', '成長ホルモン'] },
+  { slug: 'introverted-kids-sports', title: '人見知り・内向的な子に向いているスポーツ｜個人競技で自信をつける', image: '/images/articles/introverted-kids-sports.jpg', tags: ['人見知り', '個人競技'] },
+  { slug: 'kids-core-training',     title: '子どもの体幹トレーニング入門｜何歳から？家でできるメニュー7選',    image: '/images/articles/kids-core-training.jpg',     tags: ['体幹', 'トレーニング'] },
+  { slug: 'sports-club-choosing',   title: '子どものスポーツクラブ・少年団の選び方｜後悔しない7つのチェックポイント', image: '/images/articles/sports-club-choosing.jpg',   tags: ['クラブ選び', '少年団'] },
+  { slug: 'heat-stroke-sports-kids', title: '子どものスポーツ中の熱中症対策｜症状の見分け方・予防・応急処置',   image: '/images/articles/heat-stroke-sports-kids.jpg', tags: ['熱中症', '水分補給'] },
+  { slug: 'left-handed-sports',     title: '左利きの子どもに有利なスポーツとは｜利き手を活かせる種目を解説',    image: '/images/articles/left-handed-sports.jpg',     tags: ['左利き', '適性'] },
+  { slug: 'sports-cost-comparison',  title: '子どものスポーツ習い事の費用・月謝比較｜種目別コストと選び方',      image: '/images/articles/sports-cost-comparison.jpg',  tags: ['費用', '月謝'] },
+  { slug: 'kids-posture-sports',    title: '子どもの姿勢改善に効果的なスポーツ｜猫背・反り腰を直す種目と運動',  image: '/images/articles/kids-posture-sports.jpg',    tags: ['姿勢', '猫背改善'] },
 ];
 
 const sportImages = [

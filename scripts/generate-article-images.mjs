@@ -241,6 +241,46 @@ const ARTICLES = [
     filename: 'age-12-sports.jpg',
     prompt: 'Japanese 12-year-old child in middle school sports practice, confident and athletic posture, soccer field or gymnasium, sunset golden light, photorealistic, high quality, 16:9 aspect ratio',
   },
+  {
+    filename: 'kids-nutrition-sports.jpg',
+    prompt: 'Japanese child eating a healthy balanced meal after sports practice, rice vegetables protein on table, kitchen background, warm family setting, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'indoor-rainy-day-sports.jpg',
+    prompt: 'Japanese children doing indoor exercises and sports activities on a rainy day, jump rope dancing yoga poses in a bright living room or gym, smiling and energetic, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'kids-sleep-sports.jpg',
+    prompt: 'Japanese child sleeping peacefully in a cozy bedroom after sports practice, soft warm lighting, comfortable bed, calm nighttime atmosphere, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'introverted-kids-sports.jpg',
+    prompt: 'A quiet focused Japanese child practicing individual sport swimming or gymnastics alone in a bright facility, concentrated expression, calm atmosphere, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'kids-core-training.jpg',
+    prompt: 'Japanese child doing core exercises plank and balance training on a mat at home, parent encouraging from the side, bright living room, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'sports-club-choosing.jpg',
+    prompt: 'Japanese parent and child visiting a sports club to watch a practice session, observing children playing soccer or swimming in a bright facility, thoughtful evaluation moment, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'heat-stroke-sports-kids.jpg',
+    prompt: 'Japanese child drinking water during a break in outdoor sports practice on a sunny summer day, coach handing water bottle, shade structure nearby, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'left-handed-sports.jpg',
+    prompt: 'Japanese left-handed child pitching a baseball or hitting a tennis ball, left arm dominant action shot, determined focused expression, outdoor sports setting, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'sports-cost-comparison.jpg',
+    prompt: 'Japanese parent and child looking at sports equipment and prices in a sports store, various sports gear around, thoughtful shopping decision, bright store interior, photorealistic, high quality, 16:9 aspect ratio',
+  },
+  {
+    filename: 'kids-posture-sports.jpg',
+    prompt: 'Japanese child standing tall with perfect posture during ballet or gymnastics class, straight back and elegant form, bright studio with mirrors, instructor nearby, photorealistic, high quality, 16:9 aspect ratio',
+  },
 ];
 
 async function generateImage(article, retries = 3) {

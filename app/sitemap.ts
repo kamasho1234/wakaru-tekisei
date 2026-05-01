@@ -92,6 +92,16 @@ const articles = [
   'age-10-sports',
   'age-11-sports',
   'age-12-sports',
+  'kids-nutrition-sports',
+  'indoor-rainy-day-sports',
+  'kids-sleep-sports',
+  'introverted-kids-sports',
+  'kids-core-training',
+  'sports-club-choosing',
+  'heat-stroke-sports-kids',
+  'left-handed-sports',
+  'sports-cost-comparison',
+  'kids-posture-sports',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
