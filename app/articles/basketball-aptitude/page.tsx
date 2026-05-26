@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
 
 export const metadata: Metadata = {
-  title: 'バスケットボールに向いている子の特徴|敏捷性と瞬発力で見る適性',
+  title: 'バスケに向いている子の特徴｜身長だけじゃない！性格・運動能力で見る適性',
   description:
-    '子どもがバスケットボールに向いているかどうかを、反復横とびや50m走のデータから解説。身長以外の重要な要素も紹介します。',
+    'バスケに向いている子の特徴を身長・性格・運動能力から解説。ミニバスを始める前に知っておきたい適性のポイントと、伸びる子の共通点を紹介。',
   openGraph: {
-    title: 'バスケットボールに向いている子の特徴|敏捷性と瞬発力で見る適性',
+    title: 'バスケに向いている子の特徴｜身長だけじゃない！性格・運動能力で見る適性',
     description:
-      '子どもがバスケットボールに向いているかどうかを、反復横とびや50m走のデータから解説。身長以外の重要な要素も紹介します。',
+      'バスケに向いている子の特徴を身長・性格・運動能力から解説。ミニバスを始める前に知っておきたい適性のポイントと、伸びる子の共通点を紹介。',
     images: [{ url: '/images/articles/basketball-aptitude.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/basketball-aptitude',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'バスケットボールに向いている子の特徴|敏捷性と瞬発力で見る適性',
+    title: 'バスケに向いている子の特徴｜身長だけじゃない！性格・運動能力で見る適性',
     images: ['/images/articles/basketball-aptitude.jpg'],
   },
 };
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export default function BasketballAptitudePage() {
   return (
     <ArticleLayout
-      title="バスケットボールに向いている子の特徴|敏捷性と瞬発力で見る適性"
+      title="バスケに向いている子の特徴｜身長だけじゃない！性格・運動能力で見る適性"
       heroImage="/images/articles/basketball-aptitude.jpg"
       heroAlt="バスケットボールをしている子どもたち"
       publishDate="2025年4月"
       slug="basketball-aptitude"
-      description="子どもがバスケットボールに向いているかどうかを、反復横とびや50m走のデータから解説。身長以外の重要な要素も紹介します。"
+      description="バスケに向いている子の特徴を身長・性格・運動能力から解説。ミニバスを始める前に知っておきたい適性のポイントと、伸びる子の共通点を紹介。"
       tags={['バスケットボール', '適性診断', '習い事']}
       shareText="バスケに向いている子の特徴は身長だけじゃない!敏捷性・瞬発力データで徹底解説。 #バスケ #子育て"
     >

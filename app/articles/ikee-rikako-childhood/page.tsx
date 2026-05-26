@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
 
 export const metadata: Metadata = {
-  title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',
+  title: '池江璃花子の幼少期・子供時代｜3歳で水泳を始め5歳で4泳法マスター',
   description:
-    '競泳のスター・池江璃花子選手の子供時代。3歳から水泳を始め、白血病を乗り越えたその原点を紹介します。',
+    '池江璃花子選手の幼少期・子供時代を紹介。3歳から水泳を始め、5歳で4泳法をマスター。白血病を乗り越えた強さの原点と家族のサポートを解説。',
   openGraph: {
-    title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',
+    title: '池江璃花子の幼少期・子供時代｜3歳で水泳を始め5歳で4泳法マスター',
     description:
-      '競泳のスター・池江璃花子選手の子供時代。3歳から水泳を始め、白血病を乗り越えたその原点を紹介します。',
+      '池江璃花子選手の幼少期・子供時代を紹介。3歳から水泳を始め、5歳で4泳法をマスター。白血病を乗り越えた強さの原点と家族のサポートを解説。',
     images: [{ url: '/images/articles/ikee-rikako-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/ikee-rikako-childhood',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女',
+    title: '池江璃花子の幼少期・子供時代｜3歳で水泳を始め5歳で4泳法マスター',
     images: ['/images/articles/ikee-rikako-childhood.jpg'],
   },
 };
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export default function IkeeRikakoChildhoodPage() {
   return (
     <ArticleLayout
-      title="池江璃花子の子供時代｜3歳で水泳を始め、5歳で4泳法を泳いだ少女"
+      title="池江璃花子の幼少期・子供時代｜3歳で水泳を始め5歳で4泳法マスター"
       heroImage="/images/articles/ikee-rikako-childhood.jpg"
       heroAlt="プールで泳ぐ子ども"
       publishDate="2025年4月"
       slug="ikee-rikako-childhood"
-      description="競泳のスター・池江璃花子選手の子供時代。3歳から水泳を始め、白血病を乗り越えたその原点を紹介します。"
+      description="池江璃花子選手の幼少期・子供時代を紹介。3歳から水泳を始め、5歳で4泳法をマスター。白血病を乗り越えた強さの原点と家族のサポートを解説。"
       tags={['池江璃花子', '水泳', '幼少期']}
       shareText="池江璃花子選手が3歳で水泳を始め5歳で4泳法を習得した話。白血病を乗り越えた原点。 #池江璃花子 #水泳"
       citations={['https://ja.wikipedia.org/wiki/%E6%B1%A0%E6%B1%9F%E7%92%83%E8%8A%B1%E5%AD%90']}

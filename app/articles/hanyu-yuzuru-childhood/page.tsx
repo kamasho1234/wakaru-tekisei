@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
 
 export const metadata: Metadata = {
-  title: '羽生結弦の子供時代|スケートを始めたきっかけは喘息だった',
+  title: '羽生結弦の幼少期・子供時代｜喘息がスケートを始めたきっかけだった',
   description:
-    'フィギュアスケート界のレジェンド・羽生結弦選手の子供時代。喘息をきっかけにスケートを始めた経緯と、幼少期のエピソードを紹介。',
+    '羽生結弦選手の幼少期・子供の頃のエピソードを紹介。喘息克服のためにスケートを始めた経緯、小さい頃の練習や性格、家族のサポートを解説。',
   openGraph: {
-    title: '羽生結弦の子供時代|スケートを始めたきっかけは喘息だった',
+    title: '羽生結弦の幼少期・子供時代｜喘息がスケートを始めたきっかけだった',
     description:
-      'フィギュアスケート界のレジェンド・羽生結弦選手の子供時代。喘息をきっかけにスケートを始めた経緯と、幼少期のエピソードを紹介。',
+      '羽生結弦選手の幼少期・子供の頃のエピソードを紹介。喘息克服のためにスケートを始めた経緯、小さい頃の練習や性格、家族のサポートを解説。',
     images: [{ url: '/images/articles/hanyu-yuzuru-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/hanyu-yuzuru-childhood',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '羽生結弦の子供時代|スケートを始めたきっかけは喘息だった',
+    title: '羽生結弦の幼少期・子供時代｜喘息がスケートを始めたきっかけだった',
     images: ['/images/articles/hanyu-yuzuru-childhood.jpg'],
   },
 };
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export default function HanyuYuzuruChildhoodPage() {
   return (
     <ArticleLayout
-      title="羽生結弦の子供時代|スケートを始めたきっかけは喘息だった"
+      title="羽生結弦の幼少期・子供時代｜喘息がスケートを始めたきっかけだった"
       heroImage="/images/articles/hanyu-yuzuru-childhood.jpg"
       heroAlt="フィギュアスケートを練習する子ども"
       publishDate="2025年4月"
       slug="hanyu-yuzuru-childhood"
-      description="フィギュアスケート界のレジェンド・羽生結弦選手の子供時代。喘息をきっかけにスケートを始めた経緯と、幼少期のエピソードを紹介。"
+      description="羽生結弦選手の幼少期・子供の頃のエピソードを紹介。喘息克服のためにスケートを始めた経緯、小さい頃の練習や性格、家族のサポートを解説。"
       tags={['羽生結弦', 'フィギュアスケート', '幼少期']}
       shareText="羽生結弦選手が喘息をきっかけにスケートを始めた話を知っていますか？ #羽生結弦 #フィギュアスケート"
       citations={['https://ja.wikipedia.org/wiki/%E7%BE%BD%E7%94%9F%E7%B5%90%E5%BC%A6']}

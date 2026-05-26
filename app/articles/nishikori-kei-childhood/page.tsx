@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
 
 export const metadata: Metadata = {
-  title: '錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年',
+  title: '錦織圭の幼少期・子供時代｜何歳からテニス？5歳で始め13歳で渡米した軌跡',
   description:
-    '世界トップのテニスプレーヤー・錦織圭選手の子供時代。5歳でラケットを握り、13歳で単身アメリカ留学するまでの軌跡を紹介。',
+    '錦織圭選手の幼少期・子供時代を紹介。何歳からテニスを始めた？5歳でラケットを握り、小学生時代の全国大会、13歳での単身渡米までの軌跡を解説。',
   openGraph: {
-    title: '錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年',
+    title: '錦織圭の幼少期・子供時代｜何歳からテニス？5歳で始め13歳で渡米した軌跡',
     description:
-      '世界トップのテニスプレーヤー・錦織圭選手の子供時代。5歳でラケットを握り、13歳で単身アメリカ留学するまでの軌跡を紹介。',
+      '錦織圭選手の幼少期・子供時代を紹介。何歳からテニスを始めた？5歳でラケットを握り、小学生時代の全国大会、13歳での単身渡米までの軌跡を解説。',
     images: [{ url: '/images/articles/nishikori-kei-childhood.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/nishikori-kei-childhood',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年',
+    title: '錦織圭の幼少期・子供時代｜何歳からテニス？5歳で始め13歳で渡米した軌跡',
     images: ['/images/articles/nishikori-kei-childhood.jpg'],
   },
 };
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export default function NishikoriKeiChildhoodPage() {
   return (
     <ArticleLayout
-      title="錦織圭の子供時代｜5歳でテニスを始め13歳でアメリカへ渡った少年"
+      title="錦織圭の幼少期・子供時代｜何歳からテニス？5歳で始め13歳で渡米した軌跡"
       heroImage="/images/articles/nishikori-kei-childhood.jpg"
       heroAlt="テニスを練習している子ども"
       publishDate="2025年4月"
       slug="nishikori-kei-childhood"
-      description="世界トップのテニスプレーヤー・錦織圭選手の子供時代。5歳でラケットを握り、13歳で単身アメリカ留学するまでの軌跡を紹介。"
+      description="錦織圭選手の幼少期・子供時代を紹介。何歳からテニスを始めた？5歳でラケットを握り、小学生時代の全国大会、13歳での単身渡米までの軌跡を解説。"
       tags={['錦織圭', 'テニス', '幼少期']}
       shareText="錦織圭選手が5歳でテニスを始め13歳で渡米した話。子供のスポーツ留学を考える親御さんへ。 #錦織圭 #テニス"
       citations={['https://ja.wikipedia.org/wiki/%E9%8C%A6%E7%B9%94%E5%9C%AD']}

@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
 
 export const metadata: Metadata = {
-  title: '柔道に向いている子の特徴|体力データから見る適性の見極め方',
+  title: '柔道に向いている子の特徴｜体型・性格・運動能力で見る適性チェック',
   description:
-    '子どもが柔道に向いているかどうかの見極め方を、新体力テストデータを使って解説。筋力・瞬発力・柔軟性の目安値も紹介します。',
+    '柔道に向いている子の特徴を体型・性格・運動能力から解説。うちの子は柔道に向いてる？筋力・瞬発力・柔軟性の目安値と、柔道で伸びる子の共通点を紹介。',
   openGraph: {
-    title: '柔道に向いている子の特徴|体力データから見る適性の見極め方',
+    title: '柔道に向いている子の特徴｜体型・性格・運動能力で見る適性チェック',
     description:
-      '子どもが柔道に向いているかどうかの見極め方を、新体力テストデータを使って解説。筋力・瞬発力・柔軟性の目安値も紹介します。',
+      '柔道に向いている子の特徴を体型・性格・運動能力から解説。うちの子は柔道に向いてる？筋力・瞬発力・柔軟性の目安値と、柔道で伸びる子の共通点を紹介。',
     images: [{ url: '/images/articles/judo-aptitude.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/judo-aptitude',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '柔道に向いている子の特徴|体力データから見る適性の見極め方',
+    title: '柔道に向いている子の特徴｜体型・性格・運動能力で見る適性チェック',
     images: ['/images/articles/judo-aptitude.jpg'],
   },
 };
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export default function JudoAptitudePage() {
   return (
     <ArticleLayout
-      title="柔道に向いている子の特徴|体力データから見る適性の見極め方"
+      title="柔道に向いている子の特徴｜体型・性格・運動能力で見る適性チェック"
       heroImage="/images/articles/judo-aptitude.jpg"
       heroAlt="柔道をしている子どもたち"
       publishDate="2025年4月"
       slug="judo-aptitude"
-      description="子どもが柔道に向いているかどうかの見極め方を、新体力テストデータを使って解説。筋力・瞬発力・柔軟性の目安値も紹介します。"
+      description="柔道に向いている子の特徴を体型・性格・運動能力から解説。うちの子は柔道に向いてる？筋力・瞬発力・柔軟性の目安値と、柔道で伸びる子の共通点を紹介。"
       tags={['柔道', '適性診断', '体力テスト']}
       shareText="柔道に向いている子の特徴を体力データで解説。 #子育て #柔道"
     >

@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import ArticleLayout from '@/components/ArticleLayout';
 
 export const metadata: Metadata = {
-  title: 'スポーツの「晩成型」とは？子どもの成長を焦らなくていい理由',
+  title: '晩成型とは？スポーツで遅咲きの子どもが伸びる理由と親の心構え',
   description:
-    '小学生のうちに活躍できなくても大丈夫。晩成型アスリートの例と、子どもの成長を長期的に見守るための親の心構えを解説します。',
+    '晩成型とは何か？小学生で活躍できなくても焦らなくて大丈夫。晩成型アスリートの実例と、子どもの成長を長期的に見守るための親の心構えを解説。',
   openGraph: {
-    title: 'スポーツの「晩成型」とは？子どもの成長を焦らなくていい理由',
+    title: '晩成型とは？スポーツで遅咲きの子どもが伸びる理由と親の心構え',
     description:
-      '小学生のうちに活躍できなくても大丈夫。晩成型アスリートの例と、子どもの成長を長期的に見守るための親の心構えを解説します。',
+      '晩成型とは何か？小学生で活躍できなくても焦らなくて大丈夫。晩成型アスリートの実例と、子どもの成長を長期的に見守るための親の心構えを解説。',
     images: [{ url: '/images/articles/late-bloomer-sports.jpg', width: 1200, height: 630 }],
     type: 'article',
     url: 'https://tekisei-sport.com/articles/late-bloomer-sports',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'スポーツの「晩成型」とは？子どもの成長を焦らなくていい理由',
+    title: '晩成型とは？スポーツで遅咲きの子どもが伸びる理由と親の心構え',
     images: ['/images/articles/late-bloomer-sports.jpg'],
   },
 };
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
 export default function LateBloomerSportsPage() {
   return (
     <ArticleLayout
-      title="スポーツの「晩成型」とは？子どもの成長を焦らなくていい理由"
+      title="晩成型とは？スポーツで遅咲きの子どもが伸びる理由と親の心構え"
       heroImage="/images/articles/late-bloomer-sports.jpg"
       heroAlt="様々な年齢の子どもたちがスポーツを楽しんでいる様子"
       publishDate="2025年4月"
       slug="late-bloomer-sports"
-      description="小学生のうちに活躍できなくても大丈夫。晩成型アスリートの例と、子どもの成長を長期的に見守るための親の心構えを解説します。"
+      description="晩成型とは何か？小学生で活躍できなくても焦らなくて大丈夫。晩成型アスリートの実例と、子どもの成長を長期的に見守るための親の心構えを解説。"
       tags={['晩成型', 'スポーツ', '子育て']}
       shareText="子どものスポーツ、小学生で活躍できなくても大丈夫な理由。晩成型の力を解説。 #子育て #スポーツ"
     >
