@@ -20,6 +20,13 @@ interface ArticleLayoutProps {
 
 const siteUrl = 'https://tekisei-sport.com';
 
+/** 「2025年4月」形式を構造化データ用の ISO 8601（2025-04）に変換する */
+function toIsoDate(japaneseDate: string): string {
+  const matched = japaneseDate.match(/(\d{4})年(\d{1,2})月/);
+  if (!matched) return japaneseDate;
+  return `${matched[1]}-${matched[2].padStart(2, '0')}`;
+}
+
 export default function ArticleLayout({
   title,
   heroImage,
@@ -42,8 +49,8 @@ export default function ArticleLayout({
     description: description ?? title,
     image: imageUrl,
     url: articleUrl,
-    datePublished: publishDate,
-    dateModified: publishDate,
+    datePublished: toIsoDate(publishDate),
+    dateModified: toIsoDate(publishDate),
     author: {
       '@type': 'Organization',
       name: 'わかる！子どものスポーツ適性',

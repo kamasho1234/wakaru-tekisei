@@ -52,6 +52,26 @@ const athleteArticles = [
 ];
 
 const latestArticles = [
+  { slug: 'tairyoku-chosa-r7', title: '令和7年度 全国体力テストの結果｜小5の全国平均とコロナ前との比較', image: '/images/articles/tairyoku-chosa-r7.jpg', tags: ['体力テスト', '全国平均'] },
+  { slug: 'tairyoku-todofuken-ranking', title: '子どもの体力が高い都道府県は？｜令和7年度の全国ランキング', image: '/images/articles/tairyoku-todofuken-ranking.jpg', tags: ['体力テスト', '都道府県別'] },
+  { slug: 'tairyoku-teika-suii', title: '子どもの体力は本当に落ちている？｜平成20年からのデータで検証', image: '/images/articles/tairyoku-teika-suii.jpg', tags: ['体力テスト', '経年変化'] },
+  { slug: 'chugakusei-tairyoku', title: '中学2年生の体力テスト全国平均｜8種目の目安と評価基準', image: '/images/articles/chugakusei-tairyoku.jpg', tags: ['体力テスト', '中学生'] },
+  { slug: 'onnanoko-undo-banare', title: '女の子の運動離れは本当か｜データで見る「運動が好き」の男女差', image: '/images/articles/onnanoko-undo-banare.jpg', tags: ['女の子', '運動離れ'] },
+  { slug: 'undo-jikan-nikyokka', title: '小学生は1週間にどれくらい運動している？｜全国データで見る運動時間', image: '/images/articles/undo-jikan-nikyokka.jpg', tags: ['運動時間', '小学生'] },
+  { slug: 'undo-suki-kirai-data', title: '運動が好きな子は何割？｜「運動嫌い」のデータと体力の関係', image: '/images/articles/undo-suki-kirai-data.jpg', tags: ['運動意欲', 'アンケート'] },
+  { slug: 'screen-time-tairyoku', title: '子どものスクリーンタイムは平均どれくらい？｜体力との関係を公的データで解説', image: '/images/articles/screen-time-tairyoku.jpg', tags: ['スクリーンタイム', 'スマートフォン'] },
+  { slug: 'game-vs-sports', title: '子どものゲーム時間は平均どれくらい？｜体力との関係を公的データで見る', image: '/images/articles/game-vs-sports.jpg', tags: ['ゲーム時間', 'スクリーンタイム'] },
+  { slug: 'asagohan-tairyoku', title: '朝食を食べない子は体力が低い？｜全国調査データで確認できること', image: '/images/articles/asagohan-tairyoku.jpg', tags: ['朝食', '生活習慣'] },
+  { slug: 'sakaagari-kids', title: '逆上がりができないのは遅れている？｜学習指導要領で確認できること', image: '/images/articles/sakaagari-kids.jpg', tags: ['逆上がり', '学習指導要領'] },
+  { slug: 'ball-throwing-kids', title: 'ソフトボール投げの全国平均は？｜投げるのが苦手な子に親ができること', image: '/images/articles/ball-throwing-kids.jpg', tags: ['ボール投げ', '体力テスト'] },
+  { slug: 'junior-high-club', title: '中学の部活選び｜2026年度からの地域移行で何が変わるのか', image: '/images/articles/junior-high-club.jpg', tags: ['部活動', '地域移行'] },
+  { slug: 'benchwarmer-kids', title: '試合に出してもらえない子ども｜補欠問題をどう考えるか', image: '/images/articles/benchwarmer-kids.jpg', tags: ['補欠問題', 'スポーツ医学'] },
+  { slug: 'parent-duty-sports', title: 'スポーツ少年団の保護者当番｜実態が見えにくい理由と対策', image: '/images/articles/parent-duty-sports.jpg', tags: ['スポーツ少年団', '保護者当番'] },
+  { slug: 'working-parents-sports', title: '共働きで子どもの習い事送迎ができない｜親の現実と現代的な課題', image: '/images/articles/working-parents-sports.jpg', tags: ['共働き', '習い事'] },
+  { slug: 'developmental-disorder-sports', title: '発達障害・DCDとスポーツ｜子どもの運動支援ガイド', image: '/images/articles/developmental-disorder-sports.jpg', tags: ['発達障害', 'DCD'] },
+  { slug: 'asthma-kids-sports', title: '喘息・アレルギーのある子どもとスポーツ｜適切な管理で運動はできる', image: '/images/articles/asthma-kids-sports.jpg', tags: ['喘息', 'アレルギー'] },
+  { slug: 'kids-nervous-games', title: '子どもが本番・試合で緊張して力を出せない時｜メンタルの整え方', image: '/images/articles/kids-nervous-games.jpg', tags: ['メンタル', 'スポーツ心理学'] },
+  { slug: 'kids-cry-losing', title: '負けて泣く・悔しがりすぎる子への関わり方｜感情の発達から考える', image: '/images/articles/kids-cry-losing.jpg', tags: ['感情コントロール', '発達心理学'] },
   { slug: 'golden-age',            title: 'ゴールデンエイジとは？9〜12歳が「運動神経の黄金期」と呼ばれる理由', image: '/images/articles/golden-age.jpg',            tags: ['運動発達', 'ゴールデンエイジ'] },
   { slug: 'soccer-aptitude',       title: 'サッカーに向いている子の特徴｜体力データから見る適性の見極め方',     image: '/images/articles/soccer-aptitude.jpg',       tags: ['サッカー', '適性診断'] },
   { slug: 'swimming-aptitude',     title: '水泳に向いている子の特徴｜持久力と柔軟性で見る習い事適性',          image: '/images/articles/swimming-aptitude.jpg',     tags: ['水泳', '習い事'] },
@@ -409,6 +429,16 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+
+          {/* 記事一覧への導線 */}
+          <div className="mt-10 text-center">
+            <Link
+              href="/articles"
+              className="inline-block bg-white border-2 border-gray-900 text-gray-900 font-black text-sm px-8 py-3 rounded-xl hover:bg-gray-900 hover:text-white transition-colors"
+            >
+              記事をすべて見る
+            </Link>
           </div>
         </div>
       </section>
