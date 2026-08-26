@@ -10,6 +10,7 @@
  */
 
 import { GoogleGenAI } from '@google/genai';
+import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -70,23 +71,56 @@ const PROMPTS = {
   'game-vs-sports': `A Japanese child with a game controller indoors while a soccer ball sits nearby on the floor, everyday living room, ${BASE}`,
   'sakaagari-kids': `A Japanese elementary school child practicing a pull-over on a horizontal bar in a schoolyard, determined effort, sunny day, ${BASE}`,
   'ball-throwing-kids': `A Japanese elementary school child throwing a softball on a schoolyard field, throwing motion, blue sky, ${BASE}`,
+
+  // --- 2026年8月追加 20本 ---
+  // A. 新体力テスト 種目別
+  'shuttle-run-kids': `Japanese elementary school children running a 20m shuttle run in a gymnasium, turning at the line, focused effort, ${BASE}`,
+  'standing-long-jump-kids': `A Japanese elementary school child performing a standing long jump on a mat in a gymnasium, mid-air, teacher measuring, ${BASE}`,
+  'side-step-kids': `A Japanese elementary school child doing a side step test between lines on a gymnasium floor, quick footwork, ${BASE}`,
+  'sit-up-kids': `A Japanese elementary school child doing sit-ups on a mat while a classmate holds the knees, gymnasium, ${BASE}`,
+  'grip-strength-kids': `A Japanese elementary school child squeezing a hand grip dynamometer, teacher recording the result, bright gymnasium, ${BASE}`,
+  'sit-and-reach-kids': `A Japanese elementary school child doing a seated forward bend flexibility test with a measuring box, gymnasium, ${BASE}`,
+  'jikyuso-kids': `Japanese junior high school students running a distance race on a school track, determined expressions, clear sky, ${BASE}`,
+
+  // B. 種目別適性
+  'track-and-field-aptitude': `Japanese elementary school children competing in track and field on an outdoor track, sprinting from the start, sunny day, ${BASE}`,
+  'dance-aptitude': `Japanese elementary school children dancing together in a bright studio with a mirrored wall, energetic movement, ${BASE}`,
+  'kendo-aptitude': `Japanese elementary school children practicing kendo in a dojo, wearing bogu armor and holding shinai, bowing, ${BASE}`,
+  'skateboard-aptitude': `A Japanese child riding a skateboard at a skate park wearing a helmet and pads, sunny afternoon, ${BASE}`,
+  'figure-skating-aptitude': `A Japanese child figure skating on an indoor ice rink, gliding gracefully, cool blue light, ${BASE}`,
+  'rugby-aptitude': `Japanese elementary school children playing tag rugby on a grass field, passing the ball, sunny day, ${BASE}`,
+  'climbing-aptitude': `A Japanese child climbing a colorful indoor bouldering wall with a mat below, focused, bright gym, ${BASE}`,
+  'rhythmic-gymnastics-aptitude': `A Japanese child performing rhythmic gymnastics with a ribbon on a floor mat in a gymnasium, graceful movement, ${BASE}`,
+
+  // C. 制度・公的データ
+  'sports-insurance-kids': `A Japanese parent filling out a form at a desk with a child's sports bag and helmet nearby, calm bright room, ${BASE}`,
+  'youji-undo-shishin': `Japanese preschool children playing actively outdoors in a park, running and climbing, warm morning light, ${BASE}`,
+  'school-swimming-lesson': `Japanese elementary school children in swimsuits and caps at a school swimming pool during a lesson, teacher poolside, sunny day, ${BASE}`,
+  'sports-shonendan': `Japanese children of different ages playing various sports in a park, soccer, jump rope and running, lively afternoon, ${BASE}`,
+  'undoki-kenshin': `A Japanese school nurse checking a child's posture and range of motion in a school health room, calm and reassuring, ${BASE}`,
 };
 
 async function generateImage(slug, prompt, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const result = await ai.models.generateImages({
-        model: 'imagen-4.0-fast-generate-001',
-        prompt,
-        number_of_images: 1,
-        aspect_ratio: '16:9',
-        safety_filter_level: 'block_few',
-        person_generation: 'allow_adult',
+      // imagen-4.0-fast-generate-001 は API から廃止されたため gemini の画像モデルを使う（2026-08）
+      const result = await ai.models.generateContent({
+        model: 'gemini-3.1-flash-image',
+        contents: prompt,
+        config: {
+          responseModalities: ['IMAGE'],
+          imageConfig: { aspectRatio: '16:9' },
+        },
       });
 
-      if (!result.generatedImages?.length) throw new Error('画像が返らなかった');
+      const imagePart = (result.candidates?.[0]?.content?.parts ?? []).find((p) => p.inlineData);
+      if (!imagePart) throw new Error('画像が返らなかった');
 
-      const buffer = Buffer.from(result.generatedImages[0].image.imageBytes, 'base64');
+      // 生成直後は1MB近くあるので、OGPサイズ（1200x630）のJPEGに落としてから保存する
+      const buffer = await sharp(Buffer.from(imagePart.inlineData.data, 'base64'))
+        .resize(1200, 630, { fit: 'cover' })
+        .jpeg({ quality: 82 })
+        .toBuffer();
       fs.writeFileSync(path.join(OUTPUT_DIR, `${slug}.jpg`), buffer);
       console.log(`  保存: ${slug}.jpg (${Math.round(buffer.length / 1024)}KB)`);
       return true;

@@ -16,28 +16,28 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const researchDir = path.join(root, 'docs', 'research');
 const articlesDir = path.join(root, 'app', 'articles');
 
-// 今回追加した記事（照合対象）
+// 今回追加した記事（照合対象）※2026-08-26の20本
 const NEW_SLUGS = [
-  'tairyoku-chosa-r7',
-  'onnanoko-undo-banare',
-  'undo-jikan-nikyokka',
-  'screen-time-tairyoku',
-  'asagohan-tairyoku',
-  'tairyoku-todofuken-ranking',
-  'undo-suki-kirai-data',
-  'tairyoku-teika-suii',
-  'chugakusei-tairyoku',
-  'benchwarmer-kids',
-  'junior-high-club',
-  'parent-duty-sports',
-  'developmental-disorder-sports',
-  'asthma-kids-sports',
-  'kids-nervous-games',
-  'kids-cry-losing',
-  'working-parents-sports',
-  'game-vs-sports',
-  'sakaagari-kids',
-  'ball-throwing-kids',
+  'shuttle-run-kids',
+  'standing-long-jump-kids',
+  'side-step-kids',
+  'sit-up-kids',
+  'grip-strength-kids',
+  'sit-and-reach-kids',
+  'jikyuso-kids',
+  'track-and-field-aptitude',
+  'dance-aptitude',
+  'kendo-aptitude',
+  'skateboard-aptitude',
+  'figure-skating-aptitude',
+  'rugby-aptitude',
+  'climbing-aptitude',
+  'rhythmic-gymnastics-aptitude',
+  'sports-insurance-kids',
+  'youji-undo-shishin',
+  'school-swimming-lesson',
+  'sports-shonendan',
+  'undoki-kenshin',
 ];
 
 // 統計値ではなく記事の体裁上出てくる数値（照合から除外）
