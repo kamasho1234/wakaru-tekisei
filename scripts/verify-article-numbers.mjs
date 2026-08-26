@@ -70,7 +70,9 @@ function extractNumbers(src) {
   const decimals = text.match(/\d+\.\d+/g) ?? []; // 53.03, 522.93 など
   const percents = text.match(/\d+(?:\.\d+)?%/g) ?? []; // 42.5%, 11.6% など
   const units = text.match(/\d+(?:\.\d+)?\s?(?:m|kg|cm|回|秒|点|分)\b/g) ?? [];
-  return [...new Set([...decimals, ...percents, ...units])];
+  // 金額は桁区切りと「万・億」が入るため別パターンで拾う（例: 4,500万円）
+  const yen = text.match(/\d[\d,]*(?:万|億)?円/g) ?? [];
+  return [...new Set([...decimals, ...percents, ...units, ...yen])];
 }
 
 const targets = process.argv.slice(2).length ? process.argv.slice(2) : NEW_SLUGS;

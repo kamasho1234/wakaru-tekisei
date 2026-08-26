@@ -32,12 +32,13 @@
 - [x] verify-internal-links.mjs を新規作成 → 136本・131リンクすべて実在
 - [x] app/page.tsx の latestArticles に20本追加
 - [x] npm run build（エラー0）
-- [ ] master push → 本番20URL curl 200確認
-- [ ] submit-indexnow.mjs
+- [x] master push → 本番20URL curl 200確認（記事・ヒーロー画像とも全件200）
+- [x] submit-indexnow.mjs（155URL送信・ステータス200）
 
 ## 新しく作ったツール
 - `scripts/ocr-pdf.mjs` … 画像スキャンPDF（テキストレイヤー無し）をGeminiでOCR。文科省の新体力テスト実施要項はこれでしか読めなかった
 - `scripts/verify-internal-links.mjs` … 記事の内部リンクが実在ページを指すか検証
+- `scripts/verify-article-numbers.mjs` に金額パターン（4,500万円のような桁区切り・万億）を追加。従来は「円」が照合対象外で、保険料などが素通りしていた
 
 ## レビュー
 - 一次ソース収集をサブエージェントに任せた最初の試行は、ネットワーク不調と「原典で確認できず」の多発で使い物にならなかった。
