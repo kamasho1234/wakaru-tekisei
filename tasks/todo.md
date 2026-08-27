@@ -1,46 +1,47 @@
-# SEO記事20本 量産（2026-08-26）完了
+# 未カバー種目の記事量産（2026-08-27）
 
-方針: カバレッジギャップ優先 / 20本 / 全記事で一次ソース調査
+対象: 種目別適性 19本 → 26本（+7本）
 
-## A. 新体力テスト 種目別ガイド 7本
-- [x] docs/research/shin-tairyoku-test-youkou.md（実施要項をGemini OCRで原典から書き起こし＋得点表）
-- [x] shuttle-run-kids / standing-long-jump-kids / side-step-kids / sit-up-kids
-- [x] grip-strength-kids / sit-and-reach-kids / jikyuso-kids
+## 対象種目とslug
 
-## B. 種目別適性 8本
-- [x] track-and-field-aptitude（JAAF大会要項＋学習指導要領）
-- [x] dance-aptitude（学習指導要領・中学必修の根拠）
-- [x] kendo-aptitude（全剣連 称号・段級位審査規則）
-- [x] skateboard-aptitude（ワールドスケートジャパン 大会要項）
-- [x] figure-skating-aptitude（日本スケート連盟 参加資格）
-- [x] rugby-aptitude（JRFU ミニラグビー競技規則）
-- [x] climbing-aptitude（JMSCA 競技規則のユース区分）
-- [x] rhythmic-gymnastics-aptitude（日本体操協会）
+| 種目 | slug | 主な一次ソース候補 |
+|---|---|---|
+| ソフトボール | softball-aptitude | 日本ソフトボール協会 |
+| ハンドボール | handball-aptitude | 日本ハンドボール協会／学習指導要領 |
+| 相撲 | sumo-aptitude | 日本相撲連盟／わんぱく相撲 |
+| ボクシング | boxing-aptitude | 日本ボクシング連盟（U15） |
+| アーチェリー | archery-aptitude | 全日本アーチェリー連盟 |
+| チアリーディング | cheerleading-aptitude | 日本チアリーディング協会 |
+| スキー・スノーボード | ski-snowboard-aptitude | 全日本スキー連盟 |
 
-## C. 制度・公的データ系 5本
-- [x] sports-insurance-kids（スポーツ安全保険 令和8年度）
-- [x] youji-undo-shishin（文科省 幼児期運動指針）
-- [x] school-swimming-lesson（学習指導要領 水泳運動系）
-- [x] sports-shonendan（JSPO スポーツ少年団ガイドブック）※当初案の「スポーツ実施率」は既存記事 undo-jikan-nikyokka と重複するため差し替え
-- [x] undoki-kenshin（学校保健安全法施行規則の改正通知）
+## 手順
 
-## 仕上げ
-- [x] build-articles-index.mjs（136件・要確認0件）
-- [x] generate-missing-images.mjs で画像20枚生成
-      ※ imagen-4.0-fast-generate-001 がAPIから廃止されていたため gemini-3.1-flash-image + sharp圧縮に移行
-- [x] verify-article-numbers.mjs の NEW_SLUGS 差し替え → 20本すべてパス（要確認0件）
-- [x] verify-internal-links.mjs を新規作成 → 136本・131リンクすべて実在
-- [x] app/page.tsx の latestArticles に20本追加
-- [x] npm run build（エラー0）
-- [x] master push → 本番20URL curl 200確認（記事・ヒーロー画像とも全件200）
-- [x] submit-indexnow.mjs（155URL送信・ステータス200）
+- [x] 1. 一次ソース収集 → `docs/research/<slug>.md`（公式・官公庁のみ。推測厳禁。確認できない項目は「原典で確認できず」と明記）
+- [ ] 2. 記事作成 `app/articles/<slug>/page.tsx`（テンプレ: rugby-aptitude）
+- [ ] 3. `node scripts/build-articles-index.mjs`
+- [ ] 4. `scripts/generate-missing-images.mjs` の PROMPTS に7件追加 → 画像生成（1200x630 / quality82）
+- [ ] 5. `node scripts/verify-article-numbers.mjs <slug...>` で数値を機械照合
+- [ ] 6. `node scripts/verify-internal-links.mjs` で内部リンク検証
+- [ ] 7. `npm run build`
+- [ ] 8. master push → 本番URLに curl して200確認
+- [ ] 9. `node scripts/submit-indexnow.mjs`
 
-## 新しく作ったツール
-- `scripts/ocr-pdf.mjs` … 画像スキャンPDF（テキストレイヤー無し）をGeminiでOCR。文科省の新体力テスト実施要項はこれでしか読めなかった
-- `scripts/verify-internal-links.mjs` … 記事の内部リンクが実在ページを指すか検証
-- `scripts/verify-article-numbers.mjs` に金額パターン（4,500万円のような桁区切り・万億）を追加。従来は「円」が照合対象外で、保険料などが素通りしていた
+## 注意
 
-## レビュー
-- 一次ソース収集をサブエージェントに任せた最初の試行は、ネットワーク不調と「原典で確認できず」の多発で使い物にならなかった。
-  結局、官公庁PDFの機械抽出（extract-pdf / ocr-pdf）と自分でのWebFetchで取り直した。**収集は機械抽出、執筆はエージェント**の分担が正しい。
-- 実施要項PDFが画像スキャンだったため、得点表PDF（テキスト）との2経路で数値の一致を確認してから記事に使った。
+- エージェントの「公式から取った」の自己申告は信用しない → 手順5で機械照合
+- 根拠のない配分数値（持久力35%など）は書かない
+- 絵文字は使わない
+
+## 1. リサーチの検証結果（2026-08-27）
+
+エージェントの自己申告を機械照合したところ、7件中5件に問題があり修正した。
+
+| 種目 | 判定 | 内容 |
+|---|---|---|
+| ソフトボール | そのまま採用 | 16.76m/10.67m/2号球/5イニング等すべて公式ページに実在を確認 |
+| ハンドボール | そのまま採用 | 0号球・1号球を確認。不明点を正直に列挙できていた |
+| アーチェリー | 修正 | 「122cm標的面」を「12ｍ」と誤読していた。大会要項の原文で表を作り直し |
+| 相撲 | 作り直し | 土俵直径455cmは連盟の土俵規程で裏取り。「決まり手82手」は裏が取れず削除。中学校学習指導要領の「相撲では主として瞬発力，巧緻性，柔軟性」を追加 |
+| ボクシング | 作り直し | Wikipedia出典2件が混入していたため差し戻し。公式規則ページの原文で再構成し、マスボクシングのゴールデンキッズ（小学1年〜・身長別階級）を追加 |
+| チアリーディング | 作り直し | 「2021年オリンピック公式種目」は公式に記載なしのため削除。設立日も誤り（6/1→6/15）。部門「ジュニア1/2/3」は誤りで、実際は小学校低学年/高学年/中学校…。年代別安全規則を原文で取得 |
+| スキー・スノーボード | 作り直し | スキー場の商業サイトが出典に混入。SAJジュニアテストの級構成は公式で裏が取れず削除。JSBA U-12FS認定の級構成と学習指導要領の原文で再構成 |

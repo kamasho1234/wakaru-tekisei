@@ -98,6 +98,15 @@ const PROMPTS = {
   'school-swimming-lesson': `Japanese elementary school children in swimsuits and caps at a school swimming pool during a lesson, teacher poolside, sunny day, ${BASE}`,
   'sports-shonendan': `Japanese children of different ages playing various sports in a park, soccer, jump rope and running, lively afternoon, ${BASE}`,
   'undoki-kenshin': `A Japanese school nurse checking a child's posture and range of motion in a school health room, calm and reassuring, ${BASE}`,
+
+  // --- 2026-08-27 追加: 未カバー種目7本 ---
+  'softball-aptitude': `Japanese elementary school children playing softball on a school ground, one batting and others fielding with gloves, sunny day, ${BASE}`,
+  'handball-aptitude': `Japanese elementary school children playing handball in a bright gymnasium, one jumping to throw the ball toward the goal, ${BASE}`,
+  'sumo-aptitude': `Japanese elementary school children practicing sumo on a dohyo ring in a training hall, wearing mawashi over gym shorts, bowing respectfully, ${BASE}`,
+  'boxing-aptitude': `Japanese elementary school children practicing boxing with gloves and headgear in a bright gym, a coach holding mitts, ${BASE}`,
+  'archery-aptitude': `Japanese elementary school children practicing archery at an outdoor range, drawing recurve bows toward round targets, calm concentration, ${BASE}`,
+  'cheerleading-aptitude': `Japanese elementary school children doing cheerleading in a gymnasium with pom poms, energetic team formation, bright lighting, ${BASE}`,
+  'ski-snowboard-aptitude': `Japanese children skiing and snowboarding on a gentle snowy slope, wearing helmets and goggles, bright winter day, ${BASE}`,
 };
 
 async function generateImage(slug, prompt, retries = 3) {

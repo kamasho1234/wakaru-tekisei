@@ -52,6 +52,13 @@ const athleteArticles = [
 ];
 
 const latestArticles = [
+  { slug: 'sumo-aptitude', title: '相撲に向いている子の特徴｜文部科学省の公式資料から見る武道としての特性', image: '/images/articles/sumo-aptitude.jpg', tags: ['相撲', '武道'] },
+  { slug: 'boxing-aptitude', title: 'ボクシングに向いている子の特徴｜年代別試合規定で見る成長への配慮', image: '/images/articles/boxing-aptitude.jpg', tags: ['ボクシング', '武道'] },
+  { slug: 'cheerleading-aptitude', title: 'チアリーディングに向いている子の特徴｜安全規則から見る年代別の成長段階', image: '/images/articles/cheerleading-aptitude.jpg', tags: ['チアリーディング', '表現運動'] },
+  { slug: 'ski-snowboard-aptitude', title: 'スキー・スノーボードに向いている子の特徴｜6つの競技で見る適性と地域性', image: '/images/articles/ski-snowboard-aptitude.jpg', tags: ['スキー', 'ウィンタースポーツ'] },
+  { slug: 'archery-aptitude', title: 'アーチェリーに向いている子の特徴｜年齢や性別を問わずできるスポーツ', image: '/images/articles/archery-aptitude.jpg', tags: ['アーチェリー', '個人競技'] },
+  { slug: 'softball-aptitude', title: 'ソフトボールに向いている子の特徴｜小学校と中学校の規則で見る競技設計', image: '/images/articles/softball-aptitude.jpg', tags: ['ソフトボール', 'ベースボール型'] },
+  { slug: 'handball-aptitude', title: 'ハンドボールに向いている子の特徴｜学校体育で学べるゴール型ゲーム', image: '/images/articles/handball-aptitude.jpg', tags: ['ハンドボール', 'ボール運動'] },
   { slug: 'shuttle-run-kids', title: '20mシャトルランの平均回数は？小学生・中学生の全国平均と得点表', image: '/images/articles/shuttle-run-kids.jpg', tags: ['シャトルラン', '体力テスト'] },
   { slug: 'grip-strength-kids', title: '小学生の握力の平均は？全国平均と得点表', image: '/images/articles/grip-strength-kids.jpg', tags: ['握力', '体力テスト'] },
   { slug: 'standing-long-jump-kids', title: '立ち幅跳びの平均は？小学生・中学生の全国平均と得点表', image: '/images/articles/standing-long-jump-kids.jpg', tags: ['立ち幅跳び', '体力テスト'] },
