@@ -17,14 +17,14 @@
 ## 手順
 
 - [x] 1. 一次ソース収集 → `docs/research/<slug>.md`（公式・官公庁のみ。推測厳禁。確認できない項目は「原典で確認できず」と明記）
-- [ ] 2. 記事作成 `app/articles/<slug>/page.tsx`（テンプレ: rugby-aptitude）
-- [ ] 3. `node scripts/build-articles-index.mjs`
-- [ ] 4. `scripts/generate-missing-images.mjs` の PROMPTS に7件追加 → 画像生成（1200x630 / quality82）
-- [ ] 5. `node scripts/verify-article-numbers.mjs <slug...>` で数値を機械照合
-- [ ] 6. `node scripts/verify-internal-links.mjs` で内部リンク検証
-- [ ] 7. `npm run build`
-- [ ] 8. master push → 本番URLに curl して200確認
-- [ ] 9. `node scripts/submit-indexnow.mjs`
+- [x] 2. 記事作成 `app/articles/<slug>/page.tsx`（テンプレ: rugby-aptitude）
+- [x] 3. `node scripts/build-articles-index.mjs`
+- [x] 4. `scripts/generate-missing-images.mjs` の PROMPTS に7件追加 → 画像生成（1200x630 / quality82）
+- [x] 5. `node scripts/verify-article-numbers.mjs <slug...>` で数値を機械照合
+- [x] 6. `node scripts/verify-internal-links.mjs` で内部リンク検証
+- [x] 7. `npm run build`
+- [x] 8. master push → 本番URLに curl して200確認
+- [x] 9. `node scripts/submit-indexnow.mjs`
 
 ## 注意
 
@@ -45,3 +45,32 @@
 | ボクシング | 作り直し | Wikipedia出典2件が混入していたため差し戻し。公式規則ページの原文で再構成し、マスボクシングのゴールデンキッズ（小学1年〜・身長別階級）を追加 |
 | チアリーディング | 作り直し | 「2021年オリンピック公式種目」は公式に記載なしのため削除。設立日も誤り（6/1→6/15）。部門「ジュニア1/2/3」は誤りで、実際は小学校低学年/高学年/中学校…。年代別安全規則を原文で取得 |
 | スキー・スノーボード | 作り直し | スキー場の商業サイトが出典に混入。SAJジュニアテストの級構成は公式で裏が取れず削除。JSBA U-12FS認定の級構成と学習指導要領の原文で再構成 |
+
+## レビュー（2026-08-27 完了）
+
+種目別適性 19本 → 26本。サイト全体は136本 → 143本。
+
+### 実施したこと
+1. リサーチ用サブエージェント7体で一次ソース収集 → **全件を公式ページと機械照合し、5件の誤りを修正**
+2. 執筆用サブエージェント7体で記事作成（テンプレは rugby-aptitude）
+3. 画像7枚生成（gemini-3.1-flash-image + sharp、140〜190KBに圧縮）
+4. 検証: 数値照合0件要確認 / 内部リンク27件すべて実在 / 絵文字0件 / 注意ブロック7本すべてに存在
+5. ビルド成功 → master push（756cb2d）→ Vercelデプロイ45秒後に本番200を確認
+6. 新記事7本・画像7枚すべて本番200 / sitemap 155→162 / IndexNow 162URL送信完了
+
+### 検証で摘発した誤り（エージェントの自己申告は信用しない）
+| 種目 | 誤り | 対応 |
+|---|---|---|
+| ボクシング | Wikipedia出典2件が混入。階級数・オンス・ヘッドガード規定に裏付けなし | 差し戻し。公式規則ページの原文で再構成 |
+| チアリーディング | 「2021年オリンピック公式種目」が公式サイトに記載なし。設立日も誤り（6/1→6/15）。部門「ジュニア1/2/3」も誤り | 作り直し。実際の部門（小学校低学年/高学年/中学校…）と年代別安全規則を原文取得 |
+| アーチェリー | 「122cm標的面」を「12ｍ」と誤読 | 大会要項の原文で表を作り直し |
+| 相撲 | 「決まり手82手」「大相撲と同じ土俵サイズ」に裏付けなし | 削除。連盟の土俵規程PDFで直径455cmを裏取り |
+| スキー | スキー場の商業サイトを出典にジュニアテストの級構成を記載 | 削除。JSBA U-12FS認定を公式から取得 |
+
+### 副産物
+中学校学習指導要領解説 保健体育編から「柔道=瞬発力・筋持久力・巧緻性／剣道=瞬発力・敏捷性・巧緻性／相撲=瞬発力・巧緻性・柔軟性」という公的な体力要素の記述を取得。**既存の judo-aptitude / kendo-aptitude / martial-arts-aptitude にも使い回せる**。
+
+### 残タスク
+- 既存記事の出典なし配分数値（soccer-aptitude 等の「持久力35%」など）の棚卸し
+- www/apex のリダイレクト不整合（canonicalはapexだがVercelはwwwがprimary）※今回は保留と判断
+- Search Console でのサイトマップ再送信
