@@ -37,6 +37,20 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
+    if (typeof body.result !== 'string' || body.result.length === 0 || body.result.length > 40) {
+      return NextResponse.json(
+        { error: 'Invalid result' },
+        { status: 400 }
+      );
+    }
+
+    if (body.score !== undefined && body.score !== null && (!Number.isInteger(body.score) || body.score < 0 || body.score > 1000)) {
+      return NextResponse.json(
+        { error: 'Invalid score' },
+        { status: 400 }
+      );
+    }
+
     // Supabase未接続の場合はスキップ
     if (!supabase) {
       return NextResponse.json({ success: true, skipped: true });

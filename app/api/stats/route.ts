@@ -114,33 +114,14 @@ export async function GET(request: NextRequest): Promise<NextResponse<StatsRespo
       return NextResponse.json(seedData);
     }
 
-    // ダッシュボード用スポーツランキング（top8）
-    const { data: sportsData, error: sportsError } = await supabase
-      .from('diagnosis_log')
-      .select('result')
-      .eq('type', 'sports')
-      .order('created_at', { ascending: false });
+    // 個票を直接読まず、DB関数 diagnosis_stats() で集計値と最新10件（必要な列のみ）を受け取る
+    const { data: stats, error: statsError } = await supabase.rpc('diagnosis_stats');
+    if (statsError) throw statsError;
 
-    if (sportsError) throw sportsError;
+    const totalCount: number = stats?.total ?? 0;
 
-    // スポーツカウント集計
-    const sportsCounts: Record<string, number> = {};
-    (sportsData || []).forEach((row: any) => {
-      const sport = row.result;
-      sportsCounts[sport] = (sportsCounts[sport] || 0) + 1;
-    });
-
-    const sportsRanking = Object.entries(sportsCounts)
-      .sort(([, a], [, b]) => b - a)
-      .map(([name, count]) => ({ name, count }));
-
-    // 幼児タイプ分布
-    const { data: yojiData, error: yojiError } = await supabase
-      .from('diagnosis_log')
-      .select('result')
-      .eq('type', 'yoji');
-
-    if (yojiError) throw yojiError;
+    const sportsRanking = ((stats?.sports ?? []) as { result: string; count: number }[])
+      .map(({ result, count }) => ({ name: result, count }));
 
     const yojiCounts: Record<string, number> = {
       active: 0,
@@ -149,9 +130,8 @@ export async function GET(request: NextRequest): Promise<NextResponse<StatsRespo
       focus: 0,
     };
 
-    (yojiData || []).forEach((row: any) => {
-      const typeId = row.result;
-      if (typeId in yojiCounts) yojiCounts[typeId]++;
+    ((stats?.yoji ?? []) as { result: string; count: number }[]).forEach(({ result, count }) => {
+      if (result in yojiCounts) yojiCounts[result] = count;
     });
 
     const yojiTypesList = [
@@ -181,23 +161,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<StatsRespo
       },
     ];
 
-    // 総件数
-    const { count: totalCount, error: countError } = await supabase
-      .from('diagnosis_log')
-      .select('*', { count: 'exact', head: true });
-
-    if (countError) throw countError;
-
-    // 最新10件のログ
-    const { data: recentData, error: recentError } = await supabase
-      .from('diagnosis_log')
-      .select('type, age, result, gender, created_at')
-      .order('created_at', { ascending: false })
-      .limit(10);
-
-    if (recentError) throw recentError;
-
-    const recentResults = (recentData || []).map((row: any) => ({
+    const recentResults = ((stats?.recent ?? []) as any[]).map((row) => ({
       type: row.type,
       age: row.age,
       result: row.result,
